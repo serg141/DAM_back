@@ -9,6 +9,7 @@ public final class EndPoints {
     private final String predict;
     private final String flights;
     private final String placement;
+    private final String lists;
 
     public EndPoints() {
         campaigns = "/campaigns";
@@ -16,5 +17,6 @@ public final class EndPoints {
         predict = "/predict";
         flights = "/flights";
         placement = "/placement";
+        lists = "/lists";
     }
 }
