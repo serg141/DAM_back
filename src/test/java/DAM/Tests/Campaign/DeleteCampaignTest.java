@@ -1,22 +1,29 @@
 package DAM.Tests.Campaign;
 
+import DAM.Campaigns.CreateCampaign;
 import DAM.EndPoints;
 import DAM.LogIn;
 import io.restassured.response.Response;
 import org.json.JSONException;
+import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class DeleteCampaignTest {
+    String logIn;
+    String endpoint;
+
+    @Before
+    public void getEndpoint() {
+        logIn = new LogIn().logIn();
+        endpoint = new EndPoints().getCampaigns();
+    }
 
     @Test
     public void deleteCampaign() throws JSONException {
-        String logIn = new LogIn().logIn();
-        String endpoint = new EndPoints().getCampaigns();
-        CreateCampaignTest campaign = new CreateCampaignTest();
-        campaign.successCreate();
+        CreateCampaign campaign = new CreateCampaign();
 
         Response response = given()
                 .cookie("JSESSIONID", logIn)

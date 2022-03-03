@@ -1,9 +1,12 @@
 package DAM.Tests.Campaign;
 
+import DAM.Campaigns.CreateCampaign;
 import DAM.Campaigns.NewCampaign;
 import DAM.EndPoints;
 import DAM.LogIn;
+import DAM.Parametrs.Campaign.EditCampaignParams;
 import org.json.JSONException;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -15,14 +18,18 @@ import static org.junit.Assert.assertTrue;
 
 
 public class GetCampaignsTest {
-    String createCampaignId;
+    String createCampaignId, logIn, body, endpoint;
+
+    @Before
+    public void getEndpoint() throws JSONException {
+        logIn = new LogIn().logIn();
+        endpoint = new EndPoints().getCampaigns();
+        body = new EditCampaignParams().getCampaignNoSPK();
+    }
 
     @Test
     public void getCampaigns() throws JSONException {
-        String logIn = new LogIn().logIn();
-        String endpoint = new EndPoints().getCampaigns();
-        CreateCampaignTest campaign = new CreateCampaignTest();
-        campaign.successCreate();
+        CreateCampaign campaign = new CreateCampaign();
 
         createCampaignId = campaign.getId();
 
