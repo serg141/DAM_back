@@ -1,26 +1,29 @@
 package DAM.Flights;
 
+import DAM.EndPoints;
 import DAM.LogIn;
-import DAM.Parametrs.Flights.CreateFlightStepOneParams;
-import io.restassured.response.Response;
+import DAM.Parametrs.Flights.CreateFlightStepTwoParams;
 import org.json.JSONException;
 
 import static io.restassured.RestAssured.given;
 
 public class CreateFlightStepTwo {
     String id;
+
     public CreateFlightStepTwo() throws JSONException {
         String logIn = new LogIn().logIn();
-        String body = new CreateFlightStepOneParams().getFlight();
+        id = new CreateFlightStepOne().getId();
 
-        Response response = given()
+        String flights = new EndPoints().getFlights();
+        String body = new CreateFlightStepTwoParams().getFlight();
+        String placement = new EndPoints().getPlacement();
+
+        given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)
                 .when()
-                .post("/flights")
-                .then().extract().response();
-
-        id = response.path("id").toString();
+                .post(flights + id + placement)
+                .then().statusCode(200);
     }
 
     public String getId() {
