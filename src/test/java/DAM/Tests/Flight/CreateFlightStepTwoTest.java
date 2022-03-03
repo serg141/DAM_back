@@ -3,24 +3,32 @@ package DAM.Tests.Flight;
 import DAM.EndPoints;
 import DAM.Flights.CreateFlightStepTwo;
 import DAM.LogIn;
-import DAM.Parametrs.CreateFlightStepTwoParams;
+import DAM.Parametrs.Flights.CreateFlightStepTwoParams;
 import io.restassured.response.Response;
 import org.json.JSONException;
+import org.junit.Before;
 import org.junit.Test;
+
 import java.util.LinkedHashMap;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class CreateFlightStepTwoTest {
+    String logIn, body, flights, placement;
+
+    @Before
+    public void getEndpoint() throws JSONException {
+        logIn = new LogIn().logIn();
+        flights = new EndPoints().getFlights();
+        body = new CreateFlightStepTwoParams().getFlight();
+        placement = new EndPoints().getPlacement();
+    }
 
     @Test
     public void successCreate() throws JSONException {
-        String logIn = new LogIn().logIn();
-        String flights = new EndPoints().getFlights();
-        String placement = new EndPoints().getPlacement();
         String body = new CreateFlightStepTwoParams().getFlight();
-        new CreateFlightStepTwo();
+        //new CreateFlightStepTwo();
         String id = new CreateFlightStepTwo().getId();
 
         Response response = given()
@@ -30,9 +38,9 @@ public class CreateFlightStepTwoTest {
                 .post(flights + id + placement)
                 .then().extract().response();
 
-        LinkedHashMap locations = response.path("locations[0]");
-        LinkedHashMap positions = response.path("locations[0].positions[0]");
-        LinkedHashMap formats = response.path("locations[0].positions[0].formats[0]");
+        LinkedHashMap<String,Object> locations = response.path("locations[0]");
+        LinkedHashMap<String,Object> positions = response.path("locations[0].positions[0]");
+        LinkedHashMap<String,Object> formats = response.path("locations[0].positions[0].formats[0]");
 
         assertEquals("Мобильный Банк", response.path("name"));
         assertEquals("c6535841-1989-4287-8c5e-51c30830c562", response.path("id"));

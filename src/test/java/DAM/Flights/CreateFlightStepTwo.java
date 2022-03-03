@@ -1,7 +1,7 @@
 package DAM.Flights;
 
 import DAM.LogIn;
-import DAM.Parametrs.CreateFlightStepOneParams;
+import DAM.Parametrs.Flights.CreateFlightStepOneParams;
 import io.restassured.response.Response;
 import org.json.JSONException;
 

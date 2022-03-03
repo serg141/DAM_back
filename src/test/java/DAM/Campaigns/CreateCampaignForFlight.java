@@ -1,7 +1,7 @@
 package DAM.Campaigns;
 
 import DAM.LogIn;
-import DAM.Parametrs.CampaignParams;
+import DAM.Parametrs.Campaign.CampaignParams;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import static io.restassured.RestAssured.given;

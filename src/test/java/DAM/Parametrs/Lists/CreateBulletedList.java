@@ -1,4 +1,4 @@
-package DAM.Lists;
+package DAM.Parametrs.Lists;
 
 import org.json.JSONArray;
 import org.json.JSONException;

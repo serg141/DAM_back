@@ -1,26 +1,30 @@
 package DAM.Tests.Campaign;
 
+import DAM.Campaigns.CreateCampaign;
 import DAM.EndPoints;
 import DAM.LogIn;
-import DAM.Parametrs.EditCampaignParams;
+import DAM.Parametrs.Campaign.EditCampaignParams;
 import io.restassured.response.Response;
-import lombok.Data;
 import org.json.JSONException;
+import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-@Data
 public class EditCampaignTest {
+    String logIn, body, endpoint;
+
+    @Before
+    public void getEndpoint() throws JSONException {
+        logIn = new LogIn().logIn();
+        endpoint = new EndPoints().getCampaigns();
+        body = new EditCampaignParams().getCampaignNoSPK();
+    }
 
     @Test
     public void putCampaigns() throws JSONException {
-        String logIn = new LogIn().logIn();
-        String endpoint = new EndPoints().getCampaigns();
-        CreateCampaignTest campaign = new CreateCampaignTest();
-        String body = new EditCampaignParams().getCampaignNoSPK();
-        campaign.successCreate();
+        CreateCampaign campaign = new CreateCampaign();
 
         Response response = given()
                 .cookie("JSESSIONID", logIn)
@@ -30,7 +34,8 @@ public class EditCampaignTest {
                 .then()
                 .extract().response();
 
+        int priority = response.path("priority");
         assertEquals("CampaignEdit", response.path("name"));
-        assertEquals("50", response.path("priority").toString());
+        assertEquals(50, priority);
     }
 }

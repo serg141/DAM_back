@@ -2,19 +2,23 @@ package DAM.Tests.Placements;
 
 import DAM.EndPoints;
 import DAM.LogIn;
+import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
 public class GetListTest {
-    String lists;
+    String logIn, lists;
+
+    @Before
+    public void getData() {
+        logIn = new LogIn().logIn();
+        lists = new EndPoints().getLists();
+    }
 
     @Test
     public void getListTest() {
-        String logIn = new LogIn().logIn();
-        String lists = new EndPoints().getLists();
-
-        given()
+       given()
                 .cookie("JSESSIONID", logIn)
                 .when()
                 .get(lists)

@@ -2,21 +2,27 @@ package DAM.Tests.Flight;
 
 import DAM.EndPoints;
 import DAM.LogIn;
-import DAM.Parametrs.CreateFlightStepOneParams;
+import DAM.Parametrs.Flights.CreateFlightStepOneParams;
 import io.restassured.response.Response;
 import org.json.JSONException;
+import org.junit.Before;
 import org.junit.Test;
+
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class CreateFlightStepOneTest {
+    String logIn, body, flights;
+
+    @Before
+    public void getEndpoint() throws JSONException {
+        logIn = new LogIn().logIn();
+        flights = new EndPoints().getFlights();
+        body = new CreateFlightStepOneParams().getFlight();
+    }
 
     @Test
-    public void successCreate() throws JSONException {
-        String logIn = new LogIn().logIn();
-        String body = new CreateFlightStepOneParams().getFlight();
-        String flights = new EndPoints().getFlights();
-
+    public void successCreate() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)
@@ -24,18 +30,18 @@ public class CreateFlightStepOneTest {
                 .post(flights)
                 .then().log().all().extract().response();
 
-        Integer priority = response.path("priority");
-        Integer stage = response.path("stage");
-        Integer value = response.path("frequency.value");
+        int priority = response.path("priority");
+        int stage = response.path("stage");
+        int value = response.path("frequency.value");
 
         assertEquals("FlightTest", response.path("name"));
-        assertEquals(40, priority.intValue());
+        assertEquals(40, priority);
         assertEquals("DRAFT", response.path("status"));
         assertEquals("STANDARD", response.path("purpose"));
         assertEquals("DAILY", response.path("frequency.term"));
-        assertEquals(1, value.intValue());
+        assertEquals(1, value);
         assertEquals("NONE", response.path("socialSegmentsOrigin"));
-        assertEquals(1, stage.intValue());
+        assertEquals(1, stage);
         assertEquals("Камынин Сергей Игоревич", response.path("createdBy"));
     }
 }
