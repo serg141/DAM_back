@@ -1,4 +1,4 @@
-package DAM.Lists;
+package DAM.Parametrs.Lists;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +32,7 @@ public class CreateLinkList {
 
         JSONArray element = new JSONArray();
         element.put(element1);
+        element.put(element2);
 
         linkList.put("name", "LinkList");
         linkList.put("code", "LINK_LIST");

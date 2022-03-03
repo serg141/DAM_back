@@ -1,4 +1,4 @@
-package DAM.Parametrs;
+package DAM.Parametrs.Flights;
 
 import org.json.JSONArray;
 import org.json.JSONException;

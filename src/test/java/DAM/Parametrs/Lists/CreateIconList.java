@@ -1,4 +1,4 @@
-package DAM.Lists;
+package DAM.Parametrs.Lists;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,7 +21,6 @@ public class CreateIconList {
         element1.put("elementId", "image");
         element1.put("name", "Иконка");
         element1.put("elementOrder", 1);
-        element1.put("elementStyle", "LIST_ROW_TITLE");
         element1.put("required", true);
         element1.put("size", imageSize);
 

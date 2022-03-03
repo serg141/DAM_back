@@ -12,11 +12,11 @@ public final class EndPoints {
     private final String lists;
 
     public EndPoints() {
-        campaigns = "/campaigns";
-        duplicate = "/duplicate";
-        predict = "/predict";
-        flights = "/flights";
-        placement = "/placement";
-        lists = "/lists";
+        campaigns = "/campaigns/";
+        duplicate = "/duplicate/";
+        predict = "/predict/";
+        flights = "/flights/";
+        placement = "/placement/";
+        lists = "/lists/";
     }
 }

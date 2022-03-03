@@ -4,12 +4,13 @@ import DAM.LogIn;
 import DAM.Parametrs.Campaign.CampaignParams;
 import io.restassured.response.Response;
 import org.json.JSONException;
+
 import static io.restassured.RestAssured.given;
 
-public class CreateCampaignForFlight {
+public class CreateCampaign {
     String id;
 
-    public CreateCampaignForFlight() throws JSONException {
+    public CreateCampaign() throws JSONException {
         String logIn = new LogIn().logIn();
         String body = new CampaignParams().getCampaignNoSPK();
 

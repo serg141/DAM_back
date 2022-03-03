@@ -1,10 +1,11 @@
 package DAM.Tests.Campaign;
 
+import DAM.Campaigns.CreateCampaign;
 import DAM.Campaigns.NewCampaign;
 import DAM.EndPoints;
 import DAM.LogIn;
-import lombok.Data;
 import org.json.JSONException;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -13,17 +14,19 @@ import java.util.stream.Collectors;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-@Data
 public class DuplicateCampaignTest {
+    String logIn, duplicate, endpoint;
+
+    @Before
+    public void getEndpoint() throws JSONException {
+        logIn = new LogIn().logIn();
+        duplicate = new EndPoints().getDuplicate();
+        endpoint = new EndPoints().getCampaigns();
+    }
 
     @Test
     public void duplicateCampaigns() throws JSONException {
-        String logIn = new LogIn().logIn();
-        String endpoint = new EndPoints().getCampaigns();
-        String duplicate = new EndPoints().getDuplicate();
-
-        CreateCampaignTest campaign = new CreateCampaignTest();
-        campaign.successCreate();
+        CreateCampaign campaign = new CreateCampaign();
 
         given()
                 .cookie("JSESSIONID", logIn)
@@ -41,8 +44,8 @@ public class DuplicateCampaignTest {
 
         List<String> name = data.stream().map(NewCampaign::getName).collect(Collectors.toList());
 
-        for (int i = 0; i < name.size(); i++) {
-            assertEquals("copy_CampaignTest", name.get(i));
+        for (String copyName : name) {
+            assertEquals("copy_CampaignTest", copyName);
         }
     }
 }

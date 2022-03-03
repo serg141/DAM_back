@@ -2,25 +2,27 @@ package DAM.Tests.Campaign;
 
 import DAM.EndPoints;
 import DAM.LogIn;
-import DAM.Parametrs.CampaignParams;
+import DAM.Parametrs.Campaign.CampaignParams;
 import io.restassured.response.Response;
-import lombok.Data;
 import org.json.JSONException;
+import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-@Data
 public class CreateCampaignTest {
-    String id;
+    String id, logIn, body, endpoint;
+
+    @Before
+    public void getEndpoint() throws JSONException {
+        logIn = new LogIn().logIn();
+        body = new CampaignParams().getCampaignNoSPK();
+        endpoint = new EndPoints().getCampaigns();
+    }
 
     @Test
-    public void successCreate() throws JSONException {
-        String logIn = new LogIn().logIn();
-        String endpoint = new EndPoints().getCampaigns();
-        String body = new CampaignParams().getCampaignNoSPK();
-
+    public void successCreate() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)

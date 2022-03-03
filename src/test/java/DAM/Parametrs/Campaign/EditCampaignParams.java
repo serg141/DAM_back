@@ -1,5 +1,6 @@
-package DAM.Parametrs;
+package DAM.Parametrs.Campaign;
 
+import DAM.Parametrs.GetDate;
 import org.json.JSONException;
 import org.json.JSONObject;
 

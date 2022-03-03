@@ -1,26 +1,31 @@
 package DAM.Tests.Campaign;
 
+import DAM.Campaigns.CreateCampaign;
 import DAM.EndPoints;
 import DAM.LogIn;
-import DAM.Parametrs.EditCampaignParams;
+import DAM.Parametrs.Campaign.EditCampaignParams;
 import io.restassured.response.Response;
-import lombok.Data;
 import org.json.JSONException;
+import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-@Data
 public class EditCampaignSPKTest {
+    String logIn, duplicate, endpoint, body;
+
+    @Before
+    public void getEndpoint() throws JSONException {
+        logIn = new LogIn().logIn();
+        duplicate = new EndPoints().getDuplicate();
+        endpoint = new EndPoints().getCampaigns();
+        body = new EditCampaignParams().getCampaignSPK();
+    }
 
     @Test
     public void putCampaignsSPK() throws JSONException {
-        String logIn = new LogIn().logIn();
-        String endpoint = new EndPoints().getCampaigns();
-        CreateCampaignSPKTest campaign = new CreateCampaignSPKTest();
-        String body = new EditCampaignParams().getCampaignSPK();
-        campaign.successCreate();
+        CreateCampaign campaign = new CreateCampaign();
 
         Response response = given()
                 .cookie("JSESSIONID", logIn)
