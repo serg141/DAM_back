@@ -32,7 +32,8 @@ public class CreateFlightStepTwoTest {
                 .body(body)
                 .when()
                 .post(flights + id + placement)
-                .then().log().all().extract().response();
+                .then().statusCode(200)
+                .extract().response();
 
         LinkedHashMap<String,Object> locations = response.path("locations[0]");
         LinkedHashMap<String,Object> positions = response.path("locations[0].positions[0]");

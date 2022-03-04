@@ -29,7 +29,7 @@ public class PredictCampaignTest {
                 .cookie("JSESSIONID", logIn)
                 .when()
                 .get(endpoint + campaign.getId() + predict)
-                .then()
-                .statusCode(200);
+                .then().statusCode(200)
+                .extract().response();
     }
 }

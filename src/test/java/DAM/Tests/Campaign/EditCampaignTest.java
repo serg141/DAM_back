@@ -31,7 +31,7 @@ public class EditCampaignTest {
                 .body(body)
                 .when()
                 .put(endpoint + campaign.getId())
-                .then()
+                .then().statusCode(200)
                 .extract().response();
 
         int priority = response.path("priority");

@@ -28,7 +28,8 @@ public class CreateFlightStepOneTest {
                 .body(body)
                 .when()
                 .post(flights)
-                .then().log().all().extract().response();
+                .then().statusCode(200)
+                .extract().response();
 
         int priority = response.path("priority");
         int stage = response.path("stage");

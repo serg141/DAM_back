@@ -31,7 +31,7 @@ public class GetCampaignByIdTest {
                 .cookie("JSESSIONID", logIn)
                 .when()
                 .get(endpoint + campaign.getId())
-                .then()
+                .then().statusCode(200)
                 .extract().response();
 
         int priority = response.path("priority");

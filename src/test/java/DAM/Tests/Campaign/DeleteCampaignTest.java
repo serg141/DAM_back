@@ -29,7 +29,7 @@ public class DeleteCampaignTest {
                 .cookie("JSESSIONID", logIn)
                 .when()
                 .delete(endpoint + campaign.getId())
-                .then()
+                .then().statusCode(200)
                 .extract().response();
 
         assertEquals("REMOVED", response.path("status"));

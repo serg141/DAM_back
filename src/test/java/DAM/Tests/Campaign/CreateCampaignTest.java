@@ -28,7 +28,8 @@ public class CreateCampaignTest {
                 .body(body)
                 .when()
                 .post(endpoint)
-                .then().extract().response();
+                .then().statusCode(200)
+                .extract().response();
         id = response.path("id");
 
         assertEquals("CampaignTest", response.path("name"));
