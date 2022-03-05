@@ -25,7 +25,7 @@ public final class EndPoints {
         lists = "/lists/";
         csvSegment = "/csv-segment/";
         checkCSV = "check-csv/";
-        segmentSocial = "/segments/social/";
+        segmentSocial = "/segments/social";
         segmentsTech = "/segments/tech/";
         creative = "/creatives";
     }
