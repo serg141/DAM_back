@@ -3,7 +3,7 @@ package DAM.Tests.Flight;
 import DAM.EndPoints;
 import DAM.Flights.GetPlacementId;
 import DAM.LogIn;
-import DAM.Parametrs.Flights.CreateFlightStepFiveGhost;
+import DAM.Parametrs.Flights.CreateFlightStepFiveSlider;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.Before;
@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class CreateFlightStepFiveGhostWithOutPollingTest {
+public class CreateFlightStepFiveSliderWithOutPollingTest {
     String logIn, flights, id, creative, body, placementId;
 
     @Before
@@ -23,12 +23,12 @@ public class CreateFlightStepFiveGhostWithOutPollingTest {
         id = new GetPlacementId().getId();
         flights = new EndPoints().getFlights();
         creative = new EndPoints().getCreative();
-        body = new CreateFlightStepFiveGhost().getFlightHideableTypeWithOutPolling();
+        body = new CreateFlightStepFiveSlider().getFlightHideableTypeWithOutPolling();
         placementId = new GetPlacementId().getPlacementId();
     }
 
     @Test
-    public void successCreateFlightStepFiveGhostWithOutPolling() {
+    public void successCreateFlightStepFiveSliderWithOutPolling() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)
@@ -39,23 +39,18 @@ public class CreateFlightStepFiveGhostWithOutPollingTest {
                 .extract().response();
 
         LinkedHashMap<String,Object> pages = response.path("pages[0]");
-        LinkedHashMap<String,Object> elementImage = response.path("pages[0].elements[0]");
-        LinkedHashMap<String,Object> elementHeading = response.path("pages[0].elements[1]");
-        LinkedHashMap<String,Object> elementDescription = response.path("pages[0].elements[2]");
-        LinkedHashMap<String,Object> elementBlock = response.path("pages[0].elements[3]");
+        LinkedHashMap<String,Object> elementHeading = response.path("pages[0].elements[0]");
+        LinkedHashMap<String,Object> elementDescription = response.path("pages[0].elements[1]");
+        LinkedHashMap<String,Object> elementBlock = response.path("pages[0].elements[2]");
+        LinkedHashMap<String,Object> elementLabelBody = response.path("pages[0].elements[3]");
+        LinkedHashMap<String,Object> elementLabelText = response.path("pages[0].elements[4]");
+        LinkedHashMap<String,Object> elementButton = response.path("pages[0].elements[5]");
 
         assertEquals(1, pages.get("page"));
         assertEquals("1", pages.get("pageName"));
-        assertEquals("7f2db9fd-d6b4-4174-8bc6-24db0e3e521e", pages.get("templateId"));
+        assertEquals("772c92df-96aa-4527-a015-0e64d53cca1f", pages.get("templateId"));
         assertEquals(true, pages.get("showCross"));
         assertEquals("CROSS_WITHOUT_POLLING", pages.get("hideableType"));
-
-        assertEquals("https://core-cms-backend.dso-core.apps.d0-oscp.corp.dev.vtb/projects/dam/files/597733151_33.png",
-                elementImage.get("url"));
-        assertEquals("image", elementImage.get("elementId"));
-        assertEquals("IMAGE", elementImage.get("type"));
-        assertEquals("2", response.path("pages[0].elements[0].link.linkAddress"));
-        assertEquals("INTERNAL", response.path("pages[0].elements[0].link.linkType"));
 
         assertEquals("Заголовок", elementHeading.get("value"));
         assertEquals("heading", elementHeading.get("elementId"));
@@ -67,11 +62,25 @@ public class CreateFlightStepFiveGhostWithOutPollingTest {
 
         assertEquals("body", elementBlock.get("elementId"));
         assertEquals("BLOCK", elementBlock.get("type"));
-        assertEquals("2", response.path("pages[0].elements[3].link.linkAddress"));
-        assertEquals("INTERNAL", response.path("pages[0].elements[3].link.linkType"));
-        assertEquals("TIFFANY", response.path("pages[0].elements[3].style.code"));
-        assertEquals("#00BCD4", response.path("pages[0].elements[3].style.backGroundColor"));
+        assertEquals("FUCHSIA", response.path("pages[0].elements[2].style.code"));
+        assertEquals("#F86D86", response.path("pages[0].elements[2].style.backGroundColor"));
+        assertEquals("#FFFFFF", response.path("pages[0].elements[2].style.fontColor"));
+
+        assertEquals("label-body", elementLabelBody.get("elementId"));
+        assertEquals("BLOCK", elementLabelBody.get("type"));
+        assertEquals("ORANGE", response.path("pages[0].elements[3].style.code"));
+        assertEquals("#FF8515", response.path("pages[0].elements[3].style.backGroundColor"));
         assertEquals("#FFFFFF", response.path("pages[0].elements[3].style.fontColor"));
+
+        assertEquals("label-text", elementLabelText.get("elementId"));
+        assertEquals("Метка", elementLabelText.get("value"));
+        assertEquals("TEXT", elementLabelText.get("type"));
+
+        assertEquals("Кнопка", elementButton.get("value"));
+        assertEquals("primary-button", elementButton.get("elementId"));
+        assertEquals("BUTTON", elementButton.get("type"));
+        assertEquals("2", response.path("pages[0].elements[5].link.linkAddress"));
+        assertEquals("DEEPLINK", response.path("pages[0].elements[5].link.linkType"));
 
         assertEquals("Creative", response.path("name"));
         assertEquals("LIGHT_THEME", response.path("theme"));
