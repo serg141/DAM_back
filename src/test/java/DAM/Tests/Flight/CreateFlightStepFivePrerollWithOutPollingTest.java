@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class CreateFlightStepFivePrerollTest {
+public class CreateFlightStepFivePrerollWithOutPollingTest {
     String logIn, flights, id, creative, body, placementId;
 
     @Before
@@ -23,7 +23,7 @@ public class CreateFlightStepFivePrerollTest {
         id = new GetPlacementId().getId();
         flights = new EndPoints().getFlights();
         creative = new EndPoints().getCreative();
-        body = new CreateFlightStepFivePreroll().getFlight();
+        body = new CreateFlightStepFivePreroll().getFlightHideableTypeWithOutPolling();
         placementId = new GetPlacementId().getPlacementId();
     }
 
