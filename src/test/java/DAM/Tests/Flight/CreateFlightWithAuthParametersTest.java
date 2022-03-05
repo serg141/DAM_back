@@ -46,7 +46,5 @@ public class CreateFlightWithAuthParametersTest {
         assertTrue(specialParams.contains("genderAll"));
         assertEquals("ee0ef64f-6e90-4f9c-981d-895288796529", selections.get("categoryUuid"));
         assertEquals(true, response.path("segmentIdsMap.26a42f93-7499-4c4a-9fee-0cfba8309d15"));
-
-        response.path("id");
     }
 }
