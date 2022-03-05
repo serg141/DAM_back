@@ -28,7 +28,7 @@ public class CreateFlightStepFivePrerollNoneTest {
     }
 
     @Test
-    public void successCreateWithOutVersion() {
+    public void successCreateFlightStepFivePrerollNone() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)

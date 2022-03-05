@@ -28,7 +28,7 @@ public class CreateFlightStepFivePrerollWithPollingTest {
     }
 
     @Test
-    public void successCreateWithOutVersion() {
+    public void successCreateFlightStepFivePrerollWithPolling() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)

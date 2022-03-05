@@ -1,4 +1,4 @@
-package DAM.Tests.Placements;
+package DAM.Tests.Placements.Lists;
 
 import DAM.EndPoints;
 import DAM.LogIn;
