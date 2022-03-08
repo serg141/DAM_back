@@ -15,13 +15,13 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class DuplicateCampaignTest {
-    String logIn, duplicate, endpoint;
+    String logIn, duplicate, campaigns;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
         duplicate = new EndPoints().getDuplicate();
-        endpoint = new EndPoints().getCampaigns();
+        campaigns = new EndPoints().getCampaigns();
     }
 
     @Test
@@ -31,14 +31,17 @@ public class DuplicateCampaignTest {
         given()
                 .cookie("JSESSIONID", logIn)
                 .when()
-                .put(endpoint + campaign.getId() + duplicate)
+                .put(campaigns + campaign.getId() + duplicate)
                 .then()
                 .statusCode(200);
 
         List<NewCampaign> data = given()
                 .cookie("JSESSIONID", logIn)
+                .queryParam("pageSize", 100)
+                .queryParam("sortBy", "modifiedTime")
+                .queryParam("sortDirection", "DESC")
                 .when()
-                .get(endpoint)
+                .post(campaigns + "all")
                 .then()
                 .extract().body().jsonPath().getList("Content", NewCampaign.class);
 

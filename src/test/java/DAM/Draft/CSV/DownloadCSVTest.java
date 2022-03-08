@@ -1,4 +1,4 @@
-package DAM.Tests.Flight;
+package DAM.Draft.CSV;
 
 import DAM.EndPoints;
 import DAM.Flights.CreateFlightStepTwo;
@@ -13,8 +13,8 @@ import java.io.File;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class CheckCSVTest {
-    String logIn, flights, id, checkCSV;
+public class DownloadCSVTest {
+    String logIn, flights, id, segmentCSV;
 
     @Before
     public void getEndpoint() throws JSONException {
@@ -22,7 +22,7 @@ public class CheckCSVTest {
         id = new CreateFlightStepTwo().getId();
 
         flights = new EndPoints().getFlights();
-        checkCSV = new EndPoints().getCheckCSV();
+        segmentCSV = new EndPoints().getCsvSegment();
 
     }
 
@@ -33,12 +33,22 @@ public class CheckCSVTest {
                 .contentType("multipart/form-data")
                 .multiPart("file", new File("C:\\Users\\SKamynin\\Desktop\\csv\\client-info\\mdm_id_10.csv"),
                         "vnd.ms-excel")
+                .multiPart("segmentName", "TEST12")
                 .when()
-                .post(flights + checkCSV)
+                .post(flights + id + segmentCSV)
                 .then().statusCode(200)
                 .extract().response();
 
-        Integer i = 9999;
-        assertEquals(i, response.path("data"));
+        assertEquals("TEST12", response.path("name"));
+        assertEquals("mdm_id_10.csv", response.path("fileName"));
+        assertEquals("NOT_READY", response.path("status"));
+        assertEquals("Ожидает обработки.", response.path("statusDescription"));
+
+        given()
+                .cookie("JSESSIONID", logIn)
+                .contentType("multipart/form-data")
+                .when()
+                .get(flights + id + "/csv/file")
+                .then().statusCode(200);
     }
 }

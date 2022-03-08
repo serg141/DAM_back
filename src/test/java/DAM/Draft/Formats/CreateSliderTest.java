@@ -1,13 +1,15 @@
-package DAM.Tests.Placements.Formats;
+package DAM.Draft.Formats;
 
 import DAM.LogIn;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.File;
+
 import static io.restassured.RestAssured.given;
 
-public class CreateGhostTest {
+public class CreateSliderTest {
     String logIn;
 
     @Before
@@ -22,7 +24,7 @@ public class CreateGhostTest {
                 .contentType("multipart/form-data")
                 .multiPart("thumbnail", new File("C:\\Users\\SKamynin\\Desktop\\Picture\\33.png"),
                         "image/png")
-                .multiPart("template", new File("C:\\Users\\SKamynin\\Desktop\\yaml\\json\\template\\Ghost_JSON.json"),
+                .multiPart("template", new File("C:\\Users\\SKamynin\\Desktop\\yaml\\json\\template\\Slider_JSON.json"),
                         "application/json")
                 .when()
                 .post("/templates");

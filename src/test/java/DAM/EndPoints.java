@@ -15,6 +15,7 @@ public final class EndPoints {
     private final String segmentSocial;
     private final String segmentsTech;
     private final String creative;
+    private final String segmentCategories;
 
     public EndPoints() {
         campaigns = "/campaigns/";
@@ -28,5 +29,6 @@ public final class EndPoints {
         segmentSocial = "/segments/social";
         segmentsTech = "/segments/tech/";
         creative = "/creatives";
+        segmentCategories = "/segment-categories/rootcategories";
     }
 }
