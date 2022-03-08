@@ -1,4 +1,4 @@
-package DAM.Tests.Flight;
+package DAM.Tests.Flight.CreateFlight;
 
 import DAM.EndPoints;
 import DAM.Flights.GetPlacementId;
@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class CreateFlightStepFivePrerollWithPollingTest {
+public class CreateFlightStepFivePrerollNoneTest {
     String logIn, flights, id, creative, body, placementId;
 
     @Before
@@ -23,12 +23,12 @@ public class CreateFlightStepFivePrerollWithPollingTest {
         id = new GetPlacementId().getId();
         flights = new EndPoints().getFlights();
         creative = new EndPoints().getCreative();
-        body = new CreateFlightStepFivePreroll().getFlightHideableTypeWithPolling();
+        body = new CreateFlightStepFivePreroll().getFlightHideableTypeNone();
         placementId = new GetPlacementId().getPlacementId();
     }
 
     @Test
-    public void successCreateFlightStepFivePrerollWithPolling() {
+    public void successCreateFlightStepFivePrerollNone() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)
@@ -47,8 +47,8 @@ public class CreateFlightStepFivePrerollWithPollingTest {
         assertEquals(1, pages.get("page"));
         assertEquals("1", pages.get("pageName"));
         assertEquals("16bcdc2d-21e4-4f0c-a1e2-a3e53e755b1c", pages.get("templateId"));
-        assertEquals(true, pages.get("showCross"));
-        assertEquals("CROSS_WITH_POLLING", pages.get("hideableType"));
+        assertEquals(false, pages.get("showCross"));
+        assertEquals("NONE", pages.get("hideableType"));
 
         assertEquals("https://core-cms-backend.dso-core.apps.d0-oscp.corp.dev.vtb/projects/dam/files/597733151_33.png",
                 elementImage.get("url"));

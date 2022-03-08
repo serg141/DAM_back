@@ -1,4 +1,4 @@
-package DAM.Tests.Flight;
+package DAM.Tests.Flight.CreateFlight;
 
 import DAM.EndPoints;
 import DAM.LogIn;

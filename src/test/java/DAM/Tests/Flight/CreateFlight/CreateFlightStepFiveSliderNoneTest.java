@@ -1,4 +1,4 @@
-package DAM.Tests.Flight;
+package DAM.Tests.Flight.CreateFlight;
 
 import DAM.EndPoints;
 import DAM.Flights.GetPlacementId;
@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class CreateFlightStepFiveSliderWithOutPollingTest {
+public class CreateFlightStepFiveSliderNoneTest {
     String logIn, flights, id, creative, body, placementId;
 
     @Before
@@ -23,12 +23,12 @@ public class CreateFlightStepFiveSliderWithOutPollingTest {
         id = new GetPlacementId().getId();
         flights = new EndPoints().getFlights();
         creative = new EndPoints().getCreative();
-        body = new CreateFlightStepFiveSlider().getFlightHideableTypeWithOutPolling();
+        body = new CreateFlightStepFiveSlider().getFlightHideableTypeNone();
         placementId = new GetPlacementId().getPlacementId();
     }
 
     @Test
-    public void successCreateFlightStepFiveSliderWithOutPolling() {
+    public void successCreateFlightStepFiveSliderNone() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)
@@ -49,8 +49,8 @@ public class CreateFlightStepFiveSliderWithOutPollingTest {
         assertEquals(1, pages.get("page"));
         assertEquals("1", pages.get("pageName"));
         assertEquals("772c92df-96aa-4527-a015-0e64d53cca1f", pages.get("templateId"));
-        assertEquals(true, pages.get("showCross"));
-        assertEquals("CROSS_WITHOUT_POLLING", pages.get("hideableType"));
+        assertEquals(false, pages.get("showCross"));
+        assertEquals("NONE", pages.get("hideableType"));
 
         assertEquals("Заголовок", elementHeading.get("value"));
         assertEquals("heading", elementHeading.get("elementId"));

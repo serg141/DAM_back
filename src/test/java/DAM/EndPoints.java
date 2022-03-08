@@ -16,6 +16,8 @@ public final class EndPoints {
     private final String segmentsTech;
     private final String creative;
     private final String segmentCategories;
+    private final String users;
+    private final String list;
 
     public EndPoints() {
         campaigns = "/campaigns/";
@@ -27,8 +29,10 @@ public final class EndPoints {
         csvSegment = "/csv-segment/";
         checkCSV = "check-csv/";
         segmentSocial = "/segments/social";
-        segmentsTech = "/segments/tech/";
+        segmentsTech = "/segments/tech";
         creative = "/creatives";
         segmentCategories = "/segment-categories/rootcategories";
+        users = "/users";
+        list = "/list";
     }
 }

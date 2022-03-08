@@ -1,4 +1,4 @@
-package DAM.Tests.Flight;
+package DAM.Tests.Flight.CreateFlight;
 
 import DAM.EndPoints;
 import DAM.Flights.GetPlacementId;
@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class CreateFlightStepFiveGhostNoneTest {
+public class CreateFlightStepFiveGhostWithOutPollingTest {
     String logIn, flights, id, creative, body, placementId;
 
     @Before
@@ -23,12 +23,12 @@ public class CreateFlightStepFiveGhostNoneTest {
         id = new GetPlacementId().getId();
         flights = new EndPoints().getFlights();
         creative = new EndPoints().getCreative();
-        body = new CreateFlightStepFiveGhost().getFlightHideableTypeNone();
+        body = new CreateFlightStepFiveGhost().getFlightHideableTypeWithOutPolling();
         placementId = new GetPlacementId().getPlacementId();
     }
 
     @Test
-    public void successCreateFlightStepFiveGhostNone() {
+    public void successCreateFlightStepFiveGhostWithOutPolling() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)
@@ -47,8 +47,8 @@ public class CreateFlightStepFiveGhostNoneTest {
         assertEquals(1, pages.get("page"));
         assertEquals("1", pages.get("pageName"));
         assertEquals("7f2db9fd-d6b4-4174-8bc6-24db0e3e521e", pages.get("templateId"));
-        assertEquals(false, pages.get("showCross"));
-        assertEquals("NONE", pages.get("hideableType"));
+        assertEquals(true, pages.get("showCross"));
+        assertEquals("CROSS_WITHOUT_POLLING", pages.get("hideableType"));
 
         assertEquals("https://core-cms-backend.dso-core.apps.d0-oscp.corp.dev.vtb/projects/dam/files/597733151_33.png",
                 elementImage.get("url"));
