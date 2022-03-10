@@ -1,9 +1,8 @@
-package DAM.Tests.Placements;
+package DAM.Tests.Placements.Lists;
 
 import DAM.EndPoints;
 import DAM.LogIn;
-import DAM.Parametrs.Lists.CreateLinkList;
-import io.restassured.http.ContentType;
+import DAM.Parametrs.Lists.CreateNumberList;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.Before;
@@ -14,7 +13,7 @@ import java.util.LinkedHashMap;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class CreateLinkListTest {
+public class CreateNumberedListTest {
     String lists;
     String logIn;
     String body;
@@ -23,35 +22,38 @@ public class CreateLinkListTest {
     public void getEndpoint() throws JSONException {
         lists = new EndPoints().getLists();
         logIn = new LogIn().logIn();
-        body = new CreateLinkList().getLinkList();
+        body = new CreateNumberList().getNumberedList();
     }
 
     @Test
-    public void createLinkListTest() {
+    public void createNumberedListTest() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)
                 .when()
                 .post(lists)
-                .then().statusCode(200).contentType(ContentType.JSON)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> list1 = response.path("elements[0]");
         LinkedHashMap<String,Object> list2 = response.path("elements[1]");
 
-        assertEquals("LinkList", response.path("name"));
-        assertEquals("LINK_LIST", response.path("code"));
+        assertEquals("NumberedList", response.path("name"));
+        assertEquals("NUMBERED_LIST", response.path("code"));
 
-        assertEquals("Фон ссылки", list1.get("name"));
-        assertEquals("body", list1.get("elementId"));
-        assertEquals("BLOCK", list1.get("type"));
-        assertEquals("STYLE_IMAGE", list1.get("backgroundType"));
+        assertEquals(80, list1.get("maxLength"));
+        assertEquals("Заголовок", list1.get("name"));
+        assertEquals("title", list1.get("elementId"));
+        assertEquals("TEXT", list1.get("type"));
+        assertEquals("LIST_ROW_TITLE", list1.get("elementStyle"));
         assertEquals(true, list1.get("required"));
 
-        assertEquals("Ссылка", list2.get("name"));
-        assertEquals("description", list2.get("elementId"));
+        assertEquals(150, list2.get("maxLength"));
+        assertEquals("Описание", list2.get("name"));
+        assertEquals("description2", list2.get("elementId"));
         assertEquals("TEXT", list2.get("type"));
-        assertEquals(true, list2.get("required"));
+        assertEquals("LIST_ROW_TITLE", list1.get("elementStyle"));
+        assertEquals(false, list2.get("required"));
 
         String id = response.path("id");
 

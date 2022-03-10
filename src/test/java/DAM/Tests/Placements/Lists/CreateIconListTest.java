@@ -1,9 +1,8 @@
-package DAM.Tests.Placements;
+package DAM.Tests.Placements.Lists;
 
 import DAM.EndPoints;
 import DAM.LogIn;
 import DAM.Parametrs.Lists.CreateIconList;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.Before;
@@ -33,7 +32,7 @@ public class CreateIconListTest {
                 .body(body)
                 .when()
                 .post(lists)
-                .then().statusCode(200).contentType(ContentType.JSON)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> list1 = response.path("elements[0]");

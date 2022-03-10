@@ -12,13 +12,13 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class CreateCampaignTest {
-    String id, logIn, body, endpoint;
+    String id, logIn, body, campaigns;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
         body = new CampaignParams().getCampaignNoSPK();
-        endpoint = new EndPoints().getCampaigns();
+        campaigns = new EndPoints().getCampaigns();
     }
 
     @Test
@@ -27,8 +27,9 @@ public class CreateCampaignTest {
                 .cookie("JSESSIONID", logIn)
                 .body(body)
                 .when()
-                .post(endpoint)
-                .then().extract().response();
+                .post(campaigns)
+                .then()
+                .extract().response();
         id = response.path("id");
 
         assertEquals("CampaignTest", response.path("name"));

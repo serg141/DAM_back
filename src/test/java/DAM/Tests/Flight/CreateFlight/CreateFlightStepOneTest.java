@@ -1,4 +1,4 @@
-package DAM.Tests.Flight;
+package DAM.Tests.Flight.CreateFlight;
 
 import DAM.EndPoints;
 import DAM.LogIn;
@@ -28,7 +28,9 @@ public class CreateFlightStepOneTest {
                 .body(body)
                 .when()
                 .post(flights)
-                .then().log().all().extract().response();
+                .then()
+                .log().all()
+                .extract().response();
 
         int priority = response.path("priority");
         int stage = response.path("stage");

@@ -1,42 +1,39 @@
-package DAM.Tests.Flight;
+package DAM.Tests.Flight.CreateFlight;
 
 import DAM.EndPoints;
-import DAM.Flights.CreateFlightStepTwo;
+import DAM.Flights.CreateFlightStepOne;
 import DAM.LogIn;
 import DAM.Parametrs.Flights.CreateFlightStepTwoParams;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.LinkedHashMap;
-
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class CreateFlightStepTwoTest {
-    String logIn, body, flights, placement;
+    String logIn, body, flights, placement, id;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
+        id = new CreateFlightStepOne().getId();
+
         flights = new EndPoints().getFlights();
         body = new CreateFlightStepTwoParams().getFlight();
         placement = new EndPoints().getPlacement();
     }
 
     @Test
-    public void successCreate() throws JSONException {
-        String body = new CreateFlightStepTwoParams().getFlight();
-        //new CreateFlightStepTwo();
-        String id = new CreateFlightStepTwo().getId();
-
+    public void successCreate() {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .body(body)
                 .when()
                 .post(flights + id + placement)
-                .then().extract().response();
+                .then()
+                .extract().response();
 
         LinkedHashMap<String,Object> locations = response.path("locations[0]");
         LinkedHashMap<String,Object> positions = response.path("locations[0].positions[0]");

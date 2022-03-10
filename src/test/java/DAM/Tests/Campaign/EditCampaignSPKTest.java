@@ -13,13 +13,13 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class EditCampaignSPKTest {
-    String logIn, duplicate, endpoint, body;
+    String logIn, duplicate, campaigns, body;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
         duplicate = new EndPoints().getDuplicate();
-        endpoint = new EndPoints().getCampaigns();
+        campaigns = new EndPoints().getCampaigns();
         body = new EditCampaignParams().getCampaignSPK();
     }
 
@@ -31,7 +31,7 @@ public class EditCampaignSPKTest {
                 .cookie("JSESSIONID", logIn)
                 .body(body)
                 .when()
-                .put(endpoint + campaign.getId())
+                .put(campaigns + campaign.getId())
                 .then()
                 .extract().response();
 

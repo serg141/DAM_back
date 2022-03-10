@@ -1,9 +1,8 @@
-package DAM.Tests.Placements;
+package DAM.Tests.Placements.Lists;
 
 import DAM.EndPoints;
 import DAM.LogIn;
 import DAM.Parametrs.Lists.CreateBulletedList;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.Before;
@@ -15,9 +14,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class CreateBulletedListTest {
-    String lists;
-    String logIn;
-    String body;
+    String lists, logIn, body;
 
     @Before
     public void getEndpoint() throws JSONException {
@@ -33,7 +30,7 @@ public class CreateBulletedListTest {
                 .body(body)
                 .when()
                 .post(lists)
-                .then().statusCode(200).contentType(ContentType.JSON)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> list = response.path("elements[0]");

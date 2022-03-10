@@ -38,6 +38,10 @@ public class Specification {
         RestAssured.responseSpecification = response;
     }
 
+    public static void installSpec1(RequestSpecification request) {
+        RestAssured.requestSpecification = request;
+    }
+
     public void LogIn() {
         this.login = "vtb4040204";
         this.pass = "141523Pota#";

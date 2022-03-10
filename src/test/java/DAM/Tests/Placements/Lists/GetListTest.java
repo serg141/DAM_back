@@ -1,4 +1,4 @@
-package DAM.Tests.Placements;
+package DAM.Tests.Placements.Lists;
 
 import DAM.EndPoints;
 import DAM.LogIn;
@@ -21,7 +21,6 @@ public class GetListTest {
        given()
                 .cookie("JSESSIONID", logIn)
                 .when()
-                .get(lists)
-                .then().statusCode(200);
+                .get(lists);
     }
 }

@@ -13,12 +13,12 @@ import static org.junit.Assert.assertEquals;
 
 public class DeleteCampaignTest {
     String logIn;
-    String endpoint;
+    String campaigns;
 
     @Before
     public void getEndpoint() {
         logIn = new LogIn().logIn();
-        endpoint = new EndPoints().getCampaigns();
+        campaigns = new EndPoints().getCampaigns();
     }
 
     @Test
@@ -28,7 +28,7 @@ public class DeleteCampaignTest {
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .when()
-                .delete(endpoint + campaign.getId())
+                .delete(campaigns + campaign.getId())
                 .then()
                 .extract().response();
 

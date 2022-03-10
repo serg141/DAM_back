@@ -3,7 +3,6 @@ package DAM.Tests.Campaign;
 import DAM.Campaigns.CreateCampaign;
 import DAM.EndPoints;
 import DAM.LogIn;
-import DAM.Parametrs.Campaign.EditCampaignParams;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.Before;
@@ -14,23 +13,22 @@ import static org.junit.Assert.assertEquals;
 
 
 public class GetCampaignByIdTest {
-    String logIn, body, endpoint;
+    String logIn, campaigns;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        endpoint = new EndPoints().getCampaigns();
-        body = new EditCampaignParams().getCampaignNoSPK();
+        campaigns = new EndPoints().getCampaigns();
     }
 
     @Test
-    public void getCampaigns() throws JSONException {
+    public void getCampaignsById() throws JSONException {
         CreateCampaign campaign = new CreateCampaign();
 
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .when()
-                .get(endpoint + campaign.getId())
+                .get(campaigns + campaign.getId())
                 .then()
                 .extract().response();
 
