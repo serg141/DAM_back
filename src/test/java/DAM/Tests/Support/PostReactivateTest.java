@@ -1,4 +1,4 @@
-package DAM.Tests.Filters;
+package DAM.Tests.Support;
 
 import DAM.EndPoints;
 import DAM.LogIn;
@@ -8,23 +8,26 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class GetUsersListTest {
-    String logIn, users, list;
+public class PostReactivateTest {
+    String logIn, reactivate;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
 
-        users = new EndPoints().getUsers();
-        list = new EndPoints().getList();
+        reactivate = new EndPoints().getReactivate();
     }
 
     @Test
-    public void successCreateFlightStepFiveGhostNone() {
+    public void postReactivateTest() {
         given()
                 .cookie("JSESSIONID", logIn)
                 .when()
-                .get(users + list)
-                .then().statusCode(200);
+                .post(reactivate);
+
+        given()
+                .cookie("JSESSIONID", logIn)
+                .when()
+                .get(reactivate);
     }
 }

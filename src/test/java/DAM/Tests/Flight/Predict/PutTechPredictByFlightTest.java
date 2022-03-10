@@ -22,7 +22,7 @@ public class PutTechPredictByFlightTest {
         body = new PutFlightStepFourPredict().getFlight();
 
         flights = new EndPoints().getFlights();
-        segmentsTech = new EndPoints().getSegmentsTech();
+        segmentsTech = new EndPoints().getSegmentTech();
         predict = new EndPoints().getPredict();
     }
 
@@ -33,7 +33,7 @@ public class PutTechPredictByFlightTest {
                 .body(body)
                 .when()
                 .put(flights + id + segmentsTech + predict)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         Integer i = 0;

@@ -11,12 +11,12 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 
 public class PredictCampaignTest {
-    String logIn, body, endpoint, predict;
+    String logIn, body, campaigns, predict;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        endpoint = new EndPoints().getCampaigns();
+        campaigns = new EndPoints().getCampaigns();
         body = new EditCampaignParams().getCampaignNoSPK();
         predict = new EndPoints().getPredict();
     }
@@ -28,8 +28,6 @@ public class PredictCampaignTest {
         given()
                 .cookie("JSESSIONID", logIn)
                 .when()
-                .get(endpoint + campaign.getId() + predict)
-                .then().statusCode(200)
-                .extract().response();
+                .get(campaigns + campaign.getId() + predict);
     }
 }

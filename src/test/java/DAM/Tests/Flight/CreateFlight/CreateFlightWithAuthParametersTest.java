@@ -36,7 +36,7 @@ public class CreateFlightWithAuthParametersTest {
                 .body(body)
                 .when()
                 .post(flights + id + segmentSocial)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         List<String> specialParams = response.path("specialParams");

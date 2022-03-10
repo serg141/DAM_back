@@ -33,7 +33,7 @@ public class PutSocialPredictByFlightTest {
                 .body(body)
                 .when()
                 .put(flights + id + segmentSocial + predict)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         Integer i = 10000000;

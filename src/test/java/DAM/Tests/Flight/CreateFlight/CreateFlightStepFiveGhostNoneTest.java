@@ -16,15 +16,18 @@ import static org.junit.Assert.assertEquals;
 
 public class CreateFlightStepFiveGhostNoneTest {
     String logIn, flights, id, creative, body, placementId;
+    LinkedHashMap<String, Object> test;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
         id = new GetPlacementId().getId();
-        flights = new EndPoints().getFlights();
-        creative = new EndPoints().getCreative();
         body = new CreateFlightStepFiveGhost().getFlightHideableTypeNone();
         placementId = new GetPlacementId().getPlacementId();
+
+        flights = new EndPoints().getFlights();
+        creative = new EndPoints().getCreative();
+        test = new EndPoints().getTest();
     }
 
     @Test
@@ -35,38 +38,37 @@ public class CreateFlightStepFiveGhostNoneTest {
                 .queryParam("placementId", placementId)
                 .when()
                 .post(flights + id + creative)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
-        LinkedHashMap<String,Object> pages = response.path("pages[0]");
-        LinkedHashMap<String,Object> elementImage = response.path("pages[0].elements[0]");
-        LinkedHashMap<String,Object> elementHeading = response.path("pages[0].elements[1]");
-        LinkedHashMap<String,Object> elementDescription = response.path("pages[0].elements[2]");
-        LinkedHashMap<String,Object> elementBlock = response.path("pages[0].elements[3]");
+        test = response.path("pages[0]");
+        assertEquals(1, test.get("page"));
+        assertEquals("1", test.get("pageName"));
+        assertEquals("7f2db9fd-d6b4-4174-8bc6-24db0e3e521e", test.get("templateId"));
+        assertEquals(false, test.get("showCross"));
+        assertEquals("NONE", test.get("hideableType"));
 
-        assertEquals(1, pages.get("page"));
-        assertEquals("1", pages.get("pageName"));
-        assertEquals("7f2db9fd-d6b4-4174-8bc6-24db0e3e521e", pages.get("templateId"));
-        assertEquals(false, pages.get("showCross"));
-        assertEquals("NONE", pages.get("hideableType"));
-
+        test = response.path("pages[0].elements[0]");
         assertEquals("https://core-cms-backend.dso-core.apps.d0-oscp.corp.dev.vtb/projects/dam/files/597733151_33.png",
-                elementImage.get("url"));
-        assertEquals("image", elementImage.get("elementId"));
-        assertEquals("IMAGE", elementImage.get("type"));
+                test.get("url"));
+        assertEquals("image", test.get("elementId"));
+        assertEquals("IMAGE", test.get("type"));
         assertEquals("2", response.path("pages[0].elements[0].link.linkAddress"));
         assertEquals("INTERNAL", response.path("pages[0].elements[0].link.linkType"));
 
-        assertEquals("Заголовок", elementHeading.get("value"));
-        assertEquals("heading", elementHeading.get("elementId"));
-        assertEquals("TEXT", elementHeading.get("type"));
+        test = response.path("pages[0].elements[1]");
+        assertEquals("Заголовок", test.get("value"));
+        assertEquals("heading", test.get("elementId"));
+        assertEquals("TEXT", test.get("type"));
 
-        assertEquals("Описание", elementDescription.get("value"));
-        assertEquals("description", elementDescription.get("elementId"));
-        assertEquals("TEXT", elementDescription.get("type"));
+        test = response.path("pages[0].elements[2]");
+        assertEquals("Описание", test.get("value"));
+        assertEquals("description", test.get("elementId"));
+        assertEquals("TEXT", test.get("type"));
 
-        assertEquals("body", elementBlock.get("elementId"));
-        assertEquals("BLOCK", elementBlock.get("type"));
+        test = response.path("pages[0].elements[3]");
+        assertEquals("body", test.get("elementId"));
+        assertEquals("BLOCK", test.get("type"));
         assertEquals("2", response.path("pages[0].elements[3].link.linkAddress"));
         assertEquals("INTERNAL", response.path("pages[0].elements[3].link.linkType"));
         assertEquals("TIFFANY", response.path("pages[0].elements[3].style.code"));

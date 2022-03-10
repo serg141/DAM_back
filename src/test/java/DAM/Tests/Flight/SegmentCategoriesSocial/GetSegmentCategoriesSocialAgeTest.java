@@ -28,7 +28,7 @@ public class GetSegmentCategoriesSocialAgeTest {
                 .queryParam("type", "SOCIAL")
                 .when()
                 .get(segmentCategories)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> age = response.path("AGE[0]");

@@ -28,7 +28,7 @@ public class GetSegmentCategoriesSocialCSVTest {
                 .queryParam("type", "SOCIAL")
                 .when()
                 .get(segmentCategories)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> csv = response.path("CSV[0]");

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DuplicateCampaignTest {
     String logIn, duplicate, campaigns;
@@ -43,12 +43,10 @@ public class DuplicateCampaignTest {
                 .when()
                 .post(campaigns + "all")
                 .then()
-                .extract().body().jsonPath().getList("Content", NewCampaign.class);
+                .extract().body().jsonPath().getList("content", NewCampaign.class);
 
         List<String> name = data.stream().map(NewCampaign::getName).collect(Collectors.toList());
 
-        for (String copyName : name) {
-            assertEquals("copy_CampaignTest", copyName);
-        }
+        assertTrue(name.get(0).contains("copy_CampaignTest"));
     }
 }

@@ -36,8 +36,24 @@ public class NewCampaign {
         return createdBy;
     }
 
-    public class Period{
+    public Period getPeriod() {
+        return period;
+    }
+
+    public ArrayList<Object> getFlights() {
+        return flights;
+    }
+
+    public static class Period{
          private long start;
          private long end;
+
+        public long getStart() {
+            return start;
+        }
+
+        public long getEnd() {
+            return end;
+        }
     }
 }

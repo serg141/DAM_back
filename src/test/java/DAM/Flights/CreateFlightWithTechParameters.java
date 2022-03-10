@@ -16,7 +16,7 @@ public class CreateFlightWithTechParameters {
 
         String flights = new EndPoints().getFlights();
         String body = new CreateFlightStepFourTechParams().getFlightWithParameters();
-        String segmentsTech = new EndPoints().getSegmentsTech();
+        String segmentsTech = new EndPoints().getSegmentTech();
 
         given()
                 .cookie("JSESSIONID", logIn)

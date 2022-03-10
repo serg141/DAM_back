@@ -33,7 +33,7 @@ public class GetPlacementTest {
                 .cookie("JSESSIONID", logIn)
                 .when()
                 .get(flights + id + placement)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> locations = response.path("locations[0]");

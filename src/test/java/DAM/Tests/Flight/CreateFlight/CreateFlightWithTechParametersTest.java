@@ -25,7 +25,7 @@ public class CreateFlightWithTechParametersTest {
         body2 = new CreateFlightStepFourTechParams().getFlightWithParameters();
 
         flights = new EndPoints().getFlights();
-        segmentTech = new EndPoints().getSegmentsTech();
+        segmentTech = new EndPoints().getSegmentTech();
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CreateFlightWithTechParametersTest {
                 .body(body1)
                 .when()
                 .post(flights + id + segmentTech)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> selections0 = response.path("selections[0]");
@@ -56,7 +56,7 @@ public class CreateFlightWithTechParametersTest {
                 .body(body2)
                 .when()
                 .post(flights + id + segmentTech)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> selections0 = response.path("selections[0]");

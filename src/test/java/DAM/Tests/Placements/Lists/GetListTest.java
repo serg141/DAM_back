@@ -21,7 +21,6 @@ public class GetListTest {
        given()
                 .cookie("JSESSIONID", logIn)
                 .when()
-                .get(lists)
-                .then().statusCode(200);
+                .get(lists);
     }
 }

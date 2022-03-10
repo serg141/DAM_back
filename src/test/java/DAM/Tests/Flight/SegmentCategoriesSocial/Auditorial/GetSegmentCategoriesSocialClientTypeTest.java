@@ -28,7 +28,7 @@ public class GetSegmentCategoriesSocialClientTypeTest {
                 .queryParam("type", "SOCIAL")
                 .when()
                 .get(segmentCategories)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> vtbEmployee = response.path("AUDITORIAL[2].segments[0]");

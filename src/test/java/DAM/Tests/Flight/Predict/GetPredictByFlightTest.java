@@ -29,7 +29,7 @@ public class GetPredictByFlightTest {
                 .cookie("JSESSIONID", logIn)
                 .when()
                 .get(flights + id + predict)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         Integer i = 1;

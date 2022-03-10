@@ -11,10 +11,12 @@ public class CreateFlightStepOneParams {
     final JSONObject frequency = new JSONObject();
 
     public CreateFlightStepOneParams() throws JSONException {
-        Long start = new GetDate().getPlusOneDay();
+        Long start = new GetDate().getCurrentDate();
+        Long end = new GetDate().getPlusOneMonth();
         String campaignId = new CreateCampaignForFlight().getId();
 
         period.put("start", start);
+        period.put("end", end);
 
         frequency.put("term", "DAILY");
         frequency.put("value", 1);

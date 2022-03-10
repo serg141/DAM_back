@@ -24,7 +24,7 @@ public class GetSegmentsTechTest {
         body = new CreateFlightStepFourTechParams().getFlightWithParameters();
 
         flights = new EndPoints().getFlights();
-        segmentsTech = new EndPoints().getSegmentsTech();
+        segmentsTech = new EndPoints().getSegmentTech();
     }
 
     @Test
@@ -33,7 +33,7 @@ public class GetSegmentsTechTest {
                 .cookie("JSESSIONID", logIn)
                 .when()
                 .get(flights + id + segmentsTech)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> selections0 = response.path("selections[0]");

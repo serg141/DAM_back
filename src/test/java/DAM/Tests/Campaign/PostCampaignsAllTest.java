@@ -26,7 +26,6 @@ public class PostCampaignsAllTest {
                 .queryParam("sortBy", "modifiedTime")
                 .queryParam("sortDirection", "DESC")
                 .when()
-                .post(campaigns + "all")
-                .then().statusCode(200);
+                .post(campaigns + "all");
     }
 }

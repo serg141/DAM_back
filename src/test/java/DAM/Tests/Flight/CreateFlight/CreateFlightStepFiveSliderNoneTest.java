@@ -35,7 +35,7 @@ public class CreateFlightStepFiveSliderNoneTest {
                 .queryParam("placementId", placementId)
                 .when()
                 .post(flights + id + creative)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> pages = response.path("pages[0]");

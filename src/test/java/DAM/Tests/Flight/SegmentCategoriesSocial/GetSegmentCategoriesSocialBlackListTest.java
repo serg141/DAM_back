@@ -28,7 +28,7 @@ public class GetSegmentCategoriesSocialBlackListTest {
                 .queryParam("type", "SOCIAL")
                 .when()
                 .get(segmentCategories)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> blackList = response.path("BLACKLIST[0]");

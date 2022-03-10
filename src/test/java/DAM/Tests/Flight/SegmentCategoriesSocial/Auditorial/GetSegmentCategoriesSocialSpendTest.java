@@ -28,7 +28,7 @@ public class GetSegmentCategoriesSocialSpendTest {
                 .queryParam("type", "SOCIAL")
                 .when()
                 .get(segmentCategories)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> segmentEduSP = response.path("AUDITORIAL[0].segments[0]");
