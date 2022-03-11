@@ -2,7 +2,7 @@ package DAM.Lists;
 
 import DAM.EndPoints;
 import DAM.LogIn;
-import DAM.Parametrs.Lists.CreateBulletedList;
+import DAM.Parametrs.Placements.Lists.CreateBulletedList;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONException;

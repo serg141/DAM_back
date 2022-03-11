@@ -16,15 +16,19 @@ import static org.junit.Assert.assertEquals;
 
 public class CreateFlightStepFiveGhostWithOutPollingTest {
     String logIn, flights, id, creative, body, placementId;
+    String[] ids;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new GetPlacementId().getId();
+        body = new CreateFlightStepFiveGhost().getFlightHideableTypeWithOutPolling();
+
+        ids = new GetPlacementId().getId();
+        id = ids[0];
+        placementId = ids[1];
+
         flights = new EndPoints().getFlights();
         creative = new EndPoints().getCreative();
-        body = new CreateFlightStepFiveGhost().getFlightHideableTypeWithOutPolling();
-        placementId = new GetPlacementId().getPlacementId();
     }
 
     @Test
@@ -46,7 +50,6 @@ public class CreateFlightStepFiveGhostWithOutPollingTest {
 
         assertEquals(1, pages.get("page"));
         assertEquals("1", pages.get("pageName"));
-        assertEquals("7f2db9fd-d6b4-4174-8bc6-24db0e3e521e", pages.get("templateId"));
         assertEquals(true, pages.get("showCross"));
         assertEquals("CROSS_WITHOUT_POLLING", pages.get("hideableType"));
 

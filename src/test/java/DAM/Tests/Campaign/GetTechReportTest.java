@@ -11,8 +11,8 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class DeleteCampaignTest {
-    String logIn, campaigns, campaignId;
+public class GetTechReportTest {
+    String logIn, campaigns, campaignId, techReport;
 
     @Before
     public void getEndpoint() throws JSONException {
@@ -20,22 +20,21 @@ public class DeleteCampaignTest {
         campaignId = new CreateCampaignForFlight().getId();
 
         campaigns = new EndPoints().getCampaigns();
+        techReport = new EndPoints().getTechReport();
     }
 
     @Test
     public void getTechReport() {
-        given()
-                .cookie("JSESSIONID", logIn)
-                .when()
-                .delete(campaigns + campaignId);
-
         Response response = given()
                 .cookie("JSESSIONID", logIn)
                 .when()
-                .get(campaigns + campaignId)
+                .get(campaigns + campaignId + techReport)
                 .then()
                 .extract().response();
 
-        assertEquals("REMOVED", response.path("status"));
+        Integer i = 0;
+        assertEquals("circle", response.path("items[0].chartType"));
+        assertEquals(i, response.path("items[0].order"));
+        assertEquals("Каналы", response.path("items[0].title"));
     }
 }

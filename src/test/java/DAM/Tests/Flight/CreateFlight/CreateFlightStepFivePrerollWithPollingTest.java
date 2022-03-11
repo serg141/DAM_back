@@ -16,15 +16,19 @@ import static org.junit.Assert.assertEquals;
 
 public class CreateFlightStepFivePrerollWithPollingTest {
     String logIn, flights, id, creative, body, placementId;
+    String[] ids;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new GetPlacementId().getId();
+        body = new CreateFlightStepFivePreroll().getFlightHideableTypeWithPolling();
+
+        ids = new GetPlacementId().getId();
+        id = ids[0];
+        placementId = ids[1];
+
         flights = new EndPoints().getFlights();
         creative = new EndPoints().getCreative();
-        body = new CreateFlightStepFivePreroll().getFlightHideableTypeWithPolling();
-        placementId = new GetPlacementId().getPlacementId();
     }
 
     @Test
@@ -46,7 +50,6 @@ public class CreateFlightStepFivePrerollWithPollingTest {
 
         assertEquals(1, pages.get("page"));
         assertEquals("1", pages.get("pageName"));
-        assertEquals("16bcdc2d-21e4-4f0c-a1e2-a3e53e755b1c", pages.get("templateId"));
         assertEquals(true, pages.get("showCross"));
         assertEquals("CROSS_WITH_POLLING", pages.get("hideableType"));
 

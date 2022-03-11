@@ -16,15 +16,19 @@ import static org.junit.Assert.assertEquals;
 
 public class CreateFlightStepFiveSliderNoneTest {
     String logIn, flights, id, creative, body, placementId;
+    String[] ids;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new GetPlacementId().getId();
+        body = new CreateFlightStepFiveSlider().getFlightHideableTypeNone();
+
+        ids = new GetPlacementId().getId();
+        id = ids[0];
+        placementId = ids[1];
+
         flights = new EndPoints().getFlights();
         creative = new EndPoints().getCreative();
-        body = new CreateFlightStepFiveSlider().getFlightHideableTypeNone();
-        placementId = new GetPlacementId().getPlacementId();
     }
 
     @Test
@@ -48,7 +52,6 @@ public class CreateFlightStepFiveSliderNoneTest {
 
         assertEquals(1, pages.get("page"));
         assertEquals("1", pages.get("pageName"));
-        assertEquals("772c92df-96aa-4527-a015-0e64d53cca1f", pages.get("templateId"));
         assertEquals(false, pages.get("showCross"));
         assertEquals("NONE", pages.get("hideableType"));
 

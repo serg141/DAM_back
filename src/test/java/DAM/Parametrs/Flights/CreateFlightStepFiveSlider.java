@@ -1,5 +1,6 @@
 package DAM.Parametrs.Flights;
 
+import DAM.Parametrs.Placements.GetTemplate;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,6 +21,8 @@ public class CreateFlightStepFiveSlider {
     final JSONObject button = new JSONObject();
 
     public CreateFlightStepFiveSlider() throws JSONException {
+        String sliderTemplate = new GetTemplate().getTemplateSlider();
+
         link.put("linkAddress", "2");
         link.put("linkType", "DEEPLINK");
 
@@ -55,21 +58,21 @@ public class CreateFlightStepFiveSlider {
         page1.put("pageName", 1);
         page1.put("showCross", false);
         page1.put("hideableType", "NONE");
-        page1.put("templateId", "772c92df-96aa-4527-a015-0e64d53cca1f");
+        page1.put("templateId", sliderTemplate);
         page1.put("elements", elements);
 
         page2.put("page", 1);
         page2.put("pageName", 1);
         page2.put("showCross", true);
         page2.put("hideableType", "CROSS_WITHOUT_POLLING");
-        page2.put("templateId", "772c92df-96aa-4527-a015-0e64d53cca1f");
+        page2.put("templateId", sliderTemplate);
         page2.put("elements", elements);
 
         page3.put("page", 1);
         page3.put("pageName", 1);
         page3.put("showCross", true);
         page3.put("hideableType", "CROSS_WITH_POLLING");
-        page3.put("templateId", "772c92df-96aa-4527-a015-0e64d53cca1f");
+        page3.put("templateId", sliderTemplate);
         page3.put("elements", elements);
 
         JSONArray pageNone = new JSONArray();

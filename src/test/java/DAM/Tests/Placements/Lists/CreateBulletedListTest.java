@@ -2,7 +2,7 @@ package DAM.Tests.Placements.Lists;
 
 import DAM.EndPoints;
 import DAM.LogIn;
-import DAM.Parametrs.Lists.CreateBulletedList;
+import DAM.Parametrs.Placements.Lists.CreateBulletedList;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.Before;

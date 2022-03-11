@@ -16,14 +16,17 @@ import static org.junit.Assert.assertEquals;
 
 public class CreateFlightStepFiveGhostNoneTest {
     String logIn, flights, id, creative, body, placementId;
+    String[] ids;
     LinkedHashMap<String, Object> test;
 
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new GetPlacementId().getId();
         body = new CreateFlightStepFiveGhost().getFlightHideableTypeNone();
-        placementId = new GetPlacementId().getPlacementId();
+
+        ids = new GetPlacementId().getId();
+        id = ids[0];
+        placementId = ids[1];
 
         flights = new EndPoints().getFlights();
         creative = new EndPoints().getCreative();
@@ -44,7 +47,6 @@ public class CreateFlightStepFiveGhostNoneTest {
         test = response.path("pages[0]");
         assertEquals(1, test.get("page"));
         assertEquals("1", test.get("pageName"));
-        assertEquals("7f2db9fd-d6b4-4174-8bc6-24db0e3e521e", test.get("templateId"));
         assertEquals(false, test.get("showCross"));
         assertEquals("NONE", test.get("hideableType"));
 

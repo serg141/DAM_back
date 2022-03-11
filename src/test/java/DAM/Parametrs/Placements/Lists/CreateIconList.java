@@ -1,4 +1,4 @@
-package DAM.Parametrs.Lists;
+package DAM.Parametrs.Placements.Lists;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -7,6 +7,7 @@ import java.util.LinkedHashMap;
 @Data
 public final class EndPoints {
     private final String campaigns;
+    private final String channels;
     private final String checkCSV;
     private final String creative;
     private final String csvSegment;
@@ -17,6 +18,7 @@ public final class EndPoints {
     private final String login;
     private final String logout;
     private final String me;
+    private final String notifications;
     private final String placement;
     private final String predict;
     private final String role;
@@ -24,9 +26,14 @@ public final class EndPoints {
     private final String segmentCategories;
     private final String segmentSocial;
     private final String segmentTech;
-    private final String users;
+    private final String summary;
     private final String teams;
+    private final String techReport;
+    private final String template;
+    private final String users;
     private final LinkedHashMap<String,Object> test;
+
+    private String id;
 
     public EndPoints() {
         login = "/login";
@@ -50,5 +57,10 @@ public final class EndPoints {
         role = "/role";
         teams = "/teams";
         reactivate = "/support/flights/reactivate";
+        techReport = "/tech-report";
+        notifications = "/notifications";
+        summary = "/summary";
+        channels = "/channels";
+        template = "/templates";
     }
 }

@@ -1,5 +1,6 @@
 package DAM.Parametrs.Flights;
 
+import DAM.Parametrs.Placements.GetTemplate;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +19,8 @@ public class CreateFlightStepFiveGhost {
     final JSONObject link = new JSONObject();
 
     public CreateFlightStepFiveGhost() throws JSONException {
+        String ghostTemplate = new GetTemplate().getTemplateGhost();
+
         link.put("linkAddress", "2");
         link.put("linkType", "INTERNAL");
 
@@ -47,21 +50,21 @@ public class CreateFlightStepFiveGhost {
         page1.put("pageName", 1);
         page1.put("showCross", false);
         page1.put("hideableType", "NONE");
-        page1.put("templateId", "7f2db9fd-d6b4-4174-8bc6-24db0e3e521e");
+        page1.put("templateId", ghostTemplate);
         page1.put("elements", elements);
 
         page2.put("page", 1);
         page2.put("pageName", 1);
         page2.put("showCross", true);
         page2.put("hideableType", "CROSS_WITHOUT_POLLING");
-        page2.put("templateId", "7f2db9fd-d6b4-4174-8bc6-24db0e3e521e");
+        page2.put("templateId", ghostTemplate);
         page2.put("elements", elements);
 
         page3.put("page", 1);
         page3.put("pageName", 1);
         page3.put("showCross", true);
         page3.put("hideableType", "CROSS_WITH_POLLING");
-        page3.put("templateId", "7f2db9fd-d6b4-4174-8bc6-24db0e3e521e");
+        page3.put("templateId", ghostTemplate);
         page3.put("elements", elements);
 
         JSONArray pageNone = new JSONArray();

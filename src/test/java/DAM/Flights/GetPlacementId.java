@@ -11,8 +11,10 @@ import static io.restassured.RestAssured.given;
 
 public class GetPlacementId {
     String placementId, id;
+    String[] ids;
 
     public GetPlacementId() throws JSONException {
+        ids = new String[2];
         String logIn = new LogIn().logIn();
         String flights = new EndPoints().getFlights();
         String creative = new EndPoints().getCreative();
@@ -23,16 +25,20 @@ public class GetPlacementId {
                 .cookie("JSESSIONID", logIn)
                 .when()
                 .get(flights + id + creative)
-                .then().statusCode(200)
+                .then()
                 .extract().response();
 
         LinkedHashMap<String,Object> nodes = response.path("nodes[0]");
 
         placementId = nodes.get("placementId").toString();
+
+        ids[0] = id;
+        ids[1] = placementId;
+
     }
 
-    public String getId() {
-        return id;
+    public String[] getId() {
+        return ids;
     }
 
     public String getPlacementId() {
