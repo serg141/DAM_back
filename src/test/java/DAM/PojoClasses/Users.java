@@ -1,4 +1,4 @@
-package DAM.Filters;
+package DAM.PojoClasses;
 
 import java.util.ArrayList;
 import java.util.Date;

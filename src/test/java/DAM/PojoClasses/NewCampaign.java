@@ -1,4 +1,4 @@
-package DAM.Campaigns;
+package DAM.PojoClasses;
 
 import java.util.ArrayList;
 

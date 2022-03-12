@@ -1,7 +1,7 @@
 package DAM.Tests.Campaign;
 
 import DAM.Campaigns.CreateCampaign;
-import DAM.Campaigns.NewCampaign;
+import DAM.PojoClasses.NewCampaign;
 import DAM.EndPoints;
 import DAM.LogIn;
 import org.json.JSONException;

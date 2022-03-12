@@ -1,6 +1,6 @@
 package DAM.Tests.Filters;
 
-import DAM.Campaigns.Content;
+import DAM.PojoClasses.Content;
 import DAM.EndPoints;
 import DAM.LogIn;
 import DAM.Parametrs.Filters.FiltersParams;

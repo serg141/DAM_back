@@ -18,6 +18,12 @@ public final class EndPoints {
     private final String login;
     private final String logout;
     private final String me;
+    private final String moderation;
+    private final String moderationApprove;
+    private final String moderationCancel;
+    private final String moderationComments;
+    private final String moderationDecline;
+    private final String moderationStart;
     private final String notifications;
     private final String placement;
     private final String predict;
@@ -62,5 +68,11 @@ public final class EndPoints {
         summary = "/summary";
         channels = "/channels";
         template = "/templates";
+        moderation = "moderation";
+        moderationStart = "/moderation/start";
+        moderationCancel = "/moderation/cancel";
+        moderationApprove = "/moderation/approve";
+        moderationDecline = "/moderation/decline";
+        moderationComments = "/moderation/comments";
     }
 }

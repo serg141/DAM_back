@@ -1,4 +1,4 @@
-package DAM.autorization;
+package DAM.Parametrs.autorization;
 
 import lombok.Data;
 

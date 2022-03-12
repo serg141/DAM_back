@@ -2,7 +2,7 @@ package DAM.Tests.Autorization;
 
 import DAM.EndPoints;
 import DAM.Specification;
-import DAM.autorization.UserLogin;
+import DAM.Parametrs.autorization.UserLogin;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.Before;

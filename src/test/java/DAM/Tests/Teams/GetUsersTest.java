@@ -1,7 +1,7 @@
 package DAM.Tests.Teams;
 
 import DAM.EndPoints;
-import DAM.Filters.Users;
+import DAM.PojoClasses.Users;
 import DAM.LogIn;
 import org.json.JSONException;
 import org.junit.Before;
@@ -36,7 +36,8 @@ public class GetUsersTest {
         List<String> fullName = user.stream().map(Users::getFullName).collect(Collectors.toList());
         List<String> role = user.stream().map(Users::getRole).collect(Collectors.toList());
 
-        for (int i = 0; i < login.size(); i++) {
+        int i = 0;
+        while (i < login.size()) {
             assertTrue(fullName.get(i).contains("Камынин Сергей Игоревич"));
             assertTrue(role.get(i).contains("REDACTOR"));
             assertTrue(login.get(i).contains("vtb4040204@corp.dev.vtb"));

@@ -1,6 +1,6 @@
 package DAM.Tests.Filters;
 
-import DAM.Campaigns.AllCampaignsByCreatorId;
+import DAM.PojoClasses.AllCampaignsByCreatorId;
 import DAM.EndPoints;
 import DAM.LogIn;
 import io.restassured.response.Response;
