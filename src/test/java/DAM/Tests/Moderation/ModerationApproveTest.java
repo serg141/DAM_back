@@ -11,7 +11,6 @@ import static io.restassured.RestAssured.given;
 
 public class ModerationApproveTest {
     String logIn, moderationStart, moderationApprove, id, flights;
-    String[] idList;
 
     @Before
     public void getEndpoint() throws JSONException, InterruptedException {

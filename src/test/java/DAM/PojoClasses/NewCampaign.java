@@ -6,6 +6,7 @@ public class NewCampaign {
     private String id;
     private String name;
     private int priority;
+    private Stats stats;
     private Period period;
     private String status;
     private String type;
@@ -40,6 +41,10 @@ public class NewCampaign {
         return period;
     }
 
+    public Stats getStats() {
+        return stats;
+    }
+
     public ArrayList<Object> getFlights() {
         return flights;
     }
@@ -54,6 +59,29 @@ public class NewCampaign {
 
         public long getEnd() {
             return end;
+        }
+    }
+
+    public static class Stats {
+        private Integer  reach;
+        private Integer impressions;
+        private Integer clicks;
+        private double ctr;
+
+        public Integer getReach() {
+            return reach;
+        }
+
+        public Integer getImpressions() {
+            return impressions;
+        }
+
+        public Integer getClicks() {
+            return clicks;
+        }
+
+        public double getCtr() {
+            return ctr;
         }
     }
 }

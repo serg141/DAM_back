@@ -8,14 +8,36 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import lombok.Data;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+
 @Data
 public class Specification {
     private String login;
     private String pass;
 
+    static String logIn = new LogIn().logIn();
+
     public static RequestSpecification requestSpec() {
         String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb";
         return new RequestSpecBuilder()
+                .setBaseUri(url)
+                .setContentType(ContentType.JSON)
+                .build();
+    }
+
+    public static RequestSpecification requestSpecNew() {
+        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/";
+        return new RequestSpecBuilder()
+                .setSessionId("JSESSIONID", logIn)
+                .setBaseUri(url)
+                .setContentType(ContentType.JSON)
+                .build();
+    }
+
+    public static RequestSpecification requestSpecLogIn() {
+        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/";
+        return new RequestSpecBuilder()
+                .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
                 .setContentType(ContentType.JSON)
                 .build();
@@ -30,6 +52,21 @@ public class Specification {
     public static ResponseSpecification responseSpec401() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(401)
+                .build();
+    }
+
+    public static ResponseSpecification responseSpec405() {
+        return new ResponseSpecBuilder()
+                .expectStatusCode(405)
+                .build();
+    }
+
+    public static ResponseSpecification responseCreateCampaign() {
+        return new ResponseSpecBuilder()
+                .expectStatusCode(200)
+                .expectContentType(ContentType.JSON)
+                .expectBody("status", equalTo("DRAFT"))
+                .expectBody("createdBy", equalTo("Камынин Сергей Игоревич"))
                 .build();
     }
 

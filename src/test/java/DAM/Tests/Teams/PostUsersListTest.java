@@ -1,6 +1,7 @@
 package DAM.Tests.Teams;
 
 import DAM.EndPoints;
+import DAM.Specification;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,9 +22,12 @@ public class PostUsersListTest {
     @Test
     public void getUsersList() {
         given()
+                .spec(Specification.requestSpec())
                 .cookie("JSESSIONID", logIn)
                 .when()
                 .post(users + list)
-                .then().statusCode(405);
+                .then()
+                .spec(Specification.responseSpec405());
+                //.then().statusCode(405);
     }
 }

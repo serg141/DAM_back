@@ -1,9 +1,6 @@
 package DAM.Tests.Campaign;
 
-import DAM.Campaigns.CreateCampaign;
-import DAM.EndPoints;
-import DAM.LogIn;
-import DAM.Parametrs.Campaign.EditCampaignParams;
+import DAM.Campaigns.GetCampaignById;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,23 +8,17 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 
 public class PredictCampaignTest {
-    String logIn, body, campaigns, predict;
+    String[] id;
 
     @Before
     public void getEndpoint() throws JSONException {
-        logIn = new LogIn().logIn();
-        campaigns = new EndPoints().getCampaigns();
-        body = new EditCampaignParams().getCampaignNoSPK();
-        predict = new EndPoints().getPredict();
+        id = new GetCampaignById().getCampaign();
     }
 
     @Test
-    public void deleteCampaign() throws JSONException {
-        CreateCampaign campaign = new CreateCampaign();
-
+    public void getPredictCampaign() {
         given()
-                .cookie("JSESSIONID", logIn)
                 .when()
-                .get(campaigns + campaign.getId() + predict);
+                .get(id[2]);
     }
 }
