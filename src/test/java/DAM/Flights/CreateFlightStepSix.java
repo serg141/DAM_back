@@ -1,35 +1,38 @@
 package DAM.Flights;
 
-import DAM.EndPoints;
-import DAM.LogIn;
-import DAM.Parametrs.Flights.CreateFlightStepFivePreroll;
+import io.restassured.response.Response;
 import org.json.JSONException;
 
 import static io.restassured.RestAssured.given;
 
 public class CreateFlightStepSix {
-    String id, logIn, flights, creative, body, placementId;
-    String[] ids;
+    String[] flightStepSix;
 
     public CreateFlightStepSix() throws JSONException {
-        logIn = new LogIn().logIn();
-        ids = new GetPlacementId().getId();
-        id = ids[0];
-        placementId = ids[1];
-        body = new CreateFlightStepFivePreroll().getFlightHideableTypeNone();
+        flightStepSix = new String[13];
+        String id = new CreateFlightStepFivePrerollNone().getFlightStepFivePrerollNone()[21];
+        Response response = given().when().get(id + "/summary").then().extract().response();
 
-        flights = new EndPoints().getFlights();
-        creative = new EndPoints().getCreative();
-
-        given()
-                .cookie("JSESSIONID", logIn)
-                .body(body)
-                .queryParam("placementId", placementId)
-                .when()
-                .post(flights + id + creative);
+        if(response.path("socialSegmentsInfo.auditorial.extendedDescription[0].children[0].include")) {
+            if(response.path("techSegmentsInfo.arInfo")) {
+                flightStepSix[0] = response.path("basicInfo.name");
+                flightStepSix[1] = response.path("basicInfo.frequency.term");
+                flightStepSix[2] = response.path("placementInfo.channelName");
+                flightStepSix[3] = response.path("placementInfo.places[0].locationName");
+                flightStepSix[4] = response.path("placementInfo.places[0].positionName");
+                flightStepSix[5] = response.path("placementInfo.places[0].formatName");
+                flightStepSix[6] = response.path("socialSegmentsInfo.auditorial.shortDescription");
+                flightStepSix[7] = response.path("socialSegmentsInfo.auditorial.extendedDescription[0].name");
+                flightStepSix[8] = response.path("socialSegmentsInfo.auditorial.extendedDescription[0].children[0].name");
+                flightStepSix[9] = response.path("techSegmentsInfo.appInfo[0].os");
+                flightStepSix[10] = response.path("techSegmentsInfo.appInfo[0].versionsInclude.fromAppVer");
+                flightStepSix[11] = response.path("techSegmentsInfo.appInfo[0].versionsInclude.toAppVer");
+                flightStepSix[12] = response.path("techSegmentsInfo.appInfo[0].versionsExclude");
+            }
+        }
     }
 
-    public String getId() {
-        return id;
+    public String[] getFlightStepSix() {
+        return flightStepSix;
     }
 }

@@ -1,7 +1,6 @@
 package DAM.Tests.Flight;
 
 import DAM.EndPoints;
-import DAM.Flights.CreateFlightWithAuthParameters;
 import DAM.LogIn;
 import DAM.Parametrs.Flights.CreateFlightStepThreeSocialParams;
 import io.restassured.response.Response;
@@ -22,7 +21,7 @@ public class GetSegmentsSocialTest {
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new CreateFlightWithAuthParameters().getId();
+        //id = new CreateFlightWithAuthParameters().getId();
         body = new CreateFlightStepThreeSocialParams().getFlight();
 
         flights = new EndPoints().getFlights();

@@ -1,7 +1,6 @@
 package DAM.Tests.Flight;
 
 import DAM.EndPoints;
-import DAM.Flights.CreateFlightStepTwo;
 import DAM.LogIn;
 import DAM.Parametrs.Flights.CreateFlightStepTwoParams;
 import io.restassured.response.Response;
@@ -20,7 +19,7 @@ public class GetPlacementTest {
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new CreateFlightStepTwo().getId();
+        //id = new CreateFlightStepTwo().getId();
 
         flights = new EndPoints().getFlights();
         body = new CreateFlightStepTwoParams().getFlight();

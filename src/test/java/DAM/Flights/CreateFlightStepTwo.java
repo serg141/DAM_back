@@ -1,32 +1,43 @@
 package DAM.Flights;
 
-import DAM.EndPoints;
-import DAM.LogIn;
 import DAM.Parametrs.Flights.CreateFlightStepTwoParams;
+import io.restassured.response.Response;
 import org.json.JSONException;
+
+import java.util.LinkedHashMap;
 
 import static io.restassured.RestAssured.given;
 
 public class CreateFlightStepTwo {
-    String id;
+    String[] flightStepTwo;
 
     public CreateFlightStepTwo() throws JSONException {
-        String logIn = new LogIn().logIn();
-        id = new CreateFlightStepOne().getId();
-
-        String flights = new EndPoints().getFlights();
+        flightStepTwo = new String[9];
+        String id = new CreateFlightStepOne().getFlightStepOne()[5];
         String body = new CreateFlightStepTwoParams().getFlight();
-        String placement = new EndPoints().getPlacement();
 
-        given()
-                .cookie("JSESSIONID", logIn)
+        Response response = given()
                 .body(body)
                 .when()
-                .post(flights + id + placement)
-                .then().statusCode(200);
+                .post(id + "/placement/")
+                .then().extract().response();
+
+        LinkedHashMap<String,Object> locations = response.path("locations[0]");
+        LinkedHashMap<String,Object> positions = response.path("locations[0].positions[0]");
+        LinkedHashMap<String,Object> formats = response.path("locations[0].positions[0].formats[0]");
+
+        flightStepTwo[0] = response.path("name");
+        flightStepTwo[1] = response.path("code");
+        flightStepTwo[2] = locations.get("name").toString();
+        flightStepTwo[3] = locations.get("code").toString();
+        flightStepTwo[4] = positions.get("name").toString();
+        flightStepTwo[5] = positions.get("code").toString();
+        flightStepTwo[6] = formats.get("name").toString();
+        flightStepTwo[7] = formats.get("code").toString();
+        flightStepTwo[8] = id;
     }
 
-    public String getId() {
-        return id;
+    public String[] getFlightStepTwo() {
+        return flightStepTwo;
     }
 }

@@ -34,6 +34,27 @@ public class Specification {
                 .build();
     }
 
+    public static RequestSpecification requestFlight() {
+        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/flights/";
+        return new RequestSpecBuilder()
+                .setSessionId("JSESSIONID", logIn)
+                .setBaseUri(url)
+                .setContentType(ContentType.JSON)
+                .build();
+    }
+
+    public static RequestSpecification requestFilter() {
+        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/all";
+        return new RequestSpecBuilder()
+                .setSessionId("JSESSIONID", logIn)
+                .setBaseUri(url)
+                .setContentType(ContentType.JSON)
+                .addQueryParam("pageSize", 100)
+                .addQueryParam("sortBy", "modifiedTime")
+                .addQueryParam("sortDirection", "DESC")
+                .build();
+    }
+
     public static RequestSpecification requestSpecLogIn() {
         String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/";
         return new RequestSpecBuilder()

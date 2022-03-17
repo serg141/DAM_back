@@ -1,7 +1,6 @@
 package DAM.Tests.Flight.Predict;
 
 import DAM.EndPoints;
-import DAM.Flights.CreateFlightWithAuthParameters;
 import DAM.LogIn;
 import DAM.Parametrs.Flights.PutFlightStepThreePredict;
 import io.restassured.response.Response;
@@ -18,7 +17,7 @@ public class PutSocialPredictByFlightTest {
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new CreateFlightWithAuthParameters().getId();
+        //id = new CreateFlightWithAuthParameters().getId();
         body = new PutFlightStepThreePredict().getFlight();
 
         flights = new EndPoints().getFlights();

@@ -1,7 +1,5 @@
 package DAM.Flights;
 
-import DAM.EndPoints;
-import DAM.LogIn;
 import io.restassured.response.Response;
 import org.json.JSONException;
 
@@ -15,16 +13,11 @@ public class GetPlacementId {
 
     public GetPlacementId() throws JSONException {
         ids = new String[2];
-        String logIn = new LogIn().logIn();
-        String flights = new EndPoints().getFlights();
-        String creative = new EndPoints().getCreative();
-
-        id = new CreateFlightWithTechParameters().getId();
+        String id = new CreateFlightWithTechParameters().getFlightStepFour()[6];
 
         Response response = given()
-                .cookie("JSESSIONID", logIn)
                 .when()
-                .get(flights + id + creative)
+                .get(id + "/creatives")
                 .then()
                 .extract().response();
 
@@ -37,7 +30,7 @@ public class GetPlacementId {
 
     }
 
-    public String[] getId() {
+    public String[] getIds() {
         return ids;
     }
 

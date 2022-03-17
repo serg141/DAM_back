@@ -1,7 +1,6 @@
 package DAM.Tests.Flight;
 
 import DAM.EndPoints;
-import DAM.Flights.CreateFlightWithTechParameters;
 import DAM.LogIn;
 import DAM.Parametrs.Flights.CreateFlightStepFourTechParams;
 import io.restassured.response.Response;
@@ -20,7 +19,7 @@ public class GetSegmentsTechTest {
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new CreateFlightWithTechParameters().getId();
+        //id = new CreateFlightWithTechParameters().getId();
         body = new CreateFlightStepFourTechParams().getFlightWithParameters();
 
         flights = new EndPoints().getFlights();

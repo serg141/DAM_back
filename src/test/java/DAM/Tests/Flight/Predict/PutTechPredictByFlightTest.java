@@ -1,7 +1,6 @@
 package DAM.Tests.Flight.Predict;
 
 import DAM.EndPoints;
-import DAM.Flights.CreateFlightWithTechParameters;
 import DAM.LogIn;
 import DAM.Parametrs.Flights.PutFlightStepFourPredict;
 import io.restassured.response.Response;
@@ -18,7 +17,7 @@ public class PutTechPredictByFlightTest {
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new CreateFlightWithTechParameters().getId();
+        //id = new CreateFlightWithTechParameters().getId();
         body = new PutFlightStepFourPredict().getFlight();
 
         flights = new EndPoints().getFlights();
