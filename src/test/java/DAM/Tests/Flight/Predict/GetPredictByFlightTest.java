@@ -1,17 +1,32 @@
 package DAM.Tests.Flight.Predict;
 
-import DAM.Predict.GetPredictByFlight;
+import DAM.Predict.GetPredict;
 import org.json.JSONException;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class GetPredictByFlightTest {
+    int[] predict;
+
+    @Before
+    public void GetPredict() throws JSONException {
+        predict = new GetPredict().getPredict();
+    }
 
     @Test
-    public void getPredict() throws JSONException {
-        int predict = new GetPredictByFlight().getPredict();
+    public void getPredictByFlightTest() {
+        assertEquals(1, predict[0]);
+    }
 
-        assertEquals(1, predict);
+    @Test
+    public void putSocialPredictTest() {
+        assertEquals(1, predict[1]);
+    }
+
+    @Test
+    public void putTechPredictTest() {
+        assertEquals(1, predict[2]);
     }
 }
