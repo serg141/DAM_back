@@ -1,6 +1,6 @@
 package DAM.Tests.Campaign;
 
-import DAM.Campaigns.GetCampaignById;
+import DAM.Helper.Campaigns.GetCampaignById;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;

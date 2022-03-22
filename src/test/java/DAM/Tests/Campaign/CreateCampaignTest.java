@@ -1,7 +1,7 @@
 package DAM.Tests.Campaign;
 
-import DAM.Campaigns.CreateCampaignNoSPK;
-import DAM.Campaigns.CreateCampaignSPK;
+import DAM.Helper.Campaigns.CreateCampaignNoSPK;
+import DAM.Helper.Campaigns.CreateCampaignSPK;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;

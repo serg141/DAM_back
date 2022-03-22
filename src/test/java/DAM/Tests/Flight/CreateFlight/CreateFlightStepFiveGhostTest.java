@@ -1,8 +1,8 @@
 package DAM.Tests.Flight.CreateFlight;
 
-import DAM.Flights.CreateFlightStepFiveGhostNone;
-import DAM.Flights.CreateFlightStepFiveGhostWithOutPolling;
-import DAM.Flights.CreateFlightStepFiveGhostWithPolling;
+import DAM.Helper.Flights.CreateFlightStepFiveGhostNone;
+import DAM.Helper.Flights.CreateFlightStepFiveGhostWithOutPolling;
+import DAM.Helper.Flights.CreateFlightStepFiveGhostWithPolling;
 import org.json.JSONException;
 import org.junit.Test;
 

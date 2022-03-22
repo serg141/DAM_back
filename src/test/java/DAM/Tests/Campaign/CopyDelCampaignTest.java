@@ -1,6 +1,6 @@
 package DAM.Tests.Campaign;
 
-import DAM.Campaigns.CopyDelCampaign;
+import DAM.Helper.Campaigns.CopyDelCampaign;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;

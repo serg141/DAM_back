@@ -1,6 +1,6 @@
 package DAM.Tests.Filters;
 
-import DAM.Filters.FilterByCreatorIds;
+import DAM.Helper.Filters.FilterByCreatorIds;
 import org.json.JSONException;
 import org.junit.Test;
 

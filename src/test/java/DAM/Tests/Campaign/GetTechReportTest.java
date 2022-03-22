@@ -1,6 +1,6 @@
 package DAM.Tests.Campaign;
 
-import DAM.Campaigns.GetTechReport;
+import DAM.Helper.Campaigns.GetTechReport;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;

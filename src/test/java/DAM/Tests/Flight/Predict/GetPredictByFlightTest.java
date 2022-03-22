@@ -1,6 +1,6 @@
 package DAM.Tests.Flight.Predict;
 
-import DAM.Predict.GetPredict;
+import DAM.Helper.Predict.GetPredict;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;

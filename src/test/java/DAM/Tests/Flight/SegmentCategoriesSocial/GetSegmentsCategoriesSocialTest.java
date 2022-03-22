@@ -1,6 +1,6 @@
 package DAM.Tests.Flight.SegmentCategoriesSocial;
 
-import DAM.SegmentCategories.GetSegmentCategories;
+import DAM.Helper.SegmentCategories.GetSegmentCategories;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

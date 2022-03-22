@@ -1,6 +1,6 @@
 package DAM.Parametrs.Flights;
 
-import DAM.Campaigns.CreateCampaignForFlight;
+import DAM.Helper.Campaigns.CreateCampaignForFlight;
 import DAM.Parametrs.GetDate;
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -1,6 +1,6 @@
 package DAM.Tests.Flight.CreateFlight;
 
-import DAM.Flights.CreateFlightStepOne;
+import DAM.Helper.Flights.CreateFlightStepOne;
 import org.json.JSONException;
 import org.junit.Test;
 

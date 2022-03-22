@@ -1,7 +1,7 @@
 package DAM.Tests.Flight.CreateFlight;
 
-import DAM.Flights.CreateFlightWithOutTechParameters;
-import DAM.Flights.CreateFlightWithTechParameters;
+import DAM.Helper.Flights.CreateFlightWithOutTechParameters;
+import DAM.Helper.Flights.CreateFlightWithTechParameters;
 import org.json.JSONException;
 import org.junit.Test;
 

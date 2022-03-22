@@ -1,6 +1,6 @@
 package DAM.Tests.Flight.CreateFlight;
 
-import DAM.Flights.CreateFlightWithAuthParameters;
+import DAM.Helper.Flights.CreateFlightWithAuthParameters;
 import org.json.JSONException;
 import org.junit.Test;
 
