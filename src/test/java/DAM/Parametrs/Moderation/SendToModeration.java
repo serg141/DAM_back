@@ -1,18 +1,17 @@
 package DAM.Parametrs.Moderation;
 
-import DAM.LogIn;
+import DAM.Helper.Flights.CreateFlightStepSix;
 import org.json.JSONArray;
+import org.json.JSONException;
 
 public class SendToModeration {
-    String logIn, id;
-    JSONArray flight = new JSONArray();
     String[] idList;
 
-    public SendToModeration() {
+    public SendToModeration() throws JSONException {
         idList = new String[2];
-        logIn = new LogIn().logIn();
-        //id = new CreateFlightStepSix().getId();
+        String id = new CreateFlightStepSix().getFlightStepSix()[13];
 
+        JSONArray flight = new JSONArray();
         flight.put(id);
         idList[0] = flight.toString();
         idList[1] = id;

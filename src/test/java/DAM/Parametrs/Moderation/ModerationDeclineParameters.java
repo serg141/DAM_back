@@ -4,10 +4,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ModerationDecline {
+public class ModerationDeclineParameters {
     JSONArray comments = new JSONArray();
 
-    public ModerationDecline() throws JSONException {
+    public ModerationDeclineParameters() throws JSONException {
         JSONObject blockName = new JSONObject();
         JSONObject blockPeriod = new JSONObject();
         JSONObject blockFrequency = new JSONObject();

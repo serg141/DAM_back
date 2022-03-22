@@ -9,7 +9,7 @@ public class CreateFlightStepSix {
     String[] flightStepSix;
 
     public CreateFlightStepSix() throws JSONException {
-        flightStepSix = new String[13];
+        flightStepSix = new String[14];
         String id = new CreateFlightStepFivePrerollNone().getFlightStepFivePrerollNone()[21];
         Response response = given().when().get(id + "/summary").then().extract().response();
 
@@ -28,6 +28,7 @@ public class CreateFlightStepSix {
                 flightStepSix[10] = response.path("techSegmentsInfo.appInfo[0].versionsInclude.fromAppVer");
                 flightStepSix[11] = response.path("techSegmentsInfo.appInfo[0].versionsInclude.toAppVer");
                 flightStepSix[12] = response.path("techSegmentsInfo.appInfo[0].versionsExclude");
+                flightStepSix[13] = id;
             }
         }
     }

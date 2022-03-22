@@ -1,9 +1,6 @@
 package DAM.Tests.Moderation;
 
-import DAM.EndPoints;
-import DAM.LogIn;
-import DAM.Moderation.SendToModeration;
-import DAM.Parametrs.Moderation.ModerationDecline;
+import DAM.Parametrs.Moderation.ModerationDeclineParameters;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.junit.Before;
@@ -15,42 +12,24 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class ModerationCommentsTest {
-    String logIn, moderationStart, moderationDecline, id, flights, body, moderationComments;
     Integer[] numberStage = new Integer[6];
     List<String> mappingKey, commentType, comment;
     List<Integer> stage;
-
 
     @Before
     public void getEndpoint() throws JSONException {
 
         for (int i = 0; i < 6; i++) numberStage[i] = i;
-        logIn = new LogIn().logIn();
-        id = new SendToModeration().getId();
-        body = new ModerationDecline().getComments();
 
-        flights = new EndPoints().getFlights();
-        moderationStart = new EndPoints().getModerationStart();
-        moderationDecline = new EndPoints().getModerationDecline();
-        moderationComments = new EndPoints().getModerationComments();
+        String[] idList = new DAM.Parametrs.Moderation.SendToModeration().getIdList();
+        String body = idList[0];
+        String body1 = new ModerationDeclineParameters().getComments();
+        String id = idList[1];
 
-        given()
-                .cookie("JSESSIONID", logIn)
-                .when()
-                .put(flights + id + moderationStart);
-
-        given()
-                .cookie("JSESSIONID", logIn)
-                .body(body)
-                .when()
-                .put(flights + id + moderationDecline);
-
-        Response response = given()
-                .cookie("JSESSIONID", logIn)
-                .when()
-                .get(flights + id + moderationComments)
-                .then()
-                .extract().response();
+        given().body(body).when().put("moderation");
+        given().when().put(id + "/moderation/start");
+        given().body(body1).when().put(id + "/moderation/decline");
+        Response response = given().when().get(id + "/moderation/comments").then().extract().response();
 
         mappingKey = response.path("mappingKey");
         stage = response.path("stage");
