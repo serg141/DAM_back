@@ -1,6 +1,6 @@
 package DAM.Tests.Moderation;
 
-import DAM.Moderation.Moderation;
+import DAM.Helper.Moderation.Moderation;
 import org.json.JSONException;
 import org.junit.Test;
 

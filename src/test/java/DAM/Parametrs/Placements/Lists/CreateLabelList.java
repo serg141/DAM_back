@@ -37,13 +37,31 @@ public class CreateLabelList {
         labelList.put("name", "LabelList");
         labelList.put("code", "LABEL_LIST");
         labelList.put("elements", element);
-        labelList.put("html", "<li class=\\\"label\\\">\\n<div data-creative-id=\\\"body\\\" " +
-                "class=\\\"label__body\\\">\\n<p data-creative-id=\\\"description\\\" class=\\\"label__text\\\">" +
-                "\\nОдобрено вам\\n</p>\\n</div>\\n</li>\\n\\n");
-        labelList.put("css", ".label {\\nlist-style: none;\\nmargin-right: 5px;\\nmargin-bottom: 5px;\\n}" +
-                "\\n.label__body {\\ndisplay: inline-block;\\npadding: 4px 8px;\\nbackground-color: #45BF78;" +
-                "\\nborder-radius: 8px;\\nmargin-bottom: 12px;\\n}\\n.label__text {\\nmargin: 0;\\nline-height: " +
-                "12px;\\nfont-size: 12px;\\ncolor: #ffffff;\\n}");
+        labelList.put("html", "<li class=\"label\">\n" +
+                "  <div data-creative-id=\"body\" class=\"label__body\">\n" +
+                "    <p data-creative-id=\"description\" class=\"label__text\">\n" +
+                "      Одобрено вам\n" +
+                "    </p>\n" +
+                "  </div>\n" +
+                "</li>");
+        labelList.put("css", ".label {\n" +
+                "list-style: none;\n" +
+                "margin-right: 5px;\n" +
+                "margin-bottom: 5px;\n" +
+                "}\n" +
+                ".label__body {\n" +
+                "      display: inline-block;\n" +
+                "      padding: 4px 8px;\n" +
+                "      background-color: #45BF78;\n" +
+                "      border-radius: 8px;\n" +
+                "      margin-bottom: 12px;\n" +
+                "    }\n" +
+                "    .label__text {\n" +
+                "      margin: 0;\n" +
+                "      line-height: 12px;\n" +
+                "      font-size: 12px;\n" +
+                "      color: #ffffff;\n" +
+                "    }");
     }
 
     public String getLabelList() {
