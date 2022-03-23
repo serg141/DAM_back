@@ -52,6 +52,24 @@ public class Specification {
                 .build();
     }
 
+    public static RequestSpecification Users() {
+        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/users";
+        return new RequestSpecBuilder()
+                .setSessionId("JSESSIONID", logIn)
+                .setBaseUri(url)
+                .setContentType(ContentType.JSON)
+                .build();
+    }
+
+    public static RequestSpecification Teams() {
+        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/teams";
+        return new RequestSpecBuilder()
+                .setSessionId("JSESSIONID", logIn)
+                .setBaseUri(url)
+                .setContentType(ContentType.JSON)
+                .build();
+    }
+
     public static RequestSpecification Reactivate() {
         String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb" +
                 "/support/flights/reactivate";
@@ -103,12 +121,6 @@ public class Specification {
     public static ResponseSpecification responseSpec401() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(401)
-                .build();
-    }
-
-    public static ResponseSpecification responseSpec405() {
-        return new ResponseSpecBuilder()
-                .expectStatusCode(405)
                 .build();
     }
 
