@@ -5,14 +5,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class CampaignParams {
-    final JSONObject campaignNoSPK = new JSONObject();
-    final JSONObject campaignSPK = new JSONObject();
-    final JSONObject period = new JSONObject();
-    final Long start;
+    private final JSONObject campaignNoSPK = new JSONObject();
+    private final JSONObject campaignSPK = new JSONObject();
 
     public CampaignParams() throws JSONException {
-        start = new GetDate().getCurrentDate();
-
+        Long start = new GetDate().getCurrentDate();
+        JSONObject period = new JSONObject();
         period.put("start", start);
 
         campaignNoSPK.put("name", "CampaignTest");
@@ -32,9 +30,5 @@ public class CampaignParams {
 
     public String getCampaignSPK() {
         return campaignSPK.toString();
-    }
-
-    public Long getStart() {
-        return start;
     }
 }

@@ -1,7 +1,6 @@
 package DAM.Draft.CSV;
 
 import DAM.EndPoints;
-import DAM.Flights.CreateFlightStepTwo;
 import DAM.LogIn;
 import io.restassured.response.Response;
 import org.json.JSONException;
@@ -19,7 +18,7 @@ public class CheckCSVTest {
     @Before
     public void getEndpoint() throws JSONException {
         logIn = new LogIn().logIn();
-        id = new CreateFlightStepTwo().getId();
+        //id = new CreateFlightStepTwo().getId();
 
         flights = new EndPoints().getFlights();
         checkCSV = new EndPoints().getCheckCSV();

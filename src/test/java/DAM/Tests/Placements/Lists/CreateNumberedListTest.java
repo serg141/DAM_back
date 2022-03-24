@@ -1,66 +1,26 @@
 package DAM.Tests.Placements.Lists;
 
-import DAM.EndPoints;
-import DAM.LogIn;
-import DAM.Parametrs.Lists.CreateNumberList;
-import io.restassured.response.Response;
+import DAM.Helper.Placements.NumberedList;
 import org.json.JSONException;
-import org.junit.Before;
 import org.junit.Test;
 
-import java.util.LinkedHashMap;
-
-import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class CreateNumberedListTest {
-    String lists;
-    String logIn;
-    String body;
-
-    @Before
-    public void getEndpoint() throws JSONException {
-        lists = new EndPoints().getLists();
-        logIn = new LogIn().logIn();
-        body = new CreateNumberList().getNumberedList();
-    }
 
     @Test
-    public void createNumberedListTest() {
-        Response response = given()
-                .cookie("JSESSIONID", logIn)
-                .body(body)
-                .when()
-                .post(lists)
-                .then()
-                .extract().response();
+    public void createNumberedListTest() throws JSONException {
+        String[] number = new NumberedList().getNumberList();
 
-        LinkedHashMap<String,Object> list1 = response.path("elements[0]");
-        LinkedHashMap<String,Object> list2 = response.path("elements[1]");
-
-        assertEquals("NumberedList", response.path("name"));
-        assertEquals("NUMBERED_LIST", response.path("code"));
-
-        assertEquals(80, list1.get("maxLength"));
-        assertEquals("Заголовок", list1.get("name"));
-        assertEquals("title", list1.get("elementId"));
-        assertEquals("TEXT", list1.get("type"));
-        assertEquals("LIST_ROW_TITLE", list1.get("elementStyle"));
-        assertEquals(true, list1.get("required"));
-
-        assertEquals(150, list2.get("maxLength"));
-        assertEquals("Описание", list2.get("name"));
-        assertEquals("description2", list2.get("elementId"));
-        assertEquals("TEXT", list2.get("type"));
-        assertEquals("LIST_ROW_TITLE", list1.get("elementStyle"));
-        assertEquals(false, list2.get("required"));
-
-        String id = response.path("id");
-
-        given()
-                .cookie("JSESSIONID", logIn)
-                .when()
-                .delete(lists + id)
-                .then().statusCode(200);
+        assertEquals("NumberedList", number[0]);
+        assertEquals("NUMBERED_LIST", number[1]);
+        assertEquals("Заголовок", number[2]);
+        assertEquals("title", number[3]);
+        assertEquals("TEXT", number[4]);
+        assertEquals("LIST_ROW_TITLE", number[5]);
+        assertEquals("Описание", number[6]);
+        assertEquals("description2", number[7]);
+        assertEquals("TEXT", number[8]);
+        assertEquals("LIST_ROW_DESCRIPTION", number[9]);
     }
 }

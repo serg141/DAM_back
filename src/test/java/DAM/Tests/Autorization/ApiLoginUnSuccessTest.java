@@ -1,7 +1,7 @@
 package DAM.Tests.Autorization;
 
 import DAM.Specification;
-import DAM.autorization.UserLogin;
+import DAM.Parametrs.autorization.UserLogin;
 import io.restassured.response.Response;
 import org.junit.Test;
 

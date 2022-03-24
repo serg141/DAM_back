@@ -1,38 +1,32 @@
 package DAM.Tests.Flight.Predict;
 
-import DAM.EndPoints;
-import DAM.Flights.CreateFlightWithTechParameters;
-import DAM.LogIn;
-import io.restassured.response.Response;
+import DAM.Helper.Predict.GetPredict;
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class GetPredictByFlightTest {
-    String logIn, flights, id, predict;
+    int[] predict;
 
     @Before
-    public void getEndpoint() throws JSONException {
-        logIn = new LogIn().logIn();
-        id = new CreateFlightWithTechParameters().getId();
-
-        flights = new EndPoints().getFlights();
-        predict = new EndPoints().getPredict();
+    public void GetPredict() throws JSONException {
+        predict = new GetPredict().getPredict();
     }
 
     @Test
-    public void getPredict() {
-        Response response = given()
-                .cookie("JSESSIONID", logIn)
-                .when()
-                .get(flights + id + predict)
-                .then()
-                .extract().response();
+    public void getPredictByFlightTest() {
+        assertEquals(1, predict[0]);
+    }
 
-        Integer i = 1;
-        assertEquals(i, response.path("data"));
+    @Test
+    public void putSocialPredictTest() {
+        assertEquals(1, predict[1]);
+    }
+
+    @Test
+    public void putTechPredictTest() {
+        assertEquals(1, predict[2]);
     }
 }

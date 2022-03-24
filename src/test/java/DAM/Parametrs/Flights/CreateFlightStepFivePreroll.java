@@ -1,5 +1,6 @@
 package DAM.Parametrs.Flights;
 
+import DAM.Parametrs.Placements.GetTemplate;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +19,7 @@ public class CreateFlightStepFivePreroll {
     final JSONObject link = new JSONObject();
 
     public CreateFlightStepFivePreroll() throws JSONException {
+        String prerollTemplate = new GetTemplate().getTemplatePreRoll();
         link.put("linkAddress", "Https:www.vtb.ru");
         link.put("linkType", "EXTERNAL");
 
@@ -47,21 +49,21 @@ public class CreateFlightStepFivePreroll {
         page1.put("pageName", 1);
         page1.put("showCross", false);
         page1.put("hideableType", "NONE");
-        page1.put("templateId", "16bcdc2d-21e4-4f0c-a1e2-a3e53e755b1c");
+        page1.put("templateId", prerollTemplate);
         page1.put("elements", elements);
 
         page2.put("page", 1);
         page2.put("pageName", 1);
         page2.put("showCross", true);
         page2.put("hideableType", "CROSS_WITHOUT_POLLING");
-        page2.put("templateId", "16bcdc2d-21e4-4f0c-a1e2-a3e53e755b1c");
+        page2.put("templateId", prerollTemplate);
         page2.put("elements", elements);
 
         page3.put("page", 1);
         page3.put("pageName", 1);
         page3.put("showCross", true);
         page3.put("hideableType", "CROSS_WITH_POLLING");
-        page3.put("templateId", "16bcdc2d-21e4-4f0c-a1e2-a3e53e755b1c");
+        page3.put("templateId", prerollTemplate);
         page3.put("elements", elements);
 
         JSONArray pageNone = new JSONArray();
