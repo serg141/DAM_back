@@ -43,6 +43,15 @@ public class Specification {
                 .build();
     }
 
+    public static RequestSpecification brief() {
+        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/flights/briefs";
+        return new RequestSpecBuilder()
+                .setSessionId("JSESSIONID", logIn)
+                .setContentType("multipart/form-data")
+                .setBaseUri(url)
+                .build();
+    }
+
     public static RequestSpecification requestSegmentCategories() {
         String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb" +
                 "/segment-categories/rootcategories";

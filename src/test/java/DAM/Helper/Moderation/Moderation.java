@@ -1,4 +1,4 @@
-package DAM.Moderation;
+package DAM.Helper.Moderation;
 
 import io.restassured.response.Response;
 import lombok.Data;

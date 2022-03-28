@@ -1,4 +1,4 @@
-package DAM.Moderation;
+package DAM.Helper.Moderation;
 
 import DAM.Parametrs.Moderation.ModerationDeclineParameters;
 import io.restassured.response.Response;
