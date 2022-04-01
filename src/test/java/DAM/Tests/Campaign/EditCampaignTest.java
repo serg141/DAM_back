@@ -3,29 +3,25 @@ package DAM.Tests.Campaign;
 import DAM.Helper.Campaigns.EditCampaignNoSPK;
 import DAM.Helper.Campaigns.EditCampaignSPK;
 import org.json.JSONException;
-import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
 public class EditCampaignTest {
-    String[] editCampaignNoSPK, editCampaignSPK;
 
-    @Before
-    public void getEndpoint() throws JSONException {
-        editCampaignNoSPK = new EditCampaignNoSPK().getCampaign();
-        editCampaignSPK = new EditCampaignSPK().getCampaign();
+    @Test
+    public void putCampaignsToNoSPK() throws JSONException {
+        ArrayList<String> editCamp = new EditCampaignSPK().getEditCamp();
+        assertEquals("CampaignEdit", editCamp.get(0));
+        assertEquals("STANDARD", editCamp.get(1));
     }
 
     @Test
-    public void putCampaignsToSPK() {
-        assertEquals("CampaignSPKEdit", editCampaignNoSPK[0]);
-        assertEquals("SPK", editCampaignNoSPK[1]);
-    }
-
-    @Test
-    public void putCampaignsToNoSPK() {
-        assertEquals("CampaignEdit", editCampaignSPK[0]);
-        assertEquals("STANDARD", editCampaignSPK[1]);
+    public void putCampaignsToSPK() throws JSONException {
+        ArrayList<String> editCamp = new EditCampaignNoSPK().getEditCamp();
+        assertEquals("CampaignSPKEdit", editCamp.get(0));
+        assertEquals("SPK", editCamp.get(1));
     }
 }

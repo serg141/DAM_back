@@ -2,23 +2,18 @@ package DAM.Tests.Campaign;
 
 import DAM.Helper.Campaigns.GetTechReport;
 import org.json.JSONException;
-import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
 public class GetTechReportTest {
-    String[] techReport;
-
-    @Before
-    public void getEndpoint() throws JSONException {
-        techReport = new GetTechReport().getReport();
-    }
 
     @Test
-    public void getTechReport() {
-        Integer i = 0;
-        assertEquals("circle", techReport[0]);
-        assertEquals("Каналы", techReport[1]);
+    public void getTechReport() throws JSONException {
+        ArrayList<String> editCamp = new GetTechReport().getReport1();
+        assertEquals("circle", editCamp.get(0));
+        assertEquals("Каналы", editCamp.get(1));
     }
 }

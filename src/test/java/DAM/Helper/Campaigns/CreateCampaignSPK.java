@@ -6,29 +6,23 @@ import io.restassured.response.Response;
 import lombok.Data;
 import org.json.JSONException;
 
+import java.util.ArrayList;
+
 import static io.restassured.RestAssured.given;
 
 @Data
 public class CreateCampaignSPK {
-    private String[] campaignSPK;
-    private String id;
+    private ArrayList<String> camp = new ArrayList<>();
 
     public CreateCampaignSPK() throws JSONException {
-
-        campaignSPK = new String[2];
         String body = new CampaignParams().getCampaignSPK();
 
         Specification.installSpec(Specification.requestSpecNew(), Specification.responseCreateCampaign());
 
-        Response response = given()
-                .body(body)
-                .when()
-                .post()
-                .then().log().all()
-                .extract().response();
+        Response response = given().body(body).when().post().then().extract().response();
 
-        campaignSPK[0] = response.path("name");
-        campaignSPK[1] = response.path("type");
-        id = response.path("id");
+        camp.add(response.path("name"));
+        camp.add(response.path("type"));
+        camp.add(response.path("id"));
     }
 }

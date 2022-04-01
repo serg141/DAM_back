@@ -16,7 +16,5 @@ public class GetUserList {
         Specification.installSpec(Specification.Users(), Specification.responseSpec200());
         Response response = given().when().get("/list").then().extract().response();
         fullName = response.path("fullName");
-
-        int i = 0;
     }
 }

@@ -1,11 +1,11 @@
 package DAM.Helper.Campaigns;
 
-import DAM.EndPoints;
 import DAM.PojoClasses.NewCampaign;
 import DAM.Specification;
 import io.restassured.response.Response;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,12 +13,9 @@ import static io.restassured.RestAssured.given;
 
 @Data
 public class CopyDelCampaign {
-    String[] campData;
+    private ArrayList<String> dataCamp = new ArrayList<>();
 
     public CopyDelCampaign() {
-        campData = new String[3];
-        String duplicate = new EndPoints().getDuplicate();
-
         Specification.installSpec(Specification.requestSpecLogIn(), Specification.responseSpec200());
 
         Response response = given()
@@ -31,7 +28,7 @@ public class CopyDelCampaign {
 
         given()
                 .when()
-                .put(id + duplicate);
+                .put(id + "/duplicate/");
 
         List<NewCampaign> data = given()
                 .queryParam("pageSize", 100)
@@ -46,13 +43,13 @@ public class CopyDelCampaign {
         List<String> statuses = data.stream().map(NewCampaign::getStatus).collect(Collectors.toList());
         List<String> ids = data.stream().map(NewCampaign::getId).collect(Collectors.toList());
 
-        campData[0] = names.get(0);
-        campData[1] = statuses.get(0);
+        dataCamp.add(names.get(0));
+        dataCamp.add(statuses.get(0));
 
         response = given()
                 .when()
                 .delete(ids.get(0));
 
-        campData[2] = response.path("status");
+        dataCamp.add(response.path("status"));
     }
 }

@@ -5,29 +5,21 @@ import io.restassured.response.Response;
 import lombok.Data;
 import org.json.JSONException;
 
+import java.util.ArrayList;
+
 import static io.restassured.RestAssured.given;
 
 @Data
 public class EditCampaignNoSPK {
-    private String[] campaignEditToSPK;
+    private ArrayList<String> editCamp = new ArrayList<>();
 
     public EditCampaignNoSPK() throws JSONException {
-        campaignEditToSPK = new String[2];
-
         String body = new EditCampaignParams().getCampaignSPK();
-        String id = new CreateCampaignNoSPK().getId();
+        String id = new CreateCampaignNoSPK().getCamp().get(2);
 
-        Response response = given()
-                .body(body)
-                .when()
-                .put(id)
-                .then().extract().response();
+        Response response = given().body(body).when().put(id).then().extract().response();
 
-        campaignEditToSPK[0] = response.path("name");
-        campaignEditToSPK[1] = response.path("type");
-    }
-
-    public String[] getCampaign() {
-        return campaignEditToSPK;
+        editCamp.add(response.path("name"));
+        editCamp.add(response.path("type"));
     }
 }

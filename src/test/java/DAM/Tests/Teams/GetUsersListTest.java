@@ -12,9 +12,7 @@ public class GetUsersListTest {
     @Test
     public void getUserList() {
         ArrayList<String> userName = new GetUserList().getFullName();
-        if(userName.contains("Камынин Сергей Игоревич")) {
-            boolean b = true;
-            assertTrue(b);
-        }
+        boolean b = userName.contains("Камынин Сергей Игоревич");
+        assertTrue(b);
     }
 }
