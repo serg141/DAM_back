@@ -18,17 +18,11 @@ public class CopyDelCampaign {
     public CopyDelCampaign() {
         Specification.installSpec(Specification.requestSpecLogIn(), Specification.responseSpec200());
 
-        Response response = given()
-                .when()
-                .post("all")
-                .then()
-                .extract().response();
+        Response response = given().when().post("all").then().extract().response();
 
         String id = response.path("content[0].id");
 
-        given()
-                .when()
-                .put(id + "/duplicate/");
+        given().when().put(id + "/duplicate/");
 
         List<NewCampaign> data = given()
                 .queryParam("pageSize", 100)
@@ -45,11 +39,5 @@ public class CopyDelCampaign {
 
         dataCamp.add(names.get(0));
         dataCamp.add(statuses.get(0));
-
-        response = given()
-                .when()
-                .delete(ids.get(0));
-
-        dataCamp.add(response.path("status"));
     }
 }

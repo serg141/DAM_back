@@ -15,6 +15,5 @@ public class CopyDelCampaignTest {
         ArrayList<String> copyCamp = new CopyDelCampaign().getDataCamp();
         assertTrue(copyCamp.get(0).contains("copy_"));
         assertEquals("DRAFT", copyCamp.get(1));
-        assertEquals("REMOVED", copyCamp.get(2));
     }
 }
