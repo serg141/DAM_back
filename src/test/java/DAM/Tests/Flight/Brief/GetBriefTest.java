@@ -12,7 +12,7 @@ public class GetBriefTest {
 
     @Test
     public void getBriefTest() throws JSONException {
-        String id = new CreateFlightStepOne().getFlightStepOne()[5];
+        String id = new CreateFlightStepOne().getFlightStepOne().get(5);
 
         given().when().get(id + "/brief/file");
         Response response = given().when().get(id + "/brief");

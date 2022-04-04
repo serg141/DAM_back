@@ -12,7 +12,7 @@ public class CreateFlightStepOneParams {
     final JSONObject frequency = new JSONObject();
 
     public CreateFlightStepOneParams() throws JSONException {
-        String briefId = new DownloadBrief().getBriefName()[1];
+        String briefId = new DownloadBrief().getBriefName().get(1);
         Long start = new GetDate().getCurrentDate();
         Long end = new GetDate().getPlusOneMonth();
         String campaignId = new CreateCampaignForFlight().getId();

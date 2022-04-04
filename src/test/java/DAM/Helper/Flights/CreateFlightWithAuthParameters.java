@@ -2,38 +2,30 @@ package DAM.Helper.Flights;
 
 import DAM.Parametrs.Flights.CreateFlightStepThreeSocialParams;
 import io.restassured.response.Response;
+import lombok.Data;
 import org.json.JSONException;
 
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
+@Data
 public class CreateFlightWithAuthParameters {
-    String[] flightStepThree;
+    ArrayList<String> flightStepThree = new ArrayList<>();
 
     public CreateFlightWithAuthParameters() throws JSONException {
-        flightStepThree = new String[4];
         String body = new CreateFlightStepThreeSocialParams().getFlight();
-        String id = new CreateFlightStepTwo().getFlightStepTwo()[8];
+        String id = new CreateFlightStepTwo().getFlightStepTwo().get(8);
 
-        Response response = given()
-                .body(body)
-                .when()
-                .post(id + "/segments/social")
-                .then().extract().response();
+        Response response = given().body(body).when().post(id + "/segments/social").then().extract().response();
 
         if (response.path("segmentIdsMap.26a42f93-7499-4c4a-9fee-0cfba8309d15")) {
             List<String> specialParams = response.path("specialParams");
-            LinkedHashMap<String,Object> selections = response.path("selections[0]");
-            flightStepThree[0] = selections.get("categoryUuid").toString();
-            flightStepThree[1] = specialParams.get(0);
-            flightStepThree[2] = specialParams.get(1);
-            flightStepThree[3] = id;
+            flightStepThree.add(response.path("selections[0].categoryUuid"));
+            flightStepThree.add(specialParams.get(0));
+            flightStepThree.add(specialParams.get(1));
+            flightStepThree.add(id);
         }
-    }
-
-    public String[] getFlightStepThree() {
-        return flightStepThree;
     }
 }

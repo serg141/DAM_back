@@ -13,7 +13,7 @@ public class GetPredict {
 
     public GetPredict() throws JSONException {
         predict = new int[3];
-        String id = new CreateFlightWithTechParameters().getFlightStepFour()[6];
+        String id = new CreateFlightWithTechParameters().getFlightStepFour().get(6);
         String body1 = new PutFlightStepThreePredict().getFlight();
         String body2 = new PutFlightStepFourPredict().getFlight();
 

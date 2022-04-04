@@ -6,50 +6,53 @@ import DAM.Helper.Flights.CreateFlightStepFiveSliderWithPolling;
 import org.json.JSONException;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class CreateFlightStepFiveSliderTest {
 
     @Test
     public void successCreateFlightStepFiveSliderNone() throws JSONException {
-        String[] dataFlightStepFiveSliderNone = new CreateFlightStepFiveSliderNone().getFlightStepFiveSliderNone();
+        ArrayList<String> dataFlightStepFiveSliderNone = new CreateFlightStepFiveSliderNone().
+                getFlightStepFiveSliderNone();
 
-        assertEquals("1", dataFlightStepFiveSliderNone[0]);
-        assertEquals("NONE", dataFlightStepFiveSliderNone[1]);
+        assertEquals("1", dataFlightStepFiveSliderNone.get(0));
+        assertEquals("NONE", dataFlightStepFiveSliderNone.get(1));
 
-        assertEquals("Заголовок", dataFlightStepFiveSliderNone[2]);
-        assertEquals("heading", dataFlightStepFiveSliderNone[3]);
-        assertEquals("TEXT", dataFlightStepFiveSliderNone[4]);
+        assertEquals("Заголовок", dataFlightStepFiveSliderNone.get(2));
+        assertEquals("heading", dataFlightStepFiveSliderNone.get(3));
+        assertEquals("TEXT", dataFlightStepFiveSliderNone.get(4));
 
-        assertEquals("Описание", dataFlightStepFiveSliderNone[5]);
-        assertEquals("description", dataFlightStepFiveSliderNone[6]);
-        assertEquals("TEXT", dataFlightStepFiveSliderNone[7]);
+        assertEquals("Описание", dataFlightStepFiveSliderNone.get(5));
+        assertEquals("description", dataFlightStepFiveSliderNone.get(6));
+        assertEquals("TEXT", dataFlightStepFiveSliderNone.get(7));
 
-        assertEquals("body", dataFlightStepFiveSliderNone[8]);
-        assertEquals("BLOCK", dataFlightStepFiveSliderNone[9]);
-        assertEquals("FUCHSIA", dataFlightStepFiveSliderNone[10]);
-        assertEquals("#F86D86", dataFlightStepFiveSliderNone[11]);
-        assertEquals("#FFFFFF", dataFlightStepFiveSliderNone[12]);
+        assertEquals("body", dataFlightStepFiveSliderNone.get(8));
+        assertEquals("BLOCK", dataFlightStepFiveSliderNone.get(9));
+        assertEquals("FUCHSIA", dataFlightStepFiveSliderNone.get(10));
+        assertEquals("#F86D86", dataFlightStepFiveSliderNone.get(11));
+        assertEquals("#FFFFFF", dataFlightStepFiveSliderNone.get(12));
 
-        assertEquals("label-body", dataFlightStepFiveSliderNone[13]);
-        assertEquals("BLOCK", dataFlightStepFiveSliderNone[14]);
-        assertEquals("ORANGE", dataFlightStepFiveSliderNone[15]);
-        assertEquals("#FF8515", dataFlightStepFiveSliderNone[16]);
-        assertEquals("#FFFFFF", dataFlightStepFiveSliderNone[17]);
+        assertEquals("label-body", dataFlightStepFiveSliderNone.get(13));
+        assertEquals("BLOCK", dataFlightStepFiveSliderNone.get(14));
+        assertEquals("ORANGE", dataFlightStepFiveSliderNone.get(15));
+        assertEquals("#FF8515", dataFlightStepFiveSliderNone.get(16));
+        assertEquals("#FFFFFF", dataFlightStepFiveSliderNone.get(17));
 
-        assertEquals("label-text", dataFlightStepFiveSliderNone[18]);
-        assertEquals("Метка", dataFlightStepFiveSliderNone[19]);
-        assertEquals("TEXT", dataFlightStepFiveSliderNone[20]);
+        assertEquals("label-text", dataFlightStepFiveSliderNone.get(18));
+        assertEquals("Метка", dataFlightStepFiveSliderNone.get(19));
+        assertEquals("TEXT", dataFlightStepFiveSliderNone.get(20));
 
-        assertEquals("Кнопка", dataFlightStepFiveSliderNone[21]);
-        assertEquals("primary-button", dataFlightStepFiveSliderNone[22]);
-        assertEquals("BUTTON", dataFlightStepFiveSliderNone[23]);
-        assertEquals("2", dataFlightStepFiveSliderNone[24]);
-        assertEquals("DEEPLINK", dataFlightStepFiveSliderNone[25]);
+        assertEquals("Кнопка", dataFlightStepFiveSliderNone.get(21));
+        assertEquals("primary-button", dataFlightStepFiveSliderNone.get(22));
+        assertEquals("BUTTON", dataFlightStepFiveSliderNone.get(23));
+        assertEquals("2", dataFlightStepFiveSliderNone.get(24));
+        assertEquals("DEEPLINK", dataFlightStepFiveSliderNone.get(25));
 
-        assertEquals("Creative", dataFlightStepFiveSliderNone[26]);
-        assertEquals("LIGHT_THEME", dataFlightStepFiveSliderNone[27]);
-        assertEquals("", dataFlightStepFiveSliderNone[28]);
+        assertEquals("Creative", dataFlightStepFiveSliderNone.get(26));
+        assertEquals("LIGHT_THEME", dataFlightStepFiveSliderNone.get(27));
+        assertEquals("", dataFlightStepFiveSliderNone.get(28));
     }
 
     @Test

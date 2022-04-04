@@ -9,7 +9,7 @@ public class AddBriefTest {
 
     @Test
     public void successAddBriefTest() {
-        String fileName = new DownloadBrief().getBriefName()[0];
+        String fileName = new DownloadBrief().getBriefName().get(0);
 
         assertEquals("Test_Brief.docx", fileName);
     }

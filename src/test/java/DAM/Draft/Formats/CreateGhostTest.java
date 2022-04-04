@@ -20,10 +20,10 @@ public class CreateGhostTest {
         given()
                 .cookie("JSESSIONID", logIn)
                 .contentType("multipart/form-data")
-                .multiPart("thumbnail", new File("C:\\Users\\SKamynin\\Desktop\\Picture\\33.png"),
+                .multiPart("thumbnail", new File("C:\\Users\\skamy\\Desktop\\Picture\\33.png"),
                         "image/png")
-                .multiPart("template", new File("C:\\Users\\SKamynin\\Desktop\\yaml\\json\\template\\Ghost_JSON.json"),
-                        "application/json")
+                .multiPart("template", new File("C:\\Users\\skamy\\Desktop\\yaml\\json\\template\\" +
+                                "Ghost_JSON.json"), "application/json")
                 .when()
                 .post("/templates");
     }

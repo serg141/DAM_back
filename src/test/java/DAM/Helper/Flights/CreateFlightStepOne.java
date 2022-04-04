@@ -3,33 +3,28 @@ package DAM.Helper.Flights;
 import DAM.Parametrs.Flights.CreateFlightStepOneParams;
 import DAM.Specification;
 import io.restassured.response.Response;
+import lombok.Data;
 import org.json.JSONException;
+
+import java.util.ArrayList;
 
 import static io.restassured.RestAssured.given;
 
+@Data
 public class CreateFlightStepOne {
-    String[] flightStepOne;
+    private ArrayList<String> flightStepOne = new ArrayList<>();
 
     public CreateFlightStepOne() throws JSONException {
-        flightStepOne = new String[6];
         String body = new CreateFlightStepOneParams().getFlight();
         Specification.installSpec(Specification.requestFlight(), Specification.responseSpec200());
 
-        Response response = given()
-                .body(body)
-                .when()
-                .post()
-                .then().extract().response();
+        Response response = given().body(body).when().post().then().extract().response();
 
-        flightStepOne[0] = response.path("name");
-        flightStepOne[1] = response.path("status");
-        flightStepOne[2] = response.path("purpose");
-        flightStepOne[3] = response.path("frequency.term");
-        flightStepOne[4] = response.path("createdBy");
-        flightStepOne[5] = response.path("id");
-    }
-
-    public String[] getFlightStepOne() {
-        return flightStepOne;
+        flightStepOne.add(response.path("name"));
+        flightStepOne.add(response.path("status"));
+        flightStepOne.add(response.path("purpose"));
+        flightStepOne.add(response.path("frequency.term"));
+        flightStepOne.add(response.path("createdBy"));
+        flightStepOne.add(response.path("id"));
     }
 }

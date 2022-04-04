@@ -9,7 +9,7 @@ public class SendToModeration {
 
     public SendToModeration() throws JSONException {
         idList = new String[2];
-        String id = new CreateFlightStepSix().getFlightStepSix()[13];
+        String id = new CreateFlightStepSix().getFlightStepSix().get(13);
 
         JSONArray flight = new JSONArray();
         flight.put(id);

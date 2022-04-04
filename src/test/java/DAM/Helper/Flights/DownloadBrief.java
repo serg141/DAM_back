@@ -4,21 +4,22 @@ import DAM.Specification;
 import io.restassured.response.Response;
 import lombok.Data;
 import java.io.File;
+import java.util.ArrayList;
+
 import static io.restassured.RestAssured.given;
 
 @Data
 public class DownloadBrief {
-    String[] briefName;
+    private ArrayList<String> briefName = new ArrayList<>();
 
     public DownloadBrief() {
         Specification.installSpec(Specification.brief(), Specification.responseSpec200());
-        briefName = new String[2];
 
         Response response = given()
                 .multiPart("file", new File("D:\\MS\\Test_Brief.docx"))
                 .post().then().extract().response();
 
-        briefName[0] = response.path("originalName");
-        briefName[1] = response.path("briefId");
+        briefName.add(response.path("originalName"));
+        briefName.add(response.path("briefId"));
     }
 }

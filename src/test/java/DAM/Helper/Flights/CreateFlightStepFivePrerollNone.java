@@ -3,68 +3,57 @@ package DAM.Helper.Flights;
 import DAM.Parametrs.Flights.CreateFlightStepFivePreroll;
 import DAM.Specification;
 import io.restassured.response.Response;
+import lombok.Data;
 import org.json.JSONException;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import static io.restassured.RestAssured.given;
 
+@Data
 public class CreateFlightStepFivePrerollNone {
-    String[] flightStepFivePrerollNone;
+    private ArrayList<String> flightStepFivePrerollNone = new ArrayList<>();
 
     public CreateFlightStepFivePrerollNone() throws JSONException {
-        flightStepFivePrerollNone = new String[22];
-        String[] ids = new GetPlacementId().getIds();
+        ArrayList<String> ids = new GetPlacementId().getIds();
         String body = new CreateFlightStepFivePreroll().getFlightHideableTypeNone();
         Specification.installSpec(Specification.requestFlight(), Specification.responseSpec200());
 
-        Response response = given()
-                .body(body)
-                .queryParam("placementId", ids[1])
-                .when()
-                .post(ids[0] + "/creatives")
-                .then()
-                .extract().response();
+        Response response = given().body(body).queryParam("placementId", ids.get(1))
+                .when().post(ids.get(0) + "/creatives").then().extract().response();
 
         LinkedHashMap<String,Object> pages = response.path("pages[0]");
-        LinkedHashMap<String,Object> elementImage = response.path("pages[0].elements[0]");
-        LinkedHashMap<String,Object> elementHeading = response.path("pages[0].elements[1]");
-        LinkedHashMap<String,Object> elementDescription = response.path("pages[0].elements[2]");
-        LinkedHashMap<String,Object> elementButton = response.path("pages[0].elements[3]");
 
-        if(!(Boolean) pages.get("showCross")) {
-            flightStepFivePrerollNone[0] = pages.get("pageName").toString();
-            flightStepFivePrerollNone[1] = pages.get("hideableType").toString();
+        if (!(Boolean) response.path("pages[0].showCross")) {
+            flightStepFivePrerollNone.add(response.path("pages[0].pageName"));
+            flightStepFivePrerollNone.add(response.path("pages[0].hideableType"));
 
-            flightStepFivePrerollNone[2] = elementImage.get("url").toString();
-            flightStepFivePrerollNone[3] = elementImage.get("elementId").toString();
-            flightStepFivePrerollNone[4] = elementImage.get("type").toString();
-            flightStepFivePrerollNone[5] = response.path("pages[0].elements[0].link.linkAddress");
-            flightStepFivePrerollNone[6] = response.path("pages[0].elements[0].link.linkType");
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[0].url"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[0].elementId"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[0].type"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[0].link.linkAddress"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[0].link.linkType"));
 
-            flightStepFivePrerollNone[7] = elementHeading.get("value").toString();
-            flightStepFivePrerollNone[8] = elementHeading.get("elementId").toString();
-            flightStepFivePrerollNone[9] = elementHeading.get("type").toString();
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[1].value"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[1].elementId"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[1].type"));
 
-            flightStepFivePrerollNone[10] = elementDescription.get("value").toString();
-            flightStepFivePrerollNone[11] = elementDescription.get("elementId").toString();
-            flightStepFivePrerollNone[12] = elementDescription.get("type").toString();
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[2].value"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[2].elementId"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[2].type"));
 
-            flightStepFivePrerollNone[13] = elementButton.get("value").toString();
-            flightStepFivePrerollNone[14] = elementButton.get("elementId").toString();
-            flightStepFivePrerollNone[15] = elementButton.get("type").toString();
-            flightStepFivePrerollNone[16] = response.path("pages[0].elements[3].link.linkAddress");
-            flightStepFivePrerollNone[17] = response.path("pages[0].elements[3].link.linkType");
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[3].value"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[3].elementId"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[3].type"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[3].link.linkAddress"));
+            flightStepFivePrerollNone.add(response.path("pages[0].elements[3].link.linkType"));
 
-            flightStepFivePrerollNone[18] = response.path("name");
-            flightStepFivePrerollNone[19] = response.path("theme");
-            flightStepFivePrerollNone[20] = response.path("offerType");
+            flightStepFivePrerollNone.add(response.path("name"));
+            flightStepFivePrerollNone.add(response.path("theme"));
+            flightStepFivePrerollNone.add(response.path("offerType"));
 
-            flightStepFivePrerollNone[21] = ids[0];
+            flightStepFivePrerollNone.add(ids.get(0));
         }
-    }
-
-    public String[] getFlightStepFivePrerollNone() {
-        return flightStepFivePrerollNone;
     }
 }
