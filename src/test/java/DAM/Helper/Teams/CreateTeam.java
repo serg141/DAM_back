@@ -5,19 +5,20 @@ import io.restassured.response.Response;
 import lombok.Data;
 import org.json.JSONException;
 
+import java.util.ArrayList;
+
 import static io.restassured.RestAssured.given;
 
 @Data
 public class CreateTeam {
-    String[] team;
+    ArrayList<String> team = new ArrayList<>();
 
     public CreateTeam() throws JSONException {
-        team = new String[2];
         Specification.installSpec(Specification.Teams(), Specification.responseSpec200());
         String body = new DAM.Parametrs.Teams.CreateTeam().getTeam();
         Response response = given().body(body).when().post().then().extract().response();
 
-        team[0] = response.path("id");
-        team[1] = response.path("name");
+        team.add(response.path("id"));
+        team.add(response.path("name"));
     }
 }

@@ -10,8 +10,6 @@ public class CreateTeamTest {
 
     @Test
     public void createTeam() throws JSONException {
-        String newTeam = new CreateTeam().getTeam()[1];
-
-        assertEquals("test", newTeam);
+        assertEquals("test", new CreateTeam().getTeam().get(1));
     }
 }

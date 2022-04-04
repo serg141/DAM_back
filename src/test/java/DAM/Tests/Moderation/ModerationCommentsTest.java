@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
@@ -21,10 +22,10 @@ public class ModerationCommentsTest {
 
         for (int i = 0; i < 6; i++) numberStage[i] = i;
 
-        String[] idList = new DAM.Parametrs.Moderation.SendToModeration().getIdList();
-        String body = idList[0];
+        ArrayList<String> idList = new DAM.Parametrs.Moderation.SendToModeration().getIdList();
+        String body = idList.get(0);
         String body1 = new ModerationDeclineParameters().getComments();
-        String id = idList[1];
+        String id = idList.get(1);
 
         given().body(body).when().put("moderation");
         given().when().put(id + "/moderation/start");

@@ -12,7 +12,7 @@ public class PutTeam {
     String editTeam;
 
     public PutTeam() throws JSONException {
-        String id = new CreateTeam().getTeam()[0];
+        String id = new CreateTeam().getTeam().get(0);
         String body = new EditTeam().getTeam();
 
         Response response = given().when().body(body).put(id).then().extract().response();

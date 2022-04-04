@@ -1,23 +1,22 @@
 package DAM.Parametrs.Moderation;
 
 import DAM.Helper.Flights.CreateFlightStepSix;
+import lombok.Data;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.ArrayList;
+
+@Data
 public class SendToModeration {
-    String[] idList;
+    ArrayList<String> idList = new ArrayList<>();
 
     public SendToModeration() throws JSONException {
-        idList = new String[2];
         String id = new CreateFlightStepSix().getFlightStepSix().get(13);
 
         JSONArray flight = new JSONArray();
         flight.put(id);
-        idList[0] = flight.toString();
-        idList[1] = id;
-    }
-
-    public String[] getIdList() {
-        return idList;
+        idList.add(flight.toString());
+        idList.add(id);
     }
 }
