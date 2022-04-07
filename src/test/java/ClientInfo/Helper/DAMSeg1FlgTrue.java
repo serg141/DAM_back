@@ -1,7 +1,6 @@
 package ClientInfo.Helper;
 
 import ClientInfo.Specification;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import lombok.Data;
 
@@ -14,7 +13,6 @@ public class DAMSeg1FlgTrue {
     private ArrayList<String> segments = new ArrayList<>();
 
     public DAMSeg1FlgTrue() {
-        RestAssured.useRelaxedHTTPSValidation();
         Specification.installSpec(Specification.requestSpec(), Specification.responseSpec200());
 
         Response response = given().when().get("1234567897").then().extract().response();

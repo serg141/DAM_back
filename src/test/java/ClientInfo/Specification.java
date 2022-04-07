@@ -10,6 +10,7 @@ import io.restassured.specification.ResponseSpecification;
 public class Specification {
 
     public static RequestSpecification requestSpec() {
+        RestAssured.useRelaxedHTTPSValidation();
         String url = "https://dsls-client-info-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/v0/clients/";
         return new RequestSpecBuilder()
                 .setBaseUri(url)
