@@ -1,26 +1,26 @@
-package Content.VersionControl;
+package Content.VersionControlTest;
 
 import Content.Helper.ContentRequest;
-import Content.Parameters.GhostLightAndroid1542;
-import Integration.ActivatorAndroid1542;
+import Content.Parameters.OnlyAndroidPrerollLight;
+import Content.Helper.FindFlightIdInActivator;
 import org.json.JSONException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class Android1542Test {
+public class OnlyAndroidTest {
     String content, idFlight;
 
     @BeforeTest
     public void receiveData() throws JSONException {
-        String body = new GhostLightAndroid1542().getBody().toString();
-        idFlight = new ActivatorAndroid1542().getFlightId();
+        String body = new OnlyAndroidPrerollLight().getBody().toString();
+        idFlight = new FindFlightIdInActivator().OnlyAndroid();
         content = new ContentRequest(body).getContent();
     }
 
     @Test
-    public void Android1542() {
+    public void OnlyAndroid() {
         assertEquals(idFlight, content);
         //System.out.println(content + " " + idFlight);
     }

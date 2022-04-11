@@ -1,8 +1,8 @@
-package Content.MoneyBox;
+package Content.MoneyBoxTest;
 
 import Content.Helper.ContentRequest;
 import Content.Parameters.PrerollDarkIOS;
-import Integration.ActivatorMoneyBox;
+import Content.Helper.FindFlightIdInActivator;
 import org.json.JSONException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -18,7 +18,7 @@ public class MoneyBoxTest {
     public void receiveData() throws JSONException {
         String body = new PrerollDarkIOS().getBody().toString();
         content = new ContentRequest(body).ContentMoneyBox(body);
-        content.add(new ActivatorMoneyBox().getFlightId());
+        content.add(new FindFlightIdInActivator().MoneyBox());
     }
 
     @Test

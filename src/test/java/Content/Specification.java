@@ -22,7 +22,8 @@ public class Specification {
 
     public static RequestSpecification activator() {
         RestAssured.useRelaxedHTTPSValidation();
-        String url = "https://dsls-campaign-activator-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb";
+        String url = "https://dsls-campaign-activator-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb" +
+                "/test/flights";
         return new RequestSpecBuilder()
                 .setBaseUri(url)
                 .setContentType(ContentType.JSON)

@@ -1,27 +1,27 @@
-package Content.BirthDay;
+package Content.MoneyBoxTest;
 
 import Content.Helper.ContentRequest;
-import Content.Parameters.PrerollLightIOS;
-import Integration.ActivatorBirthday;
+import Content.Parameters.PrerollDarkIOS;
+import Content.Helper.FindFlightIdInActivator;
 import org.json.JSONException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static org.junit.Assert.assertNotEquals;
 
-public class NoBirthdayTest {
+public class NoMoneyBoxTest {
     String content, idFlight;
 
     @BeforeTest
     public void receiveData() throws JSONException {
-        String body = new PrerollLightIOS().getBody().toString();
-        idFlight = new ActivatorBirthday().getFlightId();
+        String body = new PrerollDarkIOS().getBody().toString();
+        idFlight = new FindFlightIdInActivator().MoneyBox();
         content = new ContentRequest(body).getContent();
     }
-    
+
     @Test
-    public void NoBirthDay() {
-        assertNotEquals(content, idFlight);
+    public void NoMoneyBox() {
+        assertNotEquals(idFlight, content);
         //System.out.println(content + " " + idFlight);
     }
 }

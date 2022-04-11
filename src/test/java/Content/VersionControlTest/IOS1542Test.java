@@ -1,8 +1,8 @@
-package Content.VersionControl;
+package Content.VersionControlTest;
 
 import Content.Helper.ContentRequest;
 import Content.Parameters.GhostLightIOS1542;
-import Integration.ActivatorIOS1542;
+import Content.Helper.FindFlightIdInActivator;
 import org.json.JSONException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -15,7 +15,7 @@ public class IOS1542Test {
     @BeforeTest
     public void receiveData() throws JSONException {
         String body = new GhostLightIOS1542().getBody().toString();
-        idFlight = new ActivatorIOS1542().getFlightId();
+        idFlight = new FindFlightIdInActivator().IOS1542();
         content = new ContentRequest(body).getContent();
     }
 

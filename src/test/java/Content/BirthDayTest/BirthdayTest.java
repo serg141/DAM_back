@@ -1,8 +1,8 @@
-package Content.BirthDay;
+package Content.BirthDayTest;
 
 import Content.Helper.ContentRequest;
 import Content.Parameters.BirthDayGhostLight;
-import Integration.ActivatorBirthday;
+import Content.Helper.FindFlightIdInActivator;
 import org.json.JSONException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -15,7 +15,7 @@ public class BirthdayTest {
     @BeforeTest
     public void receiveData() throws JSONException {
         String body = new BirthDayGhostLight().getBody().toString();
-        idFlight = new ActivatorBirthday().getFlightId();
+        idFlight = new FindFlightIdInActivator().Birthday();
         content = new ContentRequest(body).getContent();
     }
 
