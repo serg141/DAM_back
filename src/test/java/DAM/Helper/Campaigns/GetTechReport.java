@@ -14,8 +14,8 @@ public class GetTechReport {
     private ArrayList<String> report1 = new ArrayList<>();
 
     public GetTechReport() throws JSONException {
-        String body = new FilterByName().getBody();
-        Specification.installSpec(Specification.requestSpecLogIn(), Specification.responseSpec200());
+        String body = new FilterByName().getBody().toString();
+        Specification.installSpec(Specification.requestSpecCampaigns(), Specification.responseSpec200());
 
         Response response = given().body(body).when().post("all").then().extract().response();
         String id = response.path("content[0].id");

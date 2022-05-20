@@ -13,15 +13,9 @@ public class LogIn {
 
         Specification.installSpec(Specification.requestSpec(), Specification.responseSpec200());
 
-        Response response = given()
-                .body(user)
-                .when()
-                .post("/login");
+        Response response = given().body(user).when().post("/login");
 
-        given()
-                .cookie("JSESSIONID", response.getCookie("JSESSIONID"))
-                .when()
-                .get("/me");
+        given().cookie("JSESSIONID", response.getCookie("JSESSIONID")).when().get("/me");
 
         return response.getSessionId();
     }

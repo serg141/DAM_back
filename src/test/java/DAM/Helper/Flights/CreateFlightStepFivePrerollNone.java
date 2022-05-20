@@ -7,7 +7,6 @@ import lombok.Data;
 import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
 import static io.restassured.RestAssured.given;
 
@@ -22,8 +21,6 @@ public class CreateFlightStepFivePrerollNone {
 
         Response response = given().body(body).queryParam("placementId", ids.get(1))
                 .when().post(ids.get(0) + "/creatives").then().extract().response();
-
-        LinkedHashMap<String,Object> pages = response.path("pages[0]");
 
         if (!(Boolean) response.path("pages[0].showCross")) {
             flightStepFivePrerollNone.add(response.path("pages[0].pageName"));

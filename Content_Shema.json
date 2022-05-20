@@ -1,0 +1,978 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "requestId": "07516d6f-c082-42c5-9c95-2d9a726cfe69",
+            "responseId": "bab7ff95-9c7c-47b7-81b3-8eaa16f9a846",
+            "timestamp": "2022-04-06T08:37:10.066016Z",
+            "locations": [
+                {
+                    "locationName": "MAIN_PAGE",
+                    "positions": [
+                        {
+                            "positionName": "FULL_SCREEN",
+                            "contents": [
+                                {
+                                    "campaignId": "8fd8708c-32ff-444a-b59e-28de9d0cfe83",
+                                    "flightId": "e235562b-d233-4d30-9f4c-09f18dfa2b27",
+                                    "contentId": "fcc4954e-da57-4100-a409-30cae5956f2d",
+                                    "formatName": "PRE-ROLL_INFO_1",
+                                    "theme": "lightTheme",
+                                    "isNewFlight": true,
+                                    "contentPages": [
+                                        {
+                                            "pageNumber": 1,
+                                            "codeTemplate": "PREROLL_TEMPLATE",
+                                            "hideableType": "CROSS_WITHOUT_POLLING",
+                                            "elements": [
+                                                {
+                                                    "elementDataUrl": "1254942660_33.png",
+                                                    "elementId": "preroll-image",
+                                                    "elementType": "IMAGE"
+                                                },
+                                                {
+                                                    "elementValue": "Поздравляем с днем рождения",
+                                                    "elementId": "preroll-heading",
+                                                    "elementType": "TEXT"
+                                                },
+                                                {
+                                                    "elementValue": "Желаем счастья в личной жизни",
+                                                    "elementId": "preroll-description",
+                                                    "elementType": "TEXT"
+                                                },
+                                                {
+                                                    "elementId": "preroll-button",
+                                                    "elementType": "BUTTON",
+                                                    "elementTitle": "УРА",
+                                                    "elementLink": {
+                                                        "linkUrl": "",
+                                                        "linkType": "CLOSE"
+                                                    }
+                                                }
+                                            ],
+                                            "pageName": "1"
+                                        }
+                                    ],
+                                    "flightName": "День рождения",
+                                    "campaignName": "Кампания 1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "required": [
+        "requestId",
+        "responseId",
+        "timestamp",
+        "locations"
+    ],
+    "properties": {
+        "requestId": {
+            "$id": "#/properties/requestId",
+            "type": "string",
+            "title": "The requestId schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "07516d6f-c082-42c5-9c95-2d9a726cfe69"
+            ]
+        },
+        "responseId": {
+            "$id": "#/properties/responseId",
+            "type": "string",
+            "title": "The responseId schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "bab7ff95-9c7c-47b7-81b3-8eaa16f9a846"
+            ]
+        },
+        "timestamp": {
+            "$id": "#/properties/timestamp",
+            "type": "string",
+            "title": "The timestamp schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "2022-04-06T08:37:10.066016Z"
+            ]
+        },
+        "locations": {
+            "$id": "#/properties/locations",
+            "type": "array",
+            "title": "The locations schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "locationName": "MAIN_PAGE",
+                        "positions": [
+                            {
+                                "positionName": "FULL_SCREEN",
+                                "contents": [
+                                    {
+                                        "campaignId": "8fd8708c-32ff-444a-b59e-28de9d0cfe83",
+                                        "flightId": "e235562b-d233-4d30-9f4c-09f18dfa2b27",
+                                        "contentId": "fcc4954e-da57-4100-a409-30cae5956f2d",
+                                        "formatName": "PRE-ROLL_INFO_1",
+                                        "theme": "lightTheme",
+                                        "isNewFlight": true,
+                                        "contentPages": [
+                                            {
+                                                "pageNumber": 1,
+                                                "codeTemplate": "PREROLL_TEMPLATE",
+                                                "hideableType": "CROSS_WITHOUT_POLLING",
+                                                "elements": [
+                                                    {
+                                                        "elementDataUrl": "1254942660_33.png",
+                                                        "elementId": "preroll-image",
+                                                        "elementType": "IMAGE"
+                                                    },
+                                                    {
+                                                        "elementValue": "Поздравляем с днем рождения",
+                                                        "elementId": "preroll-heading",
+                                                        "elementType": "TEXT"
+                                                    },
+                                                    {
+                                                        "elementValue": "Желаем счастья в личной жизни",
+                                                        "elementId": "preroll-description",
+                                                        "elementType": "TEXT"
+                                                    },
+                                                    {
+                                                        "elementId": "preroll-button",
+                                                        "elementType": "BUTTON",
+                                                        "elementTitle": "УРА",
+                                                        "elementLink": {
+                                                            "linkUrl": "",
+                                                            "linkType": "CLOSE"
+                                                        }
+                                                    }
+                                                ],
+                                                "pageName": "1"
+                                            }
+                                        ],
+                                        "flightName": "День рождения",
+                                        "campaignName": "Кампания 1"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/locations/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/locations/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "locationName": "MAIN_PAGE",
+                                "positions": [
+                                    {
+                                        "positionName": "FULL_SCREEN",
+                                        "contents": [
+                                            {
+                                                "campaignId": "8fd8708c-32ff-444a-b59e-28de9d0cfe83",
+                                                "flightId": "e235562b-d233-4d30-9f4c-09f18dfa2b27",
+                                                "contentId": "fcc4954e-da57-4100-a409-30cae5956f2d",
+                                                "formatName": "PRE-ROLL_INFO_1",
+                                                "theme": "lightTheme",
+                                                "isNewFlight": true,
+                                                "contentPages": [
+                                                    {
+                                                        "pageNumber": 1,
+                                                        "codeTemplate": "PREROLL_TEMPLATE",
+                                                        "hideableType": "CROSS_WITHOUT_POLLING",
+                                                        "elements": [
+                                                            {
+                                                                "elementDataUrl": "1254942660_33.png",
+                                                                "elementId": "preroll-image",
+                                                                "elementType": "IMAGE"
+                                                            },
+                                                            {
+                                                                "elementValue": "Поздравляем с днем рождения",
+                                                                "elementId": "preroll-heading",
+                                                                "elementType": "TEXT"
+                                                            },
+                                                            {
+                                                                "elementValue": "Желаем счастья в личной жизни",
+                                                                "elementId": "preroll-description",
+                                                                "elementType": "TEXT"
+                                                            },
+                                                            {
+                                                                "elementId": "preroll-button",
+                                                                "elementType": "BUTTON",
+                                                                "elementTitle": "УРА",
+                                                                "elementLink": {
+                                                                    "linkUrl": "",
+                                                                    "linkType": "CLOSE"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "pageName": "1"
+                                                    }
+                                                ],
+                                                "flightName": "День рождения",
+                                                "campaignName": "Кампания 1"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "required": [
+                            "locationName",
+                            "positions"
+                        ],
+                        "properties": {
+                            "locationName": {
+                                "$id": "#/properties/locations/items/anyOf/0/properties/locationName",
+                                "type": "string",
+                                "title": "The locationName schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "MAIN_PAGE"
+                                ]
+                            },
+                            "positions": {
+                                "$id": "#/properties/locations/items/anyOf/0/properties/positions",
+                                "type": "array",
+                                "title": "The positions schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": [],
+                                "examples": [
+                                    [
+                                        {
+                                            "positionName": "FULL_SCREEN",
+                                            "contents": [
+                                                {
+                                                    "campaignId": "8fd8708c-32ff-444a-b59e-28de9d0cfe83",
+                                                    "flightId": "e235562b-d233-4d30-9f4c-09f18dfa2b27",
+                                                    "contentId": "fcc4954e-da57-4100-a409-30cae5956f2d",
+                                                    "formatName": "PRE-ROLL_INFO_1",
+                                                    "theme": "lightTheme",
+                                                    "isNewFlight": true,
+                                                    "contentPages": [
+                                                        {
+                                                            "pageNumber": 1,
+                                                            "codeTemplate": "PREROLL_TEMPLATE",
+                                                            "hideableType": "CROSS_WITHOUT_POLLING",
+                                                            "elements": [
+                                                                {
+                                                                    "elementDataUrl": "1254942660_33.png",
+                                                                    "elementId": "preroll-image",
+                                                                    "elementType": "IMAGE"
+                                                                },
+                                                                {
+                                                                    "elementValue": "Поздравляем с днем рождения",
+                                                                    "elementId": "preroll-heading",
+                                                                    "elementType": "TEXT"
+                                                                },
+                                                                {
+                                                                    "elementValue": "Желаем счастья в личной жизни",
+                                                                    "elementId": "preroll-description",
+                                                                    "elementType": "TEXT"
+                                                                },
+                                                                {
+                                                                    "elementId": "preroll-button",
+                                                                    "elementType": "BUTTON",
+                                                                    "elementTitle": "УРА",
+                                                                    "elementLink": {
+                                                                        "linkUrl": "",
+                                                                        "linkType": "CLOSE"
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "pageName": "1"
+                                                        }
+                                                    ],
+                                                    "flightName": "День рождения",
+                                                    "campaignName": "Кампания 1"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                ],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/locations/items/anyOf/0/properties/positions/items",
+                                    "anyOf": [
+                                        {
+                                            "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0",
+                                            "type": "object",
+                                            "title": "The first anyOf schema",
+                                            "description": "An explanation about the purpose of this instance.",
+                                            "default": {},
+                                            "examples": [
+                                                {
+                                                    "positionName": "FULL_SCREEN",
+                                                    "contents": [
+                                                        {
+                                                            "campaignId": "8fd8708c-32ff-444a-b59e-28de9d0cfe83",
+                                                            "flightId": "e235562b-d233-4d30-9f4c-09f18dfa2b27",
+                                                            "contentId": "fcc4954e-da57-4100-a409-30cae5956f2d",
+                                                            "formatName": "PRE-ROLL_INFO_1",
+                                                            "theme": "lightTheme",
+                                                            "isNewFlight": true,
+                                                            "contentPages": [
+                                                                {
+                                                                    "pageNumber": 1,
+                                                                    "codeTemplate": "PREROLL_TEMPLATE",
+                                                                    "hideableType": "CROSS_WITHOUT_POLLING",
+                                                                    "elements": [
+                                                                        {
+                                                                            "elementDataUrl": "1254942660_33.png",
+                                                                            "elementId": "preroll-image",
+                                                                            "elementType": "IMAGE"
+                                                                        },
+                                                                        {
+                                                                            "elementValue": "Поздравляем с днем рождения",
+                                                                            "elementId": "preroll-heading",
+                                                                            "elementType": "TEXT"
+                                                                        },
+                                                                        {
+                                                                            "elementValue": "Желаем счастья в личной жизни",
+                                                                            "elementId": "preroll-description",
+                                                                            "elementType": "TEXT"
+                                                                        },
+                                                                        {
+                                                                            "elementId": "preroll-button",
+                                                                            "elementType": "BUTTON",
+                                                                            "elementTitle": "УРА",
+                                                                            "elementLink": {
+                                                                                "linkUrl": "",
+                                                                                "linkType": "CLOSE"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "pageName": "1"
+                                                                }
+                                                            ],
+                                                            "flightName": "День рождения",
+                                                            "campaignName": "Кампания 1"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "required": [
+                                                "positionName",
+                                                "contents"
+                                            ],
+                                            "properties": {
+                                                "positionName": {
+                                                    "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/positionName",
+                                                    "type": "string",
+                                                    "title": "The positionName schema",
+                                                    "description": "An explanation about the purpose of this instance.",
+                                                    "default": "",
+                                                    "examples": [
+                                                        "FULL_SCREEN"
+                                                    ]
+                                                },
+                                                "contents": {
+                                                    "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents",
+                                                    "type": "array",
+                                                    "title": "The contents schema",
+                                                    "description": "An explanation about the purpose of this instance.",
+                                                    "default": [],
+                                                    "examples": [
+                                                        [
+                                                            {
+                                                                "campaignId": "8fd8708c-32ff-444a-b59e-28de9d0cfe83",
+                                                                "flightId": "e235562b-d233-4d30-9f4c-09f18dfa2b27",
+                                                                "contentId": "fcc4954e-da57-4100-a409-30cae5956f2d",
+                                                                "formatName": "PRE-ROLL_INFO_1",
+                                                                "theme": "lightTheme",
+                                                                "isNewFlight": true,
+                                                                "contentPages": [
+                                                                    {
+                                                                        "pageNumber": 1,
+                                                                        "codeTemplate": "PREROLL_TEMPLATE",
+                                                                        "hideableType": "CROSS_WITHOUT_POLLING",
+                                                                        "elements": [
+                                                                            {
+                                                                                "elementDataUrl": "1254942660_33.png",
+                                                                                "elementId": "preroll-image",
+                                                                                "elementType": "IMAGE"
+                                                                            },
+                                                                            {
+                                                                                "elementValue": "Поздравляем с днем рождения",
+                                                                                "elementId": "preroll-heading",
+                                                                                "elementType": "TEXT"
+                                                                            },
+                                                                            {
+                                                                                "elementValue": "Желаем счастья в личной жизни",
+                                                                                "elementId": "preroll-description",
+                                                                                "elementType": "TEXT"
+                                                                            },
+                                                                            {
+                                                                                "elementId": "preroll-button",
+                                                                                "elementType": "BUTTON",
+                                                                                "elementTitle": "УРА",
+                                                                                "elementLink": {
+                                                                                    "linkUrl": "",
+                                                                                    "linkType": "CLOSE"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        "pageName": "1"
+                                                                    }
+                                                                ],
+                                                                "flightName": "День рождения",
+                                                                "campaignName": "Кампания 1"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "additionalItems": true,
+                                                    "items": {
+                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items",
+                                                        "anyOf": [
+                                                            {
+                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0",
+                                                                "type": "object",
+                                                                "title": "The first anyOf schema",
+                                                                "description": "An explanation about the purpose of this instance.",
+                                                                "default": {},
+                                                                "examples": [
+                                                                    {
+                                                                        "campaignId": "8fd8708c-32ff-444a-b59e-28de9d0cfe83",
+                                                                        "flightId": "e235562b-d233-4d30-9f4c-09f18dfa2b27",
+                                                                        "contentId": "fcc4954e-da57-4100-a409-30cae5956f2d",
+                                                                        "formatName": "PRE-ROLL_INFO_1",
+                                                                        "theme": "lightTheme",
+                                                                        "isNewFlight": true,
+                                                                        "contentPages": [
+                                                                            {
+                                                                                "pageNumber": 1,
+                                                                                "codeTemplate": "PREROLL_TEMPLATE",
+                                                                                "hideableType": "CROSS_WITHOUT_POLLING",
+                                                                                "elements": [
+                                                                                    {
+                                                                                        "elementDataUrl": "1254942660_33.png",
+                                                                                        "elementId": "preroll-image",
+                                                                                        "elementType": "IMAGE"
+                                                                                    },
+                                                                                    {
+                                                                                        "elementValue": "Поздравляем с днем рождения",
+                                                                                        "elementId": "preroll-heading",
+                                                                                        "elementType": "TEXT"
+                                                                                    },
+                                                                                    {
+                                                                                        "elementValue": "Желаем счастья в личной жизни",
+                                                                                        "elementId": "preroll-description",
+                                                                                        "elementType": "TEXT"
+                                                                                    },
+                                                                                    {
+                                                                                        "elementId": "preroll-button",
+                                                                                        "elementType": "BUTTON",
+                                                                                        "elementTitle": "УРА",
+                                                                                        "elementLink": {
+                                                                                            "linkUrl": "",
+                                                                                            "linkType": "CLOSE"
+                                                                                        }
+                                                                                    }
+                                                                                ],
+                                                                                "pageName": "1"
+                                                                            }
+                                                                        ],
+                                                                        "flightName": "День рождения",
+                                                                        "campaignName": "Кампания 1"
+                                                                    }
+                                                                ],
+                                                                "required": [
+                                                                    "campaignId",
+                                                                    "flightId",
+                                                                    "contentId",
+                                                                    "formatName",
+                                                                    "theme",
+                                                                    "isNewFlight",
+                                                                    "contentPages",
+                                                                    "flightName",
+                                                                    "campaignName"
+                                                                ],
+                                                                "properties": {
+                                                                    "campaignId": {
+                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/campaignId",
+                                                                        "type": "string",
+                                                                        "title": "The campaignId schema",
+                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                        "default": "",
+                                                                        "examples": [
+                                                                            "8fd8708c-32ff-444a-b59e-28de9d0cfe83"
+                                                                        ]
+                                                                    },
+                                                                    "flightId": {
+                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/flightId",
+                                                                        "type": "string",
+                                                                        "title": "The flightId schema",
+                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                        "default": "",
+                                                                        "examples": [
+                                                                            "e235562b-d233-4d30-9f4c-09f18dfa2b27"
+                                                                        ]
+                                                                    },
+                                                                    "contentId": {
+                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentId",
+                                                                        "type": "string",
+                                                                        "title": "The contentId schema",
+                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                        "default": "",
+                                                                        "examples": [
+                                                                            "fcc4954e-da57-4100-a409-30cae5956f2d"
+                                                                        ]
+                                                                    },
+                                                                    "formatName": {
+                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/formatName",
+                                                                        "type": "string",
+                                                                        "title": "The formatName schema",
+                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                        "default": "",
+                                                                        "examples": [
+                                                                            "PRE-ROLL_INFO_1"
+                                                                        ]
+                                                                    },
+                                                                    "theme": {
+                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/theme",
+                                                                        "type": "string",
+                                                                        "title": "The theme schema",
+                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                        "default": "",
+                                                                        "examples": [
+                                                                            "lightTheme"
+                                                                        ]
+                                                                    },
+                                                                    "isNewFlight": {
+                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/isNewFlight",
+                                                                        "type": "boolean",
+                                                                        "title": "The isNewFlight schema",
+                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                        "default": false,
+                                                                        "examples": [
+                                                                            true
+                                                                        ]
+                                                                    },
+                                                                    "contentPages": {
+                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages",
+                                                                        "type": "array",
+                                                                        "title": "The contentPages schema",
+                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                        "default": [],
+                                                                        "examples": [
+                                                                            [
+                                                                                {
+                                                                                    "pageNumber": 1,
+                                                                                    "codeTemplate": "PREROLL_TEMPLATE",
+                                                                                    "hideableType": "CROSS_WITHOUT_POLLING",
+                                                                                    "elements": [
+                                                                                        {
+                                                                                            "elementDataUrl": "1254942660_33.png",
+                                                                                            "elementId": "preroll-image",
+                                                                                            "elementType": "IMAGE"
+                                                                                        },
+                                                                                        {
+                                                                                            "elementValue": "Поздравляем с днем рождения",
+                                                                                            "elementId": "preroll-heading",
+                                                                                            "elementType": "TEXT"
+                                                                                        },
+                                                                                        {
+                                                                                            "elementValue": "Желаем счастья в личной жизни",
+                                                                                            "elementId": "preroll-description",
+                                                                                            "elementType": "TEXT"
+                                                                                        },
+                                                                                        {
+                                                                                            "elementId": "preroll-button",
+                                                                                            "elementType": "BUTTON",
+                                                                                            "elementTitle": "УРА",
+                                                                                            "elementLink": {
+                                                                                                "linkUrl": "",
+                                                                                                "linkType": "CLOSE"
+                                                                                            }
+                                                                                        }
+                                                                                    ],
+                                                                                    "pageName": "1"
+                                                                                }
+                                                                            ]
+                                                                        ],
+                                                                        "additionalItems": true,
+                                                                        "items": {
+                                                                            "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items",
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0",
+                                                                                    "type": "object",
+                                                                                    "title": "The first anyOf schema",
+                                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                                    "default": {},
+                                                                                    "examples": [
+                                                                                        {
+                                                                                            "pageNumber": 1,
+                                                                                            "codeTemplate": "PREROLL_TEMPLATE",
+                                                                                            "hideableType": "CROSS_WITHOUT_POLLING",
+                                                                                            "elements": [
+                                                                                                {
+                                                                                                    "elementDataUrl": "1254942660_33.png",
+                                                                                                    "elementId": "preroll-image",
+                                                                                                    "elementType": "IMAGE"
+                                                                                                },
+                                                                                                {
+                                                                                                    "elementValue": "Поздравляем с днем рождения",
+                                                                                                    "elementId": "preroll-heading",
+                                                                                                    "elementType": "TEXT"
+                                                                                                },
+                                                                                                {
+                                                                                                    "elementValue": "Желаем счастья в личной жизни",
+                                                                                                    "elementId": "preroll-description",
+                                                                                                    "elementType": "TEXT"
+                                                                                                },
+                                                                                                {
+                                                                                                    "elementId": "preroll-button",
+                                                                                                    "elementType": "BUTTON",
+                                                                                                    "elementTitle": "УРА",
+                                                                                                    "elementLink": {
+                                                                                                        "linkUrl": "",
+                                                                                                        "linkType": "CLOSE"
+                                                                                                    }
+                                                                                                }
+                                                                                            ],
+                                                                                            "pageName": "1"
+                                                                                        }
+                                                                                    ],
+                                                                                    "required": [
+                                                                                        "pageNumber",
+                                                                                        "codeTemplate",
+                                                                                        "hideableType",
+                                                                                        "elements",
+                                                                                        "pageName"
+                                                                                    ],
+                                                                                    "properties": {
+                                                                                        "pageNumber": {
+                                                                                            "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/pageNumber",
+                                                                                            "type": "integer",
+                                                                                            "title": "The pageNumber schema",
+                                                                                            "description": "An explanation about the purpose of this instance.",
+                                                                                            "default": 0,
+                                                                                            "examples": [
+                                                                                                1
+                                                                                            ]
+                                                                                        },
+                                                                                        "codeTemplate": {
+                                                                                            "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/codeTemplate",
+                                                                                            "type": "string",
+                                                                                            "title": "The codeTemplate schema",
+                                                                                            "description": "An explanation about the purpose of this instance.",
+                                                                                            "default": "",
+                                                                                            "examples": [
+                                                                                                "PREROLL_TEMPLATE"
+                                                                                            ]
+                                                                                        },
+                                                                                        "hideableType": {
+                                                                                            "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/hideableType",
+                                                                                            "type": "string",
+                                                                                            "title": "The hideableType schema",
+                                                                                            "description": "An explanation about the purpose of this instance.",
+                                                                                            "default": "",
+                                                                                            "examples": [
+                                                                                                "CROSS_WITHOUT_POLLING"
+                                                                                            ]
+                                                                                        },
+                                                                                        "elements": {
+                                                                                            "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements",
+                                                                                            "type": "array",
+                                                                                            "title": "The elements schema",
+                                                                                            "description": "An explanation about the purpose of this instance.",
+                                                                                            "default": [],
+                                                                                            "examples": [
+                                                                                                [
+                                                                                                    {
+                                                                                                        "elementDataUrl": "1254942660_33.png",
+                                                                                                        "elementId": "preroll-image",
+                                                                                                        "elementType": "IMAGE"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "elementValue": "Поздравляем с днем рождения",
+                                                                                                        "elementId": "preroll-heading",
+                                                                                                        "elementType": "TEXT"
+                                                                                                    }
+                                                                                                ]
+                                                                                            ],
+                                                                                            "additionalItems": true,
+                                                                                            "items": {
+                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items",
+                                                                                                "anyOf": [
+                                                                                                    {
+                                                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/0",
+                                                                                                        "type": "object",
+                                                                                                        "title": "The first anyOf schema",
+                                                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                                                        "default": {},
+                                                                                                        "examples": [
+                                                                                                            {
+                                                                                                                "elementDataUrl": "1254942660_33.png",
+                                                                                                                "elementId": "preroll-image",
+                                                                                                                "elementType": "IMAGE"
+                                                                                                            }
+                                                                                                        ],
+                                                                                                        "required": [
+                                                                                                            "elementDataUrl",
+                                                                                                            "elementId",
+                                                                                                            "elementType"
+                                                                                                        ],
+                                                                                                        "properties": {
+                                                                                                            "elementDataUrl": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/0/properties/elementDataUrl",
+                                                                                                                "type": "string",
+                                                                                                                "title": "The elementDataUrl schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": "",
+                                                                                                                "examples": [
+                                                                                                                    "1254942660_33.png"
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            "elementId": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/0/properties/elementId",
+                                                                                                                "type": "string",
+                                                                                                                "title": "The elementId schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": "",
+                                                                                                                "examples": [
+                                                                                                                    "preroll-image"
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            "elementType": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/0/properties/elementType",
+                                                                                                                "type": "string",
+                                                                                                                "title": "The elementType schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": "",
+                                                                                                                "examples": [
+                                                                                                                    "IMAGE"
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "additionalProperties": true
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/1",
+                                                                                                        "type": "object",
+                                                                                                        "title": "The second anyOf schema",
+                                                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                                                        "default": {},
+                                                                                                        "examples": [
+                                                                                                            {
+                                                                                                                "elementValue": "Поздравляем с днем рождения",
+                                                                                                                "elementId": "preroll-heading",
+                                                                                                                "elementType": "TEXT"
+                                                                                                            }
+                                                                                                        ],
+                                                                                                        "required": [
+                                                                                                            "elementValue",
+                                                                                                            "elementId",
+                                                                                                            "elementType"
+                                                                                                        ],
+                                                                                                        "properties": {
+                                                                                                            "elementValue": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/1/properties/elementValue",
+                                                                                                                "type": "string",
+                                                                                                                "title": "The elementValue schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": "",
+                                                                                                                "examples": [
+                                                                                                                    "Поздравляем с днем рождения"
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            "elementId": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/1/properties/elementId",
+                                                                                                                "type": "string",
+                                                                                                                "title": "The elementId schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": "",
+                                                                                                                "examples": [
+                                                                                                                    "preroll-heading"
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            "elementType": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/1/properties/elementType",
+                                                                                                                "type": "string",
+                                                                                                                "title": "The elementType schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": "",
+                                                                                                                "examples": [
+                                                                                                                    "TEXT"
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "additionalProperties": true
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/2",
+                                                                                                        "type": "object",
+                                                                                                        "title": "The third anyOf schema",
+                                                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                                                        "default": {},
+                                                                                                        "examples": [
+                                                                                                            {
+                                                                                                                "elementId": "preroll-button",
+                                                                                                                "elementType": "BUTTON",
+                                                                                                                "elementTitle": "УРА",
+                                                                                                                "elementLink": {
+                                                                                                                    "linkUrl": "",
+                                                                                                                    "linkType": "CLOSE"
+                                                                                                                }
+                                                                                                            }
+                                                                                                        ],
+                                                                                                        "required": [
+                                                                                                            "elementId",
+                                                                                                            "elementType",
+                                                                                                            "elementTitle",
+                                                                                                            "elementLink"
+                                                                                                        ],
+                                                                                                        "properties": {
+                                                                                                            "elementId": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/2/properties/elementId",
+                                                                                                                "type": "string",
+                                                                                                                "title": "The elementId schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": "",
+                                                                                                                "examples": [
+                                                                                                                    "preroll-button"
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            "elementType": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/2/properties/elementType",
+                                                                                                                "type": "string",
+                                                                                                                "title": "The elementType schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": "",
+                                                                                                                "examples": [
+                                                                                                                    "BUTTON"
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            "elementTitle": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/2/properties/elementTitle",
+                                                                                                                "type": "string",
+                                                                                                                "title": "The elementTitle schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": "",
+                                                                                                                "examples": [
+                                                                                                                    "УРА"
+                                                                                                                ]
+                                                                                                            },
+                                                                                                            "elementLink": {
+                                                                                                                "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/2/properties/elementLink",
+                                                                                                                "type": "object",
+                                                                                                                "title": "The elementLink schema",
+                                                                                                                "description": "An explanation about the purpose of this instance.",
+                                                                                                                "default": {},
+                                                                                                                "examples": [
+                                                                                                                    {
+                                                                                                                        "linkUrl": "",
+                                                                                                                        "linkType": "CLOSE"
+                                                                                                                    }
+                                                                                                                ],
+                                                                                                                "required": [
+                                                                                                                    "linkUrl",
+                                                                                                                    "linkType"
+                                                                                                                ],
+                                                                                                                "properties": {
+                                                                                                                    "linkUrl": {
+                                                                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/2/properties/elementLink/properties/linkUrl",
+                                                                                                                        "type": "string",
+                                                                                                                        "title": "The linkUrl schema",
+                                                                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                                                                        "default": "",
+                                                                                                                        "examples": [
+                                                                                                                            ""
+                                                                                                                        ]
+                                                                                                                    },
+                                                                                                                    "linkType": {
+                                                                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/elements/items/anyOf/2/properties/elementLink/properties/linkType",
+                                                                                                                        "type": "string",
+                                                                                                                        "title": "The linkType schema",
+                                                                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                                                                        "default": "",
+                                                                                                                        "examples": [
+                                                                                                                            "CLOSE"
+                                                                                                                        ]
+                                                                                                                    }
+                                                                                                                },
+                                                                                                                "additionalProperties": true
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "additionalProperties": true
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        },
+                                                                                        "pageName": {
+                                                                                            "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/contentPages/items/anyOf/0/properties/pageName",
+                                                                                            "type": "string",
+                                                                                            "title": "The pageName schema",
+                                                                                            "description": "An explanation about the purpose of this instance.",
+                                                                                            "default": "",
+                                                                                            "examples": [
+                                                                                                "1"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    "additionalProperties": true
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "flightName": {
+                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/flightName",
+                                                                        "type": "string",
+                                                                        "title": "The flightName schema",
+                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                        "default": "",
+                                                                        "examples": [
+                                                                            "День рождения"
+                                                                        ]
+                                                                    },
+                                                                    "campaignName": {
+                                                                        "$id": "#/properties/locations/items/anyOf/0/properties/positions/items/anyOf/0/properties/contents/items/anyOf/0/properties/campaignName",
+                                                                        "type": "string",
+                                                                        "title": "The campaignName schema",
+                                                                        "description": "An explanation about the purpose of this instance.",
+                                                                        "default": "",
+                                                                        "examples": [
+                                                                            "Кампания 1"
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                "additionalProperties": true
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            "additionalProperties": true
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}

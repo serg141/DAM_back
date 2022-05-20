@@ -16,7 +16,7 @@ public class CopyDelCampaign {
     private ArrayList<String> dataCamp = new ArrayList<>();
 
     public CopyDelCampaign() {
-        Specification.installSpec(Specification.requestSpecLogIn(), Specification.responseSpec200());
+        Specification.installSpec(Specification.requestSpecCampaigns(), Specification.responseSpec200());
 
         Response response = given().when().post("all").then().extract().response();
 

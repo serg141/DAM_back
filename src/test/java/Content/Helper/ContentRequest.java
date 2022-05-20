@@ -46,26 +46,4 @@ public class ContentRequest {
 
         return ids;
     }
-
-    public String IOSVersions(String body) {
-        Specification.installSpec(Specification.requestSpec(), Specification.responseSpec200());
-        String versions;
-
-        Response response = given().header("x-mdm-id", "1234567890").body(body).when().post().
-                then().extract().response();
-        versions = response.path("locations[0].positions[0].contents[0].flightId");
-
-        return versions;
-    }
-
-    public String AndroidVersions(String body) {
-        Specification.installSpec(Specification.requestSpec(), Specification.responseSpec200());
-        String versions;
-
-        Response response = given().header("x-mdm-id", "1234567890").body(body).when().post().
-                then().extract().response();
-        versions = response.path("locations[0].positions[0].contents[0].flightId");
-
-        return versions;
-    }
 }

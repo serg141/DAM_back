@@ -14,7 +14,7 @@ public class ClientSegmentDAMSeg1FlgTest {
         assertEquals("17", client.get(1));
         assertEquals("8", client.get(2));
         assertEquals("2005", client.get(3));
-        assertEquals("NO_MONEYBOX", client.get(4));
+        assertEquals("MONEYBOX", client.get(4));
         assertEquals("100000", client.get(5));
         assertEquals("10000", client.get(6));
     }

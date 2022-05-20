@@ -1,28 +1,25 @@
 package DAM.Helper.Campaigns;
 
-import DAM.LogIn;
 import DAM.Parametrs.Campaign.CampaignParams;
+import DAM.Specification;
 import io.restassured.response.Response;
+import lombok.Data;
 import org.json.JSONException;
+
 import static io.restassured.RestAssured.given;
 
+@Data
 public class CreateCampaignForFlight {
-    String id;
+    String id, name;
 
     public CreateCampaignForFlight() throws JSONException {
-        String logIn = new LogIn().logIn();
-        String body = new CampaignParams().getCampaignNoSPK();
+        String body = new CampaignParams().getCampaignForFlight().toString();
 
-        Response response = given()
-                .cookie("JSESSIONID", logIn)
-                .body(body)
-                .when()
-                .post("/campaigns")
-                .then().extract().response();
+        Specification.installSpec(Specification.requestSpecCampaigns(), Specification.responseCreateCampaign());
+
+        Response response = given().body(body).when().post().then().extract().response();
+
         id = response.path("id");
-    }
-
-    public String getId() {
-        return id;
+        name = response.path("name");
     }
 }

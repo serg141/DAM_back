@@ -15,9 +15,9 @@ public class CreateCampaignNoSPK {
     private ArrayList<String> camp = new ArrayList<>();
 
     public CreateCampaignNoSPK() throws JSONException {
-        String body = new CampaignParams().getCampaignNoSPK();
+        String body = new CampaignParams().getCampaignNoSPK().toString();
 
-        Specification.installSpec(Specification.requestSpecNew(), Specification.responseCreateCampaign());
+        Specification.installSpec(Specification.requestSpecCampaigns(), Specification.responseCreateCampaign());
 
         Response response = given().body(body).when().post().then().extract().response();
 

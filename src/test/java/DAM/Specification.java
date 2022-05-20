@@ -18,15 +18,17 @@ public class Specification {
     static String logIn = new LogIn().logIn();
 
     public static RequestSpecification requestSpec() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb";
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb";
         return new RequestSpecBuilder()
                 .setBaseUri(url)
                 .setContentType(ContentType.JSON)
                 .build();
     }
 
-    public static RequestSpecification requestSpecNew() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/";
+    public static RequestSpecification requestSpecCampaigns() {
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
@@ -35,7 +37,8 @@ public class Specification {
     }
 
     public static RequestSpecification requestFlight() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/flights/";
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/flights/";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
@@ -44,7 +47,8 @@ public class Specification {
     }
 
     public static RequestSpecification brief() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/flights/briefs";
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/flights/briefs";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
@@ -53,7 +57,8 @@ public class Specification {
     }
 
     public static RequestSpecification List() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/lists";
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/lists";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
@@ -62,7 +67,8 @@ public class Specification {
     }
 
     public static RequestSpecification Users() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/users";
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/users";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
@@ -71,7 +77,8 @@ public class Specification {
     }
 
     public static RequestSpecification Teams() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/teams";
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/teams";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
@@ -80,7 +87,8 @@ public class Specification {
     }
 
     public static RequestSpecification Reactivate() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb" +
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb" +
                 "/support/flights/reactivate";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
@@ -90,7 +98,8 @@ public class Specification {
     }
 
     public static RequestSpecification requestSegmentCategories() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb" +
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb" +
                 "/segment-categories/rootcategories";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
@@ -101,7 +110,8 @@ public class Specification {
     }
 
     public static RequestSpecification requestFilter() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/all";
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/all";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
@@ -113,7 +123,8 @@ public class Specification {
     }
 
     public static RequestSpecification requestSpecLogIn() {
-        String url = "http://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/";
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb";
         return new RequestSpecBuilder()
                 .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
@@ -130,6 +141,8 @@ public class Specification {
     public static ResponseSpecification responseSpec401() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(401)
+                .expectBody("errors[0].message",
+                        equalTo("Не удалось выполнить вход. Проверьте логин/пароль"))
                 .build();
     }
 
@@ -147,12 +160,8 @@ public class Specification {
         RestAssured.responseSpecification = response;
     }
 
-    public static void installSpec1(RequestSpecification request) {
-        RestAssured.requestSpecification = request;
-    }
-
     public void LogIn() {
         this.login = "vtb4040204";
-        this.pass = "141523Pota#";
+        this.pass = "141523Pota!!";
     }
 }

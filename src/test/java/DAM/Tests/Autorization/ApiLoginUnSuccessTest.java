@@ -1,38 +1,22 @@
 package DAM.Tests.Autorization;
 
-import DAM.Specification;
 import DAM.Parametrs.autorization.UserLogin;
-import io.restassured.response.Response;
-import org.junit.Test;
+import DAM.Specification;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
 
 public class ApiLoginUnSuccessTest {
     @Test
-    public void LogIn() {
+    public void UnLogIn() {
         Specification.installSpec(Specification.requestSpec(), Specification.responseSpec401());
 
         UserLogin userLogin = new UserLogin();
         userLogin.UserLoginUnCorrectPassword();
 
-        Response response = given()
-                .body(userLogin)
-                .when()
-                .post("/login")
-                .then()
-                .extract().response();
-
-        assertEquals("Не удалось выполнить вход. Проверьте логин/пароль", response.path("errors[0].message"));
+        given().body(userLogin).when().post("/login");
 
         userLogin.UserLoginUnCorrectLogin();
-        response = given()
-                .body(userLogin)
-                .when()
-                .post("/login")
-                .then()
-                .extract().response();
-
-        assertEquals("Не удалось выполнить вход. Проверьте логин/пароль", response.path("errors[0].message"));
+        given().body(userLogin).when().post("/login");
     }
 }

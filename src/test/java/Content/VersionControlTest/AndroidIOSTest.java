@@ -18,8 +18,8 @@ public class AndroidIOSTest {
         String body1 = new GhostLightIOS().getBody().toString();
         String body2 = new GhostLightAndroid().getBody().toString();
         idFlight = new FindFlightIdInActivator().AndroidIOS();
-        content1 = new ContentRequest(body1).IOSVersions(body1);
-        content2 = new ContentRequest(body2).AndroidVersions(body2);
+        content1 = new ContentRequest(body1).getContent();
+        content2 = new ContentRequest(body2).getContent();
     }
 
     @Test

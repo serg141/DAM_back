@@ -15,9 +15,9 @@ public class GetCampaignById {
     private ArrayList<String> getCamp = new ArrayList<>();
 
     public GetCampaignById() throws JSONException {
-        String body = new FilterByName().getBody();
+        String body = new FilterByName().getBody().toString();
 
-        Specification.installSpec(Specification.requestSpecLogIn(), Specification.responseSpec200());
+        Specification.installSpec(Specification.requestSpecCampaigns(), Specification.responseSpec200());
 
         Response response = given().body(body).when().post("all").then().extract().response();
         String id = response.path("content[0].id");
