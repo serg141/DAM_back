@@ -37,9 +37,7 @@ public class FilterByFlightStatus {
         statuses5.put("MODERATION_CLAIMED");
         body5.put("flightStatuses", statuses5);
 
-        JSONArray statuses6 = new JSONArray();
-        statuses6.put("DRAFT");
-        body6.put("flightStatuses", statuses6);
+        body6.put("nameContains", "DRAFT");
 
         JSONArray statuses7 = new JSONArray();
         statuses7.put("FINISHED");

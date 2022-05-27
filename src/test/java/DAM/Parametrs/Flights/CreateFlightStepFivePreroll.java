@@ -1,39 +1,42 @@
 package DAM.Parametrs.Flights;
 
 import DAM.Parametrs.Placements.GetTemplate;
+import lombok.Data;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@Data
 public class CreateFlightStepFivePreroll {
     final JSONObject flightHideableTypeNone = new JSONObject();
     final JSONObject flightHideableTypeWithOutPolling = new JSONObject();
     final JSONObject flightHideableTypeWithPolling = new JSONObject();
-    final JSONObject page1 = new JSONObject();
-    final JSONObject page2 = new JSONObject();
-    final JSONObject page3 = new JSONObject();
-    final JSONObject elementImage = new JSONObject();
-    final JSONObject heading = new JSONObject();
-    final JSONObject description = new JSONObject();
-    final JSONObject button = new JSONObject();
-    final JSONObject link = new JSONObject();
 
     public CreateFlightStepFivePreroll() throws JSONException {
         String prerollTemplate = new GetTemplate().getTemplatePreRoll();
+
+        JSONObject link = new JSONObject();
         link.put("linkAddress", "Https:www.vtb.ru");
         link.put("linkType", "EXTERNAL");
 
+        JSONObject elementImage = new JSONObject();
         elementImage.put("elementId", "preroll-image");
         elementImage.put( "type", "IMAGE");
         elementImage.put("url",
                 "https://core-cms-backend.dso-core.apps.d0-oscp.corp.dev.vtb/projects/dam/files/597733151_33.png");
         elementImage.put("link", link);
+
+        JSONObject heading = new JSONObject();
         heading.put("elementId", "preroll-heading");
         heading.put("type", "TEXT");
         heading.put("value", "Заголовок");
+
+        JSONObject description = new JSONObject();
         description.put("elementId", "preroll-description");
         description.put("type", "TEXT");
         description.put("value", "Описание");
+
+        JSONObject button = new JSONObject();
         button.put("elementId", "preroll-button");
         button.put("type", "BUTTON");
         button.put("value", "Кнопка");
@@ -45,6 +48,7 @@ public class CreateFlightStepFivePreroll {
         elements.put(description);
         elements.put(button);
 
+        JSONObject page1 = new JSONObject();
         page1.put("page", 1);
         page1.put("pageName", 1);
         page1.put("showCross", false);
@@ -52,6 +56,7 @@ public class CreateFlightStepFivePreroll {
         page1.put("templateId", prerollTemplate);
         page1.put("elements", elements);
 
+        JSONObject page2 = new JSONObject();
         page2.put("page", 1);
         page2.put("pageName", 1);
         page2.put("showCross", true);
@@ -59,6 +64,7 @@ public class CreateFlightStepFivePreroll {
         page2.put("templateId", prerollTemplate);
         page2.put("elements", elements);
 
+        JSONObject page3 = new JSONObject();
         page3.put("page", 1);
         page3.put("pageName", 1);
         page3.put("showCross", true);
@@ -87,15 +93,5 @@ public class CreateFlightStepFivePreroll {
         flightHideableTypeWithPolling.put("offerType", "");
         flightHideableTypeWithPolling.put("pages", pageWithPoling);
         flightHideableTypeWithPolling.put("theme", "LIGHT_THEME");
-    }
-
-    public String getFlightHideableTypeNone() {
-        return flightHideableTypeNone.toString();
-    }
-    public String getFlightHideableTypeWithOutPolling() {
-        return flightHideableTypeWithOutPolling.toString();
-    }
-    public String getFlightHideableTypeWithPolling() {
-        return flightHideableTypeWithPolling.toString();
     }
 }

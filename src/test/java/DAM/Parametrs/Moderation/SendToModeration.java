@@ -1,6 +1,6 @@
 package DAM.Parametrs.Moderation;
 
-import DAM.Helper.Flights.CreateFlightStepSix;
+import DAM.Helper.Flights.CreateFlights;
 import lombok.Data;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,7 +12,7 @@ public class SendToModeration {
     ArrayList<String> idList = new ArrayList<>();
 
     public SendToModeration() throws JSONException {
-        String id = new CreateFlightStepSix().getFlightStepSix().get(13);
+        String id = new CreateFlights().CreateStepSix().get(12);
 
         JSONArray flight = new JSONArray();
         flight.put(id);

@@ -1,46 +1,50 @@
 package DAM.Parametrs.Flights;
 
 import DAM.Parametrs.Placements.GetTemplate;
+import lombok.Data;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@Data
 public class CreateFlightStepFiveSlider {
     final JSONObject flightHideableTypeNone = new JSONObject();
     final JSONObject flightHideableTypeWithOutPolling = new JSONObject();
     final JSONObject flightHideableTypeWithPolling = new JSONObject();
-    final JSONObject page1 = new JSONObject();
-    final JSONObject page2 = new JSONObject();
-    final JSONObject page3 = new JSONObject();
-    final JSONObject heading = new JSONObject();
-    final JSONObject description = new JSONObject();
-    final JSONObject body = new JSONObject();
-    final JSONObject labelBody = new JSONObject();
-    final JSONObject labelText = new JSONObject();
-    final JSONObject link = new JSONObject();
-    final JSONObject button = new JSONObject();
 
     public CreateFlightStepFiveSlider() throws JSONException {
         String sliderTemplate = new GetTemplate().getTemplateSlider();
 
+        JSONObject link = new JSONObject();
         link.put("linkAddress", "2");
         link.put("linkType", "DEEPLINK");
 
+        JSONObject heading = new JSONObject();
         heading.put("elementId", "heading");
         heading.put("type", "TEXT");
         heading.put("value", "Заголовок");
+
+        JSONObject description = new JSONObject();
         description.put("elementId", "description");
         description.put("type", "TEXT");
         description.put("value", "Описание");
+
+        JSONObject body = new JSONObject();
         body.put("elementId", "body");
         body.put("type", "BLOCK");
         body.put("style", "FUCHSIA");
+
+        JSONObject labelBody = new JSONObject();
         labelBody.put("elementId", "label-body");
         labelBody.put("type", "BLOCK");
         labelBody.put("style", "ORANGE");
+
+        JSONObject labelText = new JSONObject();
         labelText.put("elementId", "label-text");
         labelText.put("type", "TEXT");
         labelText.put("value", "Метка");
+
+        JSONObject button = new JSONObject();
         button.put("elementId", "primary-button");
         button.put("type", "BUTTON");
         button.put("value", "Кнопка");
@@ -54,6 +58,7 @@ public class CreateFlightStepFiveSlider {
         elements.put(labelText);
         elements.put(button);
 
+        JSONObject page1 = new JSONObject();
         page1.put("page", 1);
         page1.put("pageName", 1);
         page1.put("showCross", false);
@@ -61,6 +66,7 @@ public class CreateFlightStepFiveSlider {
         page1.put("templateId", sliderTemplate);
         page1.put("elements", elements);
 
+        JSONObject page2 = new JSONObject();
         page2.put("page", 1);
         page2.put("pageName", 1);
         page2.put("showCross", true);
@@ -68,6 +74,7 @@ public class CreateFlightStepFiveSlider {
         page2.put("templateId", sliderTemplate);
         page2.put("elements", elements);
 
+        JSONObject page3 = new JSONObject();
         page3.put("page", 1);
         page3.put("pageName", 1);
         page3.put("showCross", true);
@@ -96,15 +103,5 @@ public class CreateFlightStepFiveSlider {
         flightHideableTypeWithPolling.put("offerType", "");
         flightHideableTypeWithPolling.put("pages", pageWithPoling);
         flightHideableTypeWithPolling.put("theme", "LIGHT_THEME");
-    }
-
-    public String getFlightHideableTypeNone() {
-        return flightHideableTypeNone.toString();
-    }
-    public String getFlightHideableTypeWithOutPolling() {
-        return flightHideableTypeWithOutPolling.toString();
-    }
-    public String getFlightHideableTypeWithPolling() {
-        return flightHideableTypeWithPolling.toString();
     }
 }

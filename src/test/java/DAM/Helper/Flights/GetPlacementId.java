@@ -13,7 +13,7 @@ public class GetPlacementId {
     private ArrayList<String> ids = new ArrayList<>();
 
     public GetPlacementId() throws JSONException {
-        String id = new CreateFlightWithTechParameters().getFlightStepFour().get(6);
+        String id = new CreateFlights().CreateStepFourWithTech().get(6);
 
         Response response = given().when().get(id + "/creatives").then().extract().response();
 

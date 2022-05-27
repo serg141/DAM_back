@@ -1,25 +1,27 @@
 package DAM.Parametrs.Flights;
 
-import DAM.Helper.Campaigns.CreateCampaignForFlight;
-import DAM.Helper.Flights.DownloadBrief;
+import DAM.Helper.Campaigns.CampaignStandard;
+import DAM.Helper.Flights.Brief;
 import DAM.Parametrs.GetDate;
+import lombok.Data;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@Data
 public class CreateFlightStepOneParams {
     final JSONObject flight = new JSONObject();
-    final JSONObject period = new JSONObject();
-    final JSONObject frequency = new JSONObject();
 
     public CreateFlightStepOneParams() throws JSONException {
-        String briefId = new DownloadBrief().getBriefName().get(1);
+        String briefId = new Brief().DownloadBrief().get(1);
         Long start = new GetDate().getCurrentDate();
         Long end = new GetDate().getPlusOneMonth();
-        String campaignId = new CreateCampaignForFlight().getId();
+        String campaignId = new CampaignStandard().CreateCampaigns().get(2);
 
+        JSONObject period = new JSONObject();
         period.put("start", start);
         period.put("end", end);
 
+        JSONObject frequency = new JSONObject();
         frequency.put("term", "DAILY");
         frequency.put("value", 1);
 
@@ -30,9 +32,5 @@ public class CreateFlightStepOneParams {
         flight.put("priority", 40);
         flight.put("period", period);
         flight.put("briefId", briefId);
-    }
-
-    public String getFlight() {
-        return flight.toString();
     }
 }

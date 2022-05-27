@@ -3,6 +3,7 @@ package DAM.Parametrs.Placements;
 import DAM.EndPoints;
 import DAM.LogIn;
 import io.restassured.response.Response;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
@@ -11,8 +12,8 @@ import static io.restassured.RestAssured.given;
 public class GetTemplate {
     String templateGhost, templateSlider, templatePreRoll;
 
-    public GetTemplate() {
-        String logIn = new LogIn().logIn();
+    public GetTemplate() throws JSONException {
+        String logIn = new LogIn().getSessionId();
 
         String template = new EndPoints().getTemplate();
 

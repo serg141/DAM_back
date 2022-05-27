@@ -2,15 +2,17 @@ package DAM.Helper.Flights;
 
 import DAM.Specification;
 import io.restassured.response.Response;
-import lombok.Data;
+import org.json.JSONException;
 
 import static io.restassured.RestAssured.given;
 
-@Data
 public class CopyFlights {
-   String status;
-   public CopyFlights(String body) {
+   public CopyFlights() {
       Specification.installSpec(Specification.requestSpecLogIn(), Specification.responseSpec200());
+   }
+
+   public String CopyFlightDifferentStatus(String body) {
+      String status;
 
       Response response = given().body(body).when()
               .post("/campaigns/all?pageSize=100&sortBy=modifiedTime&sortDirection=DESC")
@@ -19,5 +21,17 @@ public class CopyFlights {
 
       response = given().when().put("/flights/" + flightId + "/duplicate").then().extract().response();
       status = response.path("data");
+
+      return status;
+   }
+
+   public String CopyFlightCSV() throws JSONException {
+      String id = new CreateFlights().CreateStepThreeWithCsv().get(3);
+      String status;
+
+      Response response = given().when().put(id + "/duplicate").then().extract().response();
+      status = response.path("data");
+
+      return status;
    }
 }

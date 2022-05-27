@@ -15,7 +15,7 @@ public class CreateFlightStepOne {
     private ArrayList<String> flightStepOne = new ArrayList<>();
 
     public CreateFlightStepOne() throws JSONException {
-        String body = new CreateFlightStepOneParams().getFlight();
+        String body = new CreateFlightStepOneParams().getFlight().toString();
         Specification.installSpec(Specification.requestFlight(), Specification.responseSpec200());
 
         Response response = given().body(body).when().post().then().extract().response();

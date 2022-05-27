@@ -1,9 +1,11 @@
 package DAM.Parametrs.Moderation;
 
+import lombok.Data;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@Data
 public class ModerationDeclineParameters {
     JSONArray comments = new JSONArray();
 
@@ -107,9 +109,5 @@ public class ModerationDeclineParameters {
         comments.put(techSegmentsInfo);
         comments.put(creativesInfo);
         comments.put(flight);
-    }
-
-    public String getComments() {
-        return comments.toString();
     }
 }

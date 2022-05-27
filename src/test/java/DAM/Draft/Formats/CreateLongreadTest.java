@@ -14,7 +14,7 @@ public class CreateLongreadTest {
 
     @Before
     public void getEndpoint() throws JSONException {
-        logIn = new LogIn().logIn();
+        logIn = new LogIn().getUser().toString();
     }
 
     @Test

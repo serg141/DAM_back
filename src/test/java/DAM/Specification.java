@@ -7,30 +7,26 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import lombok.Data;
+import org.json.JSONException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
 @Data
 public class Specification {
-    private String login;
-    private String pass;
+    static String logIn;
 
-    static String logIn = new LogIn().logIn();
+    static {
+        try {
+            logIn = new LogIn().getSessionId();
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static RequestSpecification requestSpec() {
         RestAssured.useRelaxedHTTPSValidation();
         String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb";
         return new RequestSpecBuilder()
-                .setBaseUri(url)
-                .setContentType(ContentType.JSON)
-                .build();
-    }
-
-    public static RequestSpecification requestSpecCampaigns() {
-        RestAssured.useRelaxedHTTPSValidation();
-        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/campaigns/";
-        return new RequestSpecBuilder()
-                .setSessionId("JSESSIONID", logIn)
                 .setBaseUri(url)
                 .setContentType(ContentType.JSON)
                 .build();
@@ -132,6 +128,16 @@ public class Specification {
                 .build();
     }
 
+    public static RequestSpecification requestSpecCsv() {
+        RestAssured.useRelaxedHTTPSValidation();
+        String url = "https://dsls-dam-develop.ds5-genr03-dsls-d0-dso.apps.ds5-genr03.corp.dev.vtb/flights";
+        return new RequestSpecBuilder()
+                .setSessionId("JSESSIONID", logIn)
+                .setBaseUri(url)
+                .setContentType("multipart/form-data")
+                .build();
+    }
+
     public static ResponseSpecification responseSpec200() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(200)
@@ -158,10 +164,5 @@ public class Specification {
     public static void installSpec(RequestSpecification request, ResponseSpecification response) {
         RestAssured.requestSpecification = request;
         RestAssured.responseSpecification = response;
-    }
-
-    public void LogIn() {
-        this.login = "vtb4040204";
-        this.pass = "141523Pota!!";
     }
 }

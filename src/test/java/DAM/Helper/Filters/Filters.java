@@ -6,46 +6,45 @@ import DAM.Specification;
 import io.restassured.response.Response;
 import org.json.JSONException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 
 public class Filters {
-    ArrayList<String> id, name;
     boolean status, placement, creater;
     int camp = 0, fl = 0;
 
-    public ArrayList<String> FilterId() throws JSONException {
-        String filterBody = new FilterByName().getBody2().toString();
-
+    public Filters() {
         Specification.installSpec(Specification.requestFilter(), Specification.responseSpec200());
-
-        Response response = given().body(filterBody).when().post().then().extract().response();
-
-        id = response.path("content.id");
-
-        return id;
     }
 
-    public ArrayList<String> FilterName() throws JSONException {
+    public String FilterId() throws JSONException {
+        String body = new FilterByName().getBody2().toString();
+
+        Response response = given().body(body).when().post().then().extract().response();
+
+        List<String> ids = response.path("content.id");
+
+        return ids.get(0);
+    }
+
+    public String FilterName() throws JSONException {
         String filterBody = new FilterByName().getBody1().toString();
 
         Response response = given().body(filterBody).when().post().then().extract().response();
 
-        name = response.path("content.name");
+        List<String> name = response.path("content.name");
 
-        return name;
+        return name.get(0);
     }
 
     public boolean FilterStatus() throws JSONException {
         String filterBody = new FilterByStatuses().getBody().toString();
-        String flight;
 
         Response response = given().body(filterBody).when().post().then().extract().response();
 
-        flight = response.path("content.flights.status").toString();
+        String flight = response.path("content.flights.status").toString();
 
         if (!flight.contains("DECLINED") && !flight.contains("MODERATION_INPROGRESS") && !flight.contains("PENDING")
                 && !flight.contains("MODERATION_CLAIMED") && !flight.contains("DRAFT")
