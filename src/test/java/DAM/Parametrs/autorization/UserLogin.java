@@ -8,7 +8,7 @@ public class UserLogin {
 
     public void UserLoginCorrect() {
         this.login = "vtb4040204";
-        this.pass = "141523Pota#";
+        this.pass = "141523Pota!!";
     }
 
     public void UserLoginUnCorrectPassword() {
@@ -18,6 +18,6 @@ public class UserLogin {
 
     public void UserLoginUnCorrectLogin() {
         this.login = "vtb404020";
-        this.pass = "141523Pota#";
+        this.pass = "141523Pota!!";
     }
 }

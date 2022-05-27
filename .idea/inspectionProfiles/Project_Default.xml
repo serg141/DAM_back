@@ -5,6 +5,9 @@
       <option name="customHeaders">
         <set>
           <option value="pageSize" />
+          <option value="x-user-session-id" />
+          <option value="x-debug" />
+          <option value="x-mdm-id" />
         </set>
       </option>
     </inspection_tool>

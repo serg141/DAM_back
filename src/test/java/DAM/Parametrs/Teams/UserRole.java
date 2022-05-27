@@ -1,8 +1,10 @@
 package DAM.Parametrs.Teams;
 
+import lombok.Data;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@Data
 public class UserRole {
     final JSONObject userRoleContentManager = new JSONObject();
     final JSONObject userRoleRedactor = new JSONObject();
@@ -12,17 +14,5 @@ public class UserRole {
         userRoleContentManager.put("data", "CONTENT_MANAGER");
         userRoleModerator.put("data", "MODERATOR");
         userRoleRedactor.put("data", "REDACTOR");
-    }
-
-    public String getUserRoleContentManager() {
-        return userRoleContentManager.toString();
-    }
-
-    public String getUserRoleRedactor() {
-        return userRoleRedactor.toString();
-    }
-
-    public String getUserRoleModerator() {
-        return userRoleModerator.toString();
     }
 }

@@ -1,40 +1,42 @@
 package DAM.Parametrs.Flights;
 
 import DAM.Parametrs.Placements.GetTemplate;
+import lombok.Data;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@Data
 public class CreateFlightStepFiveGhost {
     final JSONObject flightHideableTypeNone = new JSONObject();
     final JSONObject flightHideableTypeWithOutPolling = new JSONObject();
     final JSONObject flightHideableTypeWithPolling = new JSONObject();
-    final JSONObject page1 = new JSONObject();
-    final JSONObject page2 = new JSONObject();
-    final JSONObject page3 = new JSONObject();
-    final JSONObject elementImage = new JSONObject();
-    final JSONObject heading = new JSONObject();
-    final JSONObject description = new JSONObject();
-    final JSONObject body = new JSONObject();
-    final JSONObject link = new JSONObject();
 
     public CreateFlightStepFiveGhost() throws JSONException {
         String ghostTemplate = new GetTemplate().getTemplateGhost();
 
+        JSONObject link = new JSONObject();
         link.put("linkAddress", "2");
         link.put("linkType", "INTERNAL");
 
+        JSONObject elementImage = new JSONObject();
         elementImage.put("elementId", "image");
         elementImage.put( "type", "IMAGE");
         elementImage.put("url",
                 "https://core-cms-backend.dso-core.apps.d0-oscp.corp.dev.vtb/projects/dam/files/597733151_33.png");
         elementImage.put("link", link);
+
+        JSONObject heading = new JSONObject();
         heading.put("elementId", "heading");
         heading.put("type", "TEXT");
         heading.put("value", "Заголовок");
+
+        JSONObject description = new JSONObject();
         description.put("elementId", "description");
         description.put("type", "TEXT");
         description.put("value", "Описание");
+
+        JSONObject body = new JSONObject();
         body.put("elementId", "body");
         body.put("type", "BLOCK");
         body.put("style", "TIFFANY");
@@ -46,6 +48,7 @@ public class CreateFlightStepFiveGhost {
         elements.put(description);
         elements.put(body);
 
+        JSONObject page1 = new JSONObject();
         page1.put("page", 1);
         page1.put("pageName", 1);
         page1.put("showCross", false);
@@ -53,6 +56,7 @@ public class CreateFlightStepFiveGhost {
         page1.put("templateId", ghostTemplate);
         page1.put("elements", elements);
 
+        JSONObject page2 = new JSONObject();
         page2.put("page", 1);
         page2.put("pageName", 1);
         page2.put("showCross", true);
@@ -60,6 +64,7 @@ public class CreateFlightStepFiveGhost {
         page2.put("templateId", ghostTemplate);
         page2.put("elements", elements);
 
+        JSONObject page3 = new JSONObject();
         page3.put("page", 1);
         page3.put("pageName", 1);
         page3.put("showCross", true);
@@ -88,15 +93,5 @@ public class CreateFlightStepFiveGhost {
         flightHideableTypeWithPolling.put("offerType", "");
         flightHideableTypeWithPolling.put("pages", pageWithPoling);
         flightHideableTypeWithPolling.put("theme", "LIGHT_THEME");
-    }
-
-    public String getFlightHideableTypeNone() {
-        return flightHideableTypeNone.toString();
-    }
-    public String getFlightHideableTypeWithOutPolling() {
-        return flightHideableTypeWithOutPolling.toString();
-    }
-    public String getFlightHideableTypeWithPolling() {
-        return flightHideableTypeWithPolling.toString();
     }
 }

@@ -14,7 +14,7 @@ public class CreateSliderTest {
 
     @Before
     public void getEndpoint() throws JSONException {
-        logIn = new LogIn().logIn();
+        logIn = new LogIn().getUser().toString();
     }
 
     @Test
@@ -22,9 +22,10 @@ public class CreateSliderTest {
         given()
                 .cookie("JSESSIONID", logIn)
                 .contentType("multipart/form-data")
-                .multiPart("thumbnail", new File("C:\\Users\\SKamynin\\Desktop\\Picture\\33.png"),
+                .multiPart("thumbnail", new File("C:\\Users\\skamy\\Desktop\\Picture\\33.png"),
                         "image/png")
-                .multiPart("template", new File("C:\\Users\\SKamynin\\Desktop\\yaml\\json\\template\\Slider_JSON.json"),
+                .multiPart("template", new File("C:\\Users\\skamy\\Desktop\\yaml\\json\\template\\" +
+                                "Slider_JSON.json"),
                         "application/json")
                 .when()
                 .post("/templates");

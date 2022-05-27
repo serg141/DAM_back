@@ -1,9 +1,11 @@
 package DAM.Parametrs.Flights;
 
+import lombok.Data;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+@Data
 public class PutFlightStepFourPredict {
     final JSONObject flight = new JSONObject();
 
@@ -25,9 +27,5 @@ public class PutFlightStepFourPredict {
 
         flight.put("selections", selections);
         flight.put("segmentIdsMap", segmentIdsMap);
-    }
-
-    public String getFlight() {
-        return flight.toString();
     }
 }
