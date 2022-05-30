@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="d0_dsls_postgres_dam_develop@d5dsls-pgc001lk.corp.dev.vtb" uuid="3363449d-70ca-454f-9bc8-18831dd39128">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>Dam Develop</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://d5dsls-pgc001lk.corp.dev.vtb:5432/d0_dsls_postgres_dam_develop</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

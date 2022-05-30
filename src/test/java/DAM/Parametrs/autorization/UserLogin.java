@@ -6,18 +6,13 @@ import lombok.Data;
 public class UserLogin {
     private String login, pass;
 
-    public void UserLoginCorrect() {
-        this.login = "vtb4040204";
-        this.pass = "141523Pota!!";
-    }
-
     public void UserLoginUnCorrectPassword() {
-        this.login = "vtb4040204";
-        this.pass = "141523Pota";
+        this.login = "vtb4040204@corp.dev.vtb";
+        this.pass = "TTT";
     }
 
     public void UserLoginUnCorrectLogin() {
-        this.login = "vtb404020";
-        this.pass = "141523Pota!!";
+        this.login = "vtb4040204";
+        this.pass = "admin";
     }
 }

@@ -152,6 +152,12 @@ public class Specification {
                 .build();
     }
 
+    public static ResponseSpecification responseSpec403() {
+        return new ResponseSpecBuilder()
+                .expectStatusCode(403)
+                .build();
+    }
+
     public static ResponseSpecification responseCreateCampaign() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(200)
